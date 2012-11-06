@@ -22,14 +22,6 @@ To add new Samples or make modifications to existing Samples:
 2. Make the changes/additions to your fork
 3. Send a pull request from your fork back to the **BB10-WebWorks-Community-Samples** repository
 4. If you made changes to code which you are NOT the owner, send a message via github messages to the Author(s) of the Sample to indicate that you have a pull request for them to review
-5. If you made changes to code which you own, send a message via github messages to one of the Committers listed below to have your code merged
-
-Contributors:
-
-[Hasan Ahmad](https://github.com/haahmad)
-[Matthew D'Andrea](https://github.com/mdandrea)
-[Marco Di Cesare](https://github.com/mdicesare)
-[Daniel Audino](https://github.com/DanielAudino)
 
 ## Governence
 
@@ -38,8 +30,6 @@ indicates that the pull request is ready to be merged (via a comment on the pull
 
 If there are more than one Author for a specific Sample, only one Author is required to indicate that the pull request is ready.  If there's more than one Sample affected by a pull request, at least one Author from each Sample must code review
 the pull request and indicate that it is ready to be merged before the pull request can be merged.
-
-If the Author of the pull request is the actual owner of the Sample, then the Author should send a message to a committer via github messages to have their changes merged.
 
 **Ownership Transfer:**
 An Author can transfer ownership to another Author by opening up an [Issue](https://github.com/blackberry/BB10-WebWorks-Community-Samples/issues) where both the original Author requests ownership to be transfered to the new Author, and the new Author agrees to take ownership of the code.  
