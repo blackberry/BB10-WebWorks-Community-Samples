@@ -84,10 +84,10 @@ Besides building and linting projects, you can also use this script to deploy to
 Deployment commands follow the pattern:
 
 __build.deploy.[native.[device, sim], air, java].[signed, debug]__
-	- __native__, __air__, __java__ for each platform as defined above
-	- only for __native__ builds, use __device__ for real devices and __sim__ for VMWare based simulators
-	- use __signed__ to load the signed builds (production and beta from above)
-	- use __debug__ to load the unsigned builds (test from above)
+- __native__, __air__, __java__ for each platform as defined above
+- only for __native__ builds, use __device__ for real devices and __sim__ for VMWare based simulators
+- use __signed__ to load the signed builds (production and beta from above)
+- use __debug__ to load the unsigned builds (test from above)
 
 ## Build a Project
 
