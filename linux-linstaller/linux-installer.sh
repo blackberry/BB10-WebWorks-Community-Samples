@@ -37,13 +37,14 @@ do
 				"1")
 					git clone https://github.com/blackberry/BB10-Webworks-Packager.git webworks-temp
 					cd $DIR/webworks-temp
+					# I have the dependencies on github untill RIM/Blackberry has a better way for linux users to get them
 					git clone https://github.com/badtoyz/webworks-dependencies.git dependencies
 					git clone https://github.com/blackberry/BB10-WebWorks-Framework.git Framework
 					git clone https://github.com/joyent/node.git node
 					mkdir $DIR/Framework/dependencies/webplatform/framework; mkdir $DIR/Framework/dependencies/webplatform/framework/clientFiles
-					mv $DIR/dependencies/webplatform.js $DIR/Framework/dependencies/webplatform/framework/clientFiles/
+					mv $DIR/dependencies/webplatform.js $DIRl/Framework/dependencies/webplatform/framework/clientFiles/
 					cd ..
-					#clear
+					clear
 					;;
 	
 				"2")
