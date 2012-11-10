@@ -42,7 +42,7 @@ do
 					git clone https://github.com/blackberry/BB10-WebWorks-Framework.git Framework
 					git clone https://github.com/joyent/node.git node
 					mkdir $DIR/Framework/dependencies/webplatform/framework; mkdir $DIR/Framework/dependencies/webplatform/framework/clientFiles
-					mv $DIR/dependencies/webplatform.js $DIRl/Framework/dependencies/webplatform/framework/clientFiles/
+					mv $DIR/dependencies/webplatform.js $DIR/Framework/dependencies/webplatform/framework/clientFiles/
 					cd ..
 					clear
 					;;
