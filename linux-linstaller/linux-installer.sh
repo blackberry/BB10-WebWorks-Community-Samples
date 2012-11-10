@@ -35,20 +35,15 @@ do
 	read -p "Please enter a number: " NUM
 		case "$NUM" in
 				"1")
-					echo "Downloading WebWorks Packager"
 					git clone https://github.com/blackberry/BB10-Webworks-Packager.git webworks-temp
-					echo "Downloading Dependices"
+					cd $DIR/webworks-temp
 					git clone https://github.com/badtoyz/webworks-dependencies.git dependencies
-					cd webworks-temp
-					echo "Downloading WebWorks Framework"
 					git clone https://github.com/blackberry/BB10-WebWorks-Framework.git Framework
-					mkdir $DIR/Framework/clientFiles; cd ..
-					mv -f $DIR/dependices $DIR/webworks-temp/
-					mv $DIR/webworks-temp/dependencies/webplatform.js $DIR/webworks-temp/Framework/dependencies/webplatform/framework/clientFiles/
-					echo "Downloading Nodejs"
-					cd webworks-temp
-					git clone https://github.com/joyent/node.git
-					clear
+					git clone https://github.com/joyent/node.git node
+					mkdir $DIR/Framework/dependencies/webplatform/framework; mkdir $DIR/Framework/dependencies/webplatform/framework/clientFiles
+					mv $DIR/dependencies/webplatform.js $DIR/Framework/dependencies/webplatform/framework/clientFiles/
+					cd ..
+					#clear
 					;;
 	
 				"2")
