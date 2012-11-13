@@ -3,7 +3,7 @@
 This application demonstrates how to leverage the Invocation Framework to:
 
 1. Query iF for shareable targets
-2. Display a share screen (similar to unbound invocation in Cascades) with a list of selectable targets (uses [bbUI.js](https://github.com/blackberry/bbUI.js))
+2. Display a 'Share via' screen with a list of selectable targets (uses [bbUI.js](https://github.com/blackberry/bbUI.js))
 3. Invoke the target with user-defined data
 
 The installable bar file (signed) is also available in the installable-bar-files folder if you want to see how the sample app functions.
