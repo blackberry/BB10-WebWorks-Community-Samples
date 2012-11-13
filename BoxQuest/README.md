@@ -115,4 +115,4 @@
 >   Immense thanks to the following people. They might not know how much they
 >   helped me, but I appreciate it none the less.
 >   *   The [Cocos2d-HTML5 Community](http://www.cocos2d-x.org/projects/cocos2d-x/boards/19)
->   *   [Seb Lee-Delisle (@seb_ly)](http://creativejs.com/2011/09/box2d-javascript-tutorial-series-by-seth-ladd/) for compiling the Box2DWeb tutorials by [Seth Ladd (@sethladd)](http://blog.sethladd.com/)
+>   *   [Seb Lee-Delisle (@seb_ly)](http://creativejs.com/2011/09/box2d-javascript-tutorial-series-by-seth-ladd/) for compiling, and [Seth Ladd (@sethladd)](http://blog.sethladd.com/) for writing, the Box2dWeb tutorials.
