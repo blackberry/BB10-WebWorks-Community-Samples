@@ -1,0 +1,22 @@
+<div data-bb-type="screen" id="share">
+	<script src="js/share.js"></script>
+	
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Text</div>
+		<input type="text" placeholder="Text to Share" id="input_txt"/>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="getShareTargets(document.getElementById('input_txt').value, 'text/plain')">Share Text Via...</div>
+	</div>
+	
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">URL</div>
+		<input type="url" placeholder="URL to Share" id="input_url"/>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="getShareTargets(document.getElementById('input_url').value, 'text/url')">Share URL Via...</div>
+	</div>
+	
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Image</div>
+		<img id="input_img"></img>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="invokePicturePicker()">Select Image</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="getShareTargets(document.getElementById('input_img').src, 'image/*')">Share Image Via...</div>
+	</div>
+</div>
