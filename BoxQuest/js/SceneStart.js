@@ -34,6 +34,13 @@ var LayerStart = cc.Layer.extend({
 		this._super();
 		_g.LayerStart = this;
 
+		/**
+		 * Uncomment the following two lines of code in order to enable Keyboard controls instead of Freewill.js.
+		 * Also see Lines 163-189.
+		 */
+		//this.setKeyboardEnabled(true);
+		//document.querySelector('#freewill').style.visibility = 'hidden';
+
 		/* Load our TMX-as-XML world. */
 		tmx = cc.TMXTiledMap.create('./tmx/0-0.xml');
 
@@ -152,6 +159,34 @@ var LayerStart = cc.Layer.extend({
 		this.schedule(this.update);
 		return true;
 	},
+
+	/**
+	 * Uncomment the onKeyDown and onKeyUp functions to enable Keyboard control of the hero.
+	 * Also see Lines 37-42.
+	 */
+
+	//onKeyDown: function (e) {
+	//	if (e === 38) {
+	//		if (_g.LayerStart.hero.jumping === false) {
+	//			_g.LayerStart.hero.jumping = true;
+	//			_g.LayerStart.hero.j[1] = -9.0;
+	//		}
+	//	} else if (e === 37) {
+	//		_g.LayerStart.hero.j[0] = -40.0;
+	//	} else if (e === 39) {
+	//		_g.LayerStart.hero.j[0] = 40.0;
+	//	}
+	//},
+
+	//onKeyUp: function (e) {
+	//	if (e === 38) {
+	//		_g.LayerStart.hero.jumping = false;
+	//	} else if (e === 37) {
+	//		_g.LayerStart.hero.j[0] = 0.0;
+	//	} else if (e === 39) {
+	//		_g.LayerStart.hero.j[0] = 0.0;
+	//	}
+	//},
 
 	/* Send the impulse forces based on the current actions being taken. */
 	update: function () {

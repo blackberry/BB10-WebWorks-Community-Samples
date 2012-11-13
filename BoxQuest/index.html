@@ -60,6 +60,10 @@
 			function ondomcontentloaded() {
 				window.removeEventListener('DOMContentLoaded', ondomcontentloaded, false);
 				document.addEventListener('webworksready', onwebworksready, false);
+				/**
+				 * Uncomment the following line of code if testing without Ripple.
+				 */
+				//onwebworksready();
 			}
 
 			/* Wait for the DOM to be ready. */

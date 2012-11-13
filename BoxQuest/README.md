@@ -19,6 +19,14 @@
 >   *   **index.html:** Our main content to load, initializes WebWorks and kicks off Cocos2d-HTML5.
 >   *   **main.js:** Creates our Cocos2d-HTML5 application and preloads our resources.
 >   *   **SceneStart.js:** Initiates our main Cocos2d-HTML5 Scene and Layer, and kicks off the physics Web Worker.
+>   
+>   Because this is a sample intended for the BlackBerry platform, to run this application on a desktop browser you will need to either:
+>   *   Modify **index.html** to explicitly call **onwebworksready();** instead of adding the event listener; or
+>   *   Leverage the [Ripple Emulator](https://developer.blackberry.com/html5/download/) in Chrome for the missing WebWorks functionality.
+>   
+>   To successfully compile this application, you will need to copy the the **cocos2d** and **CocosDenshion** folders from the Cocos2d-HTML5 Github
+>   repository into the **cocos** subfolder of this project. The repository is available here:
+>   https://github.com/cocos2d/cocos2d-html5
 
 ### Virtual Controls (Freewill.js)
 >   
@@ -26,6 +34,9 @@
 >   agnostic while developing [PeaksAndValleys](https://github.com/blackberry/WebGL-Samples/tree/master/PeaksAndValleys). There have been some
 >   slight modifications to meet the requirements for this sample, but ultimately Freewill.js can be leveraged in any HTML5 application
 >   requiring virtual controls.
+>   
+>   The code is currently commented out, but if you would like to use the keyboard to control the hero, you can make the modifications
+>   in SceneStart.js to accept keyboard input instead of leveraging Freewill.js.
 
 ### Box2DWeb Implementation
 >   
