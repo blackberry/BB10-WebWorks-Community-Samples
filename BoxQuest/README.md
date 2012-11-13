@@ -35,6 +35,9 @@
 >   slight modifications to meet the requirements for this sample, but ultimately Freewill.js can be leveraged in any HTML5 application
 >   requiring virtual controls.
 >   
+>   Currently, a hidden Joystick is used to move the hero by dragging anywhere on the left half of the screen and a hidden
+>   button is used to make the hero jump by tapping anywhere on the right half of the screen.
+>   
 >   The code is currently commented out, but if you would like to use the keyboard to control the hero, you can make the modifications
 >   in SceneStart.js to accept keyboard input instead of leveraging Freewill.js.
 
