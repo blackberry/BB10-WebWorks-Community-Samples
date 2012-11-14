@@ -6,6 +6,8 @@ This application demonstrates how to leverage the Invocation Framework to:
 2. Display a 'Share via' screen with a list of selectable targets (uses [bbUI.js](https://github.com/blackberry/bbUI.js))
 3. Invoke the target with user-defined data
 
+This sample supports sharing plain text, URL, or images.
+
 The installable bar file (signed) is also available in the installable-bar-files folder if you want to see how the sample app functions.
 
 The sample code for this application is Open Source under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
