@@ -160,6 +160,7 @@
 	<!-- for Tablet -->
 	<target name="air.prod" depends="zip" 
 		description="for Tablet - Production">
+		<local name="build.number"/>
 		<buildnumber/>
 		<exec executable="${bbwp.air.dir}/bbwp/bbwp">
 			<arg line="${zip.name} -g ${sign.pw} -buildId ${build.number} -o ./${bin.air}"/>
@@ -179,6 +180,7 @@
 	<!-- for Tablet Beta-->
 	<target name="air.beta" depends="zip" 
 		description="for Tablet - Beta">
+		<local name="build.number"/>
 		<buildnumber/>
 		<exec executable="${bbwp.air.dir}/bbwp/bbwp">
 			<arg line="${zip.name} -g ${sign.pw} -buildId ${build.number} -d -o ./${bin.air}${bin.beta}"/>
@@ -189,6 +191,7 @@
 	<!-- for BB10 -->
 	<target name="native.prod" depends="zip" 
 		description="for BB10 - Production">
+		<local name="build.number"/>
 		<buildnumber/>
 		<exec executable="${bbwp.native.dir}/bbwp${commandExtension}">
 			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -o ./${bin.native}"/>
@@ -208,6 +211,7 @@
 	<!-- for BB10 Beta -->
 	<target name="native.beta" depends="zip" 
 		description="for BB10 - Beta">
+		<local name="build.number"/>
 		<buildnumber/>
 		<exec executable="${bbwp.native.dir}/bbwp${commandExtension}">
 			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -d -o ./${bin.native}${bin.beta}"/>
