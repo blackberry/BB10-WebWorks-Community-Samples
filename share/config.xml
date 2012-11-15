@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.0.0.0" id="WW-Share">
+ 
+  	<author>Alan Wong</author>
+ 
+  	<name>WW-Share</name>
+ 
+  	<description>
+    	A sample application to demonstrate how to leverage the share framework
+  	</description>
+ 
+  	<rim:permissions>
+		<rim:permit>access_shared</rim:permit>
+  	</rim:permissions>
+ 
+  	<icon src="images/icon.png"/>
+ 
+  	<content src="index.html"/>
+   
+  	<feature id="blackberry.app.orientation">
+    	<param name="mode" value="portrait" />
+  	</feature>
+ 
+  	<feature id="blackberry.system.event" />
+  	<feature id="blackberry.app" />
+  	<feature id="blackberry.app.event"/>
+	<feature id="blackberry.invoke" />
+	<feature id="blackberry.invoke.card" />
+	
+	<access subdomains="true" uri="file:///accounts"/>
+
+</widget>

@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link  rel="stylesheet" type="text/css" href="css/bbui-0.9.4.css"></link>
+        <script type="text/javascript" src="js/bbui-0.9.4.js"></script>
+        <script type="text/javascript" src="js/webworks-1.0.2.9.js"></script>
+        <script type="text/javascript">
+        document.addEventListener('webworksready', function(e) {
+            bb.init({onscreenready : function(element, id, params) {
+			                       if (id == 'targetsListScreen') {
+								   		populateTargetsList(element, params);
+			                       } 
+			                   }});
+            // Open our first screen
+            bb.pushScreen('share.html', 'share');
+        }, false);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
