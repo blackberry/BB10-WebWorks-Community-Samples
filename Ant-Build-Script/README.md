@@ -86,7 +86,7 @@ Deployment commands follow the pattern:
 __build.deploy.[native.[device, sim], air, java].[test, prod, beta]__
 - __native__, __air__, __java__ for each platform as defined above
 - only for __native__ builds, use __device__ for real devices and __sim__ for VMWare based simulators
-- test, prod, beta to load the matching build created above
+- __test__, __prod__, __beta__ to load the matching build created above
 
 ## Build a Project
 
