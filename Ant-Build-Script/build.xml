@@ -52,18 +52,17 @@
 	build.minify concatenates and minifies the JS and CSS files
 
 	Deployment commands follow the pattern:
-	build.deploy.[native.[device, sim], air, java].[signed, debug]
+	build.deploy.[native.[device, sim], air, java].[test, prod, beta]
 	- native, air, java as defined above
 	- only for native builds, use device for real devices and sim for VMWare based simulators
-	- use signed to load the signed builds (production and beta from above)
-	- use debug to load the unsigned builds (test from above)
+	- test, prod, beta to load the matching build created above
 	-->
-	<target name="build" depends="build.optimize,build.test"></target>
+	<target name="build" depends="build.native.prod"></target>
 
 	<!-- Set the details of the device or simulator for deployment -->
 	<property name="device.ip" value="169.254.0.1"/>
 	<property name="device.pw" value="" />
 
 	<!-- Add additional Targets here -->
-
+	<target name="example" depends="build.deploy.native.sim.prod"></target>
 </project>
