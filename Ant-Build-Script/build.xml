@@ -60,8 +60,14 @@
 	<target name="build" depends="build.native.prod,build.deploy.native.sim.prod"></target>
 
 	<!-- Set the details of the device or simulator for deployment -->
-	<property name="device.ip" value="169.254.0.1"/>
-	<property name="device.pw" value="" />
+	<!-- For BB10 device -->
+	<property name="device.native.ip" value="169.254.0.1"/>
+	<property name="device.native.pw" value="" />
+	<!-- For Tablet device -->
+	<property name="device.air.ip" value="169.254.0.2"/>
+	<property name="device.air.pw" value="" />
+	<!-- For BBOS Java device (only password is needed) -->
+	<property name="device.java.pw" value="" />
 
 	<!-- Add additional Targets here -->
 	<target name="example" depends=""></target>
