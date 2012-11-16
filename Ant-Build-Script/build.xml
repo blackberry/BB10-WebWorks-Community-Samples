@@ -57,12 +57,12 @@
 	- only for native builds, use device for real devices and sim for VMWare based simulators
 	- test, prod, beta to load the matching build created above
 	-->
-	<target name="build" depends="build.native.prod"></target>
+	<target name="build" depends="build.native.prod,build.deploy.native.sim.prod"></target>
 
 	<!-- Set the details of the device or simulator for deployment -->
 	<property name="device.ip" value="169.254.0.1"/>
 	<property name="device.pw" value="" />
 
 	<!-- Add additional Targets here -->
-	<target name="example" depends="build.deploy.native.sim.prod"></target>
+	<target name="example" depends=""></target>
 </project>
