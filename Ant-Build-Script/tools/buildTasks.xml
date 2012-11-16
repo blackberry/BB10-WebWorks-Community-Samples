@@ -223,42 +223,42 @@
 	<target name="deploy.native.device.prod" depends="" 
 		description="Deploy signed BB10 build (prod) to device">
 		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.pw} -device ${device.ip} -package ./${bin.native}/device/${ant.project.name}.bar"/>
+			<arg line="-installApp -launchApp -password ${device.native.pw} -device ${device.native.ip} -package ./${bin.native}/device/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
 	<target name="deploy.native.device.test" depends="" 
 		description="Deploy debug BB10 build (test) to device">
 		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.pw} -device ${device.ip} -package ./${bin.native}${bin.test}/device/${ant.project.name}.bar"/>
+			<arg line="-installApp -launchApp -password ${device.native.pw} -device ${device.native.ip} -package ./${bin.native}${bin.test}/device/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 	
 	<target name="deploy.native.device.beta" depends="" 
 		description="Deploy signed BB10 build with WebInspector (beta) to device">
 		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.pw} -device ${device.ip} -package ./${bin.native}${bin.beta}/device/${ant.project.name}.bar"/>
+			<arg line="-installApp -launchApp -password ${device.native.pw} -device ${device.native.ip} -package ./${bin.native}${bin.beta}/device/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
 	<target name="deploy.native.sim.prod" depends="" 
 		description="Deploy signed BB10 build (prod) to simulator">
 		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -device ${device.ip} -package ./${bin.native}/simulator/${ant.project.name}.bar"/>
+			<arg line="-installApp -launchApp -device ${device.native.ip} -package ./${bin.native}/simulator/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
 	<target name="deploy.native.sim.test" depends="" 
 		description="Deploy debug BB10 build (test) to simulator">
 		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -device ${device.ip} -package ./${bin.native}${bin.test}/simulator/${ant.project.name}.bar"/>
+			<arg line="-installApp -launchApp -device ${device.native.ip} -package ./${bin.native}${bin.test}/simulator/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 	
 	<target name="deploy.native.sim.beta" depends="" 
 		description="Deploy signed BB10 build with WebInspector (beta) to simulator">
 		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -device ${device.ip} -package ./${bin.native}${bin.beta}/simulator/${ant.project.name}.bar"/>
+			<arg line="-installApp -launchApp -device ${device.native.ip} -package ./${bin.native}${bin.beta}/simulator/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
@@ -266,21 +266,21 @@
 	<target name="deploy.air.prod" depends="" 
 		description="Deploy signed Tablet build (prod) to device">
 		<exec executable="${bbwp.air.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.pw} -device ${device.ip} -package ./${bin.air}/${ant.project.name}.bar"/>
+			<arg line="-installApp -launchApp -password ${device.air.pw} -device ${device.air.ip} -package ./${bin.air}/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
 	<target name="deploy.air.test" depends="" 
 		description="Deploy debug Tablet build (test) to device">
 		<exec executable="${bbwp.air.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.pw} -device ${device.ip} -package ./${bin.air}${bin.test}/${ant.project.name}.bar"/>
+			<arg line="-installApp -launchApp -password ${device.air.pw} -device ${device.air.ip} -package ./${bin.air}${bin.test}/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 	
 	<target name="deploy.air.beta" depends="" 
 		description="Deploy signed BB10 build with WebInspector (beta) to device">
 		<exec executable="${bbwp.air.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.pw} -device ${device.ip} -package ./${bin.air}${bin.beta}/${ant.project.name}.bar"/>
+			<arg line="-installApp -launchApp -password ${device.air.pw} -device ${device.air.ip} -package ./${bin.air}${bin.beta}/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
@@ -288,21 +288,21 @@
 	<target name="deploy.java.prod"
 		description="Javaloader for prod build">
 		<exec executable="${bbwp.java.dir}/bin/JavaLoader">
-			<arg line="-u -w${device.pw} load ./${bin.java}/OTAInstall/${ant.project.name}.jad"/>
+			<arg line="-u -w${device.java.pw} load ./${bin.java}/OTAInstall/${ant.project.name}.jad"/>
 		</exec>
 	</target>
 
 	<target name="deploy.java.test"
 		description="Javaloader for test build">
 		<exec executable="${bbwp.java.dir}/bin/JavaLoader">
-			<arg line="-u -w${device.pw} load ./${bin.java}${bin.test}/OTAInstall/${ant.project.name}.jad"/>
+			<arg line="-u -w${device.java.pw} load ./${bin.java}${bin.test}/OTAInstall/${ant.project.name}.jad"/>
 		</exec>
 	</target>
 	
 	<target name="deploy.java.beta"
 		description="Javaloader for beta build">
 		<exec executable="${bbwp.java.dir}/bin/JavaLoader">
-			<arg line="-u -w${device.pw} load ./${bin.java}${bin.beta}/OTAInstall/${ant.project.name}.jad"/>
+			<arg line="-u -w${device.java.pw} load ./${bin.java}${bin.beta}/OTAInstall/${ant.project.name}.jad"/>
 		</exec>
 	</target>
 
