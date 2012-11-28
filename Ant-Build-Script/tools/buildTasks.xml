@@ -143,7 +143,7 @@
 	<target name="java.test" depends="zip" 
 		description="for Java Smartphone - Test">
 		<exec executable="${bbwp.java.dir}/bbwp">
-			<arg line="${zip.name} -g ${sign.pw} -d -s -o ./${bin.java}${bin.test}"/>
+			<arg line="${zip.name} -d -s -o ./${bin.java}${bin.test}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
@@ -295,7 +295,7 @@
 	<target name="deploy.java.test"
 		description="Javaloader for test build">
 		<exec executable="${bbwp.java.dir}/bin/JavaLoader">
-			<arg line="-u -w${device.java.pw} load ./${bin.java}${bin.test}/OTAInstall/${ant.project.name}.jad"/>
+			<arg line="-u load ./${bin.java}${bin.test}/OTAInstall/${ant.project.name}.jad"/>
 		</exec>
 	</target>
 	
