@@ -42,7 +42,7 @@
 	- air for PlayBook 1.x through 2.x
 	- native for BlackBerry 10
 
-	- use test for WebInspector, source output, and debug tokens. Will still sign the app for Java Smartphones.
+	- use test for WebInspector, source output, and debug tokens. Java builds will only run on simulators.
 	- use prod for regular signing with a build id and no debugging.
 	- use beta for regular signing with a build id and WebInspector turned on.
 
