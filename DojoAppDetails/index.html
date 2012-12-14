@@ -18,16 +18,18 @@
 <head>
   <title>Dojo App Details</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script>
+    var meta = document.createElement("meta");
+    meta.setAttribute('name','viewport');
+    meta.setAttribute('content','initial-scale='+ (1/window.devicePixelRatio) + ',user-scalable=no');
+    document.getElementsByTagName('head')[0].appendChild(meta);
+  </script>
+
   <!-- Webworks JS must be loaded before any Dojo  -->
-  <!-- 
-    Include BlackBerry 10 WebWorks JavaScript framework file.
-    When doing an SDK upgrade, always make sure you grab the latest from the SDK/Framework/clientFiles folder.
-  -->
-  <script src="webworks-1.0.1.5.js"></script>
+  <script src="local:///chrome/webworks.js"></script>
   
-  <!-- async mode must be included BEFORE the dojo loader (dojo.js) -->
-  <script data-dojo-config="async:true" src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js" ></script>
+  <!-- Include the dojo loader file -->
+  <script data-dojo-config="async:true" src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo/dojo.js" ></script>
 
   <!-- Any other scripts needed -->
   <script src="js/dojoAppDetails.js"></script>
