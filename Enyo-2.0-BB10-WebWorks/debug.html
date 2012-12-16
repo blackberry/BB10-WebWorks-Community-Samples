@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enyo Sample App</title>
+	<link rel="shortcut icon" href="assets/favicon.ico"/>
+	<!-- -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<script src="js/webworks-1.0.2.9.js"></script>
+	<!-- enyo (debug) -->
+	<script src="enyo/enyo.js"></script>
+	<!-- application (debug) -->
+	<script src="source/package.js" type="text/javascript"></script>
+</head>
+<body class="enyo-unselectable">
+	<script>
+	var a = new App();
+	a.renderInto(document.body);
+
+	function batteryUpdateCallback(info) {
+		a.updateBattery(info.level);
+		a.updateBatteryCharge(info.isPlugged);
+	}
+
+	function formatAccel(raw) {
+		return (raw * 3) + 50;
+	}
+
+	function invokeFilePicker(details) {
+		blackberry.invoke.card.invokeFilePicker(details, function(path){
+			a.playFile('file://' + path);
+		},
+		function(reason){
+			alert("Cancelled");
+		},
+		function(error){
+			if(error){
+				alert("Invoke Error: " + error);
+			}else{
+				console.log("invokesuccess");
+			}
+		}
+		);
+	}
+	function invokeForMusic() {
+		var details = {
+			mode: blackberry.invoke.card.FILEPICKER_MODE_PICKER,
+			type: [blackberry.invoke.card.FILEPICKER_TYPE_MUSIC]
+		};
+		invokeFilePicker(details);
+	}
+
+	window.addEventListener("load", function(e) {
+		document.addEventListener("webworksready", function(e) {
+			a.header = blackberry.app.name;
+			blackberry.event.addEventListener("batterystatus", batteryUpdateCallback);
+			window.addEventListener('devicemotion', function(event) {
+				a.updateAccel(
+					event.accelerationIncludingGravity.x, 
+					event.accelerationIncludingGravity.y, 
+					event.accelerationIncludingGravity.z);
+			}, true);
+		}, false);
+	}, false);
+	</script>
+</body>
+</html>
