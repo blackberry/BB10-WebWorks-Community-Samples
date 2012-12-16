@@ -1,0 +1,41 @@
+<div data-bb-type="screen" data-bb-effect="slide-left">
+
+	<div data-bb-type="image-list" data-bb-header-justify="left" >
+		<div data-bb-type="header" style="text-align:center;">Toasts</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Some Notes</div>
+Toasts really have nothing to do with BBM, but they're freaking awsesome, so I threw one in here.<br>
+The code I actually used is a lot more complicated than toast code needs to be, so I included a basic toasts here as well.<br><br>
+
+	<div data-bb-type="panel-header">The Code:</div>
+function showCustomToast() {
+<br>   var message = "Butter me?",
+<br>       buttonText = "Yes!",
+<br>       toastId,
+<br>       onButtonSelected = function () {
+<br>          blackberry.ui.toast.show('Buttered!')
+<br>       },
+<br>       onToastDismissed = function () {},
+<br>       options = {
+<br>         buttonText : buttonText,
+<br>         dismissCallback : onToastDismissed,
+<br>         buttonCallback : onButtonSelected
+<br>       };
+<br>
+<br>   toastId = blackberry.ui.toast.show(message, options);
+<br>}
+
+<br><br>
+	<div data-bb-type="panel-header">Simple Sample:</div>
+blackberry.ui.toast.show('Hello World')
+
+
+<br><br>
+	<div data-bb-type="panel-header">Do it!</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="showCustomToast()">onclick="showCustomToast()</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('Hello World')">blackberry.ui.toast.show('Hello World')</div>
+	</div>
+	<div data-bb-type="action-bar" data-bb-back-caption="Back"></div>
+</div>

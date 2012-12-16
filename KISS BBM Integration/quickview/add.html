@@ -1,0 +1,25 @@
+<div data-bb-type="screen" data-bb-effect="slide-left">
+
+	<div data-bb-type="image-list" data-bb-header-justify="left" >
+		<div data-bb-type="header" style="text-align:center;">Add A PIN</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Some Notes</div>
+This function allows a new BBM contact to be added. You can manually insert the pin, or you can have it retrieved from an element in the document like the Personal Message example. However, the code used to Chat with a Designate PIN is probably better suited to most purposes, as it adds the contact first if they don't exist in the BBM Contact List.<br><br>
+
+	<div data-bb-type="panel-header">The Code:</div>
+function  addMe() {
+<br>		blackberry.invoke.invoke({
+<br>			action: 'bb.action.INVITEBBM',
+<br>			uri: 'pin:32693EF6'
+<br>		})
+<br>}
+
+
+<br><br>
+	<div data-bb-type="panel-header">Do it!</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="addMe()">onclick="addMe()"</div>
+	</div>
+	<div data-bb-type="action-bar" data-bb-back-caption="Back"></div>
+</div>

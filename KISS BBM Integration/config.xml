@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.0.0.0"
+        id="kissbbm"
+        xml:lang="en">
+
+
+    <name>KISS BBM Integration</name>
+	<author href="https://scrapps.org">SCrApps</author>
+    <content src="index.html"/>
+	<icon src="images/icon.png" />
+
+	<feature id="blackberry.app" />
+	<feature id="blackberry.app.event"/>
+	<feature id="blackberry.system.event" />
+	<feature id="blackberry.bbm.platform" />
+	<feature id="blackberry.invoke" />
+	<feature id="blackberry.invoke.card" />
+	<feature id="blackberry.system" />
+	<feature id="blackberry.ui.toast" />
+
+	<!-- Required permissions. -->
+	<rim:permissions>
+		<rim:permit>bbm_connect</rim:permit>
+	</rim:permissions>
+</widget>

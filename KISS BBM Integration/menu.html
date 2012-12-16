@@ -1,0 +1,34 @@
+<div style="background-color: #202020" data-bb-type="screen">
+	<div data-bb-type="image-list">
+		<div data-bb-type="header" style="	height:99px; line-height:99px; font-size: 50pt;">KISS BBM Integration</div>
+	</div>
+	<div style="text-align: center; margin: 20px;">(So easy, a law student can do it)</div>
+	<div data-bb-type="image-list" data-bb-style="arrowbuttons" >
+	<div data-bb-type="header">Register with BBM Service</div>
+		<div data-bb-type="item" data-bb-img="images/face-glasses.png" data-bb-title="Register if you didn't onLoad" onclick="register()" onbtnclick="bb.pushScreen('quickview/register.html','quickview')">Click the arrow to see the code.</div>
+	<div data-bb-type="header">Integration Requiring BBM Registration</div>
+		<div data-bb-type="item" data-bb-img="images/face-angel.png" data-bb-title="Set Personal Message" onclick="setPM()" onbtnclick="bb.pushScreen('quickview/pm.html','quickview')">Click the arrow to see the code.</div>
+		<div data-bb-type="item" data-bb-img="images/face-devilish.png" data-bb-title="Custom Personal Message" onclick="setPMW()" onbtnclick="bb.pushScreen('quickview/pm.html','quickview')">Click the arrow to see the code.</div>
+	</div>
+	<div><input style="text-align: center;" type="text" id="custommessage" value="Custom Personal Message..." onclick="this.value = ''" /></div>
+	<div data-bb-type="image-list" data-bb-style="arrowbuttons" >
+		<div data-bb-type="item" data-bb-img="images/face-smile.png" data-bb-title="Set Status (Available)" onclick="setStatusA()" onbtnclick="bb.pushScreen('quickview/status.html','quickview')">Click the arrow to see the code.</div>
+		<div data-bb-type="item" data-bb-img="images/face-sad.png" data-bb-title="Set Status (Busy)" onclick="setStatusB()" onbtnclick="bb.pushScreen('quickview/status.html','quickview')">Click the arrow to see the code.</div>
+		<div data-bb-type="item" data-bb-img="images/face-grin.png" data-bb-title="Invite To Downlaod" onclick="invite()" onbtnclick="bb.pushScreen('quickview/invite.html','quickview')">Click the arrow to see the code.</div>
+		
+	<div data-bb-type="header">Invoke API (no registration needed)</div>
+		<div data-bb-type="item" data-bb-img="images/face-kiss.png" data-bb-title="Add a pin to BBM" onclick="addMe()" onbtnclick="bb.pushScreen('quickview/add.html','quickview')">Click the arrow to see the code.</div>
+		<div data-bb-type="item" data-bb-img="images/face-glasses.png" data-bb-title="Start A Chat" onclick="startChat()" onbtnclick="bb.pushScreen('quickview/startchat.html','quickview')">Click the arrow to see the code.</div>
+		<div data-bb-type="item" data-bb-img="images/face-plain.png" data-bb-title="Start A Chat With Text" onclick="startChatWText()" onbtnclick="bb.pushScreen('quickview/startchat.html','quickview')">Click the arrow to see the code.</div>
+		<div data-bb-type="item" data-bb-img="images/face-surprise.png" data-bb-title="Chat with a designated Pin" onclick="startChatWith()" onbtnclick="bb.pushScreen('quickview/specificpin.html','quickview')">Click the arrow to see the code.</div>
+		<div data-bb-type="item" data-bb-img="images/face-wink.png" data-bb-title="Change the Avatar" onclick="setAvatar()" onbtnclick="bb.pushScreen('quickview/avatar.html','quickview')">Click the arrow to see the code.</div>
+		
+	<div data-bb-type="header">A Toast (cuz toast is awesome)</div>
+		<div data-bb-type="item" data-bb-img="images/face-monkey.png" data-bb-title="Toast" onclick="showCustomToast()" onbtnclick="bb.pushScreen('quickview/toast.html','quickview')">Click the arrow to see the code.</div>
+	</div>
+	<div data-bb-type="image-list">
+	<div data-bb-type="header">Other Stuff</div>
+		<div data-bb-type="item" data-bb-img="images/face-crying.png" data-bb-title="Credit where Credit is due" onclick="bb.pushScreen('quickview/credit.html','quickview')" >Also, License and Privacy</div>
+
+	</div>
+</div>
