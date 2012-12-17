@@ -1,0 +1,27 @@
+<div data-bb-type="screen" data-bb-effect="slide-left">
+
+	<div data-bb-type="image-list" data-bb-header-justify="left" >
+		<div data-bb-type="header" style="text-align:center;">Set The Avatar</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Some Notes</div>
+This lets you set an avatar from an image packaged with the app.<br>
+You could also invoke the file manager and allow a picture to be chosen from there, but I honestly couldn't think of a use for that.<br><br>
+
+	<div data-bb-type="panel-header">The Code:</div>
+function setAvatar() {
+<br>	blackberry.invoke.invoke({
+<br>		target: 'sys.bbm.imagehandler',
+<br>		action: 'bb.action.SET',
+<br>		uri: 'local:///images/avatar.png'
+<br>	});
+<br>}
+
+
+<br><br>
+	<div data-bb-type="panel-header">Do it!</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="setAvatar()">onclick="setAvatar()"</div>
+	</div>
+	<div data-bb-type="action-bar" data-bb-back-caption="Back"></div>
+</div>
