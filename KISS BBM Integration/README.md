@@ -7,6 +7,7 @@ This app makes it easy to add BBM Integration to your WebWorks app.
 
 Credits
 This sample wouldn't have been possible without the totally awesome bbUI project (https://github.com/blackberry/bbUI.js), the pre-existing BBM sample by Erik Oros (https://github.com/oros), and of course the hard work by the entire WebWorks team.
+The icons in this app come from the Tango Icon Library (http://tango.freedesktop.org/), a Public Domain iconset. 
 
 Truthfully, Erik's sample is much more impressive than this one, and contains several features that I didn't bother including. However, I think this sample is easier to rip the needed code from and drop it into your own app. I spent several hours figuring out how Erik's sample worked before I was able to make this one (although that's more a reflection on my nonexistant formal code learning than a reflection on the difficulty of Erik's sample). This sample is geared more towards helping the newest developer can quickly and easily integrate BBM with their BB10 apps.
 
