@@ -1,0 +1,38 @@
+<div data-bb-type="screen" data-bb-effect="slide-left">
+
+	<div data-bb-type="image-list" data-bb-header-justify="left" >
+		<div data-bb-type="header" style="text-align:center;">Start A Chat</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Some Notes</div>
+As of now, the only difference between starting a chat and starting a chat with a message ready to send is the data parameter. That might change in the future.<br>
+This invoke allows the user of your app to select the contact they want to chat with.<br><br>
+	<div data-bb-type="panel-header">Start A Chat:</div>
+function startChat() {
+blackberry.invoke.invoke({
+<br>		target: 'sys.bbm.sharehandler',
+<br>		action: 'bb.action.SHARE',
+<br>		data: '',
+<br>		mimeType: 'text/plain'
+<br>	})
+<br>}		
+<br><br>
+	<div data-bb-type="panel-header">Chat with Text:</div>
+function startChatWText() {
+<br>blackberry.invoke.invoke({
+<br>	target: 'sys.bbm.sharehandler',
+<br>	action: 'bb.action.SHARE',
+<br>	data: 'Have you checked out the KISS BBM Integration app?',
+<br>	mimeType: 'text/plain'
+<br>	})
+<br>}		
+
+
+<br><br>
+	<div data-bb-type="panel-header">Do it!</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="startChat()">onclick="startChat()"</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="startChatWText()">onclick="startChatWText()"</div>
+	</div>
+	<div data-bb-type="action-bar" data-bb-back-caption="Back"></div>
+</div>

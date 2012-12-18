@@ -1,0 +1,29 @@
+<div data-bb-type="screen" data-bb-effect="slide-left">
+
+	<div data-bb-type="image-list" data-bb-header-justify="left" >
+		<div data-bb-type="header" style="text-align:center;">Personal Message</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Some Notes</div>
+Instructions for setting a Personal Message and for setting up a user customizable personal message are shown here.<br>
+If you use a customizable one, make sure you actually have the element needed to call the data from (obviously).<br><br>
+	<div data-bb-type="panel-header">Regular Personal Message:</div>
+
+function setPM() {
+<br>blackberry.bbm.platform.self.setPersonalMessage('I set my status using the KISS BBM Integration app.')
+<br>}
+<br><br>
+	<div data-bb-type="panel-header">Custom Personal Message:</div>
+function setPMW() {
+<br>blackberry.bbm.platform.self.setPersonalMessage('My status is now ' + document.getElementById('custommessage').value)
+<br>}
+
+
+<br><br>
+	<div data-bb-type="panel-header">Do it!</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="setPM()">onclick="setPM()"</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="setPMW()">onclick="setPMW()"</div>
+	</div>
+	<div data-bb-type="action-bar" data-bb-back-caption="Back"></div>
+</div>

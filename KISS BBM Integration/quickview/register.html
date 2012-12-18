@@ -1,0 +1,32 @@
+<div data-bb-type="screen" data-bb-effect="slide-left">
+
+	<div data-bb-type="image-list" data-bb-header-justify="left" >
+		<div data-bb-type="header" style="text-align:center;">Registration</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Some Notes</div>
+Registration is a prerequisite for several other BBM integrated features.<br>
+This code is included twice in this sample app. The register() function is tied to a button, and the onLoadFunctions version runs when you load a page in a bbUI app.<br>
+If you use the onLoadFunctions version, make sure that you insert onLoadFunctions(); into the ondomready section of the index.html.<br><br>
+	<div data-bb-type="panel-header">The Code:</div>
+
+function register() {
+<br>	blackberry.event.addEventListener('onaccesschanged', function (accessible, status) {
+<br>		if (status === 'unregistered') {
+<br>			blackberry.bbm.platform.register({
+<br>				uuid: '33490f91-ad95-4ba9-82c4-33f6ad69fbbc'
+<br>			});
+<br>		} else if (status === 'allowed') {
+<br>			bbm.registered = accessible;
+<br>		}
+<br>	}, false)
+<br>}
+
+
+<br><br>
+	<div data-bb-type="panel-header">Do it!</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="register()">onclick="register()"</div>
+	</div>
+	<div data-bb-type="action-bar" data-bb-back-caption="Back"></div>
+</div>
