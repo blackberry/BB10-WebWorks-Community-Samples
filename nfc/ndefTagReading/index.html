@@ -1,0 +1,143 @@
+<!--
+ * Copyright 2012 Research In Motion Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+<html>
+
+<script src="local:///chrome/webworks.js">
+</script>
+
+<script src="js/blackberrynfc.ndef.js">
+	
+</script>
+
+<style>
+TD,INPUT,BODY {
+	font-size: 25pt;
+}
+</style>
+
+<script type="text/javascript">
+	// Create some aliases to save some typing.
+	var WELL_KNOWN = blackberrynfc.ndef.tnf.WELL_KNOWN;
+	var decodeRecords = blackberrynfc.ndef.message.decodeRecords;
+	
+	// Aliases for record creation functions.
+	var createTextRecord = blackberrynfc.ndef.message.createTextRecord;
+	var createURIRecord = blackberrynfc.ndef.message.createURIRecord;
+	var createSpRecord = blackberrynfc.ndef.message.createSpRecord;
+
+	// When a tag is read by the OS - this handler will be triggered.
+	function onInvoked(onInvokedInfo) {
+		try {
+			if ("com.robwilliams.d20121122.ww.a" == onInvokedInfo.target
+					&& onInvokedInfo.data) {
+
+				// Convert the bytes to records.
+				var records = decodeRecords(onInvokedInfo.data);
+
+				if (records.length > 0) {
+					var record = records[0];
+					if (record.isType(WELL_KNOWN, "Sp")) {
+						alert("Read a smart poster\n" + record.getText() + "\n"
+								+ record.getURI());
+					} else {
+						alert("Read a non smart poster...");
+					}
+				} else {
+					alert("Message contained no (decodable) records...");
+				}
+
+				// Purely diagnostic code...
+				var output = document.getElementById("output");
+				output.innerHTML = records[0].getEncodedAsHTML();
+			} else {
+				alert("Didn't understand this invokation...");
+			}
+		} catch (e) {
+			alert(e);
+		}
+	}
+	
+	function shareTag() {
+		try {
+			var text = document.getElementById("tagText").value;
+			var uri = document.getElementById("tagUri").value;
+			if (text=="" || uri=="") {
+				alert("Please enter text for both fields...");
+				return;
+			}
+			
+			var textRecord = createTextRecord("en",text);
+			var uriRecord =	createURIRecord(uri);
+			var records = Array(textRecord,uriRecord);
+			var spRecord = createSpRecord(records);
+			var data = spRecord.getEncoded("invoke");
+		
+			var query = {
+					"action": "bb.action.SHARE",
+					"type": "application/vnd.rim.nfc.ndef",
+					"data": data
+			};
+			
+			blackberry.invoke.invoke(query,shareGood,shareBad);
+		} catch (e) {
+			alert(e);
+		}
+	}
+
+	function shareGood() {
+		// The share was invoked...
+	}
+	
+	function shareBad(error) {
+		alert("Could not share: " + error);
+	}
+
+	// Register the invokation handler.
+	function ready() {
+		try {
+			blackberry.event.addEventListener("invoked", onInvoked);
+		} catch (e) {
+			alert(e);
+		}
+	}
+	window.addEventListener("load", function(e) {
+		document.addEventListener("webworksready", ready)
+	}, false);
+</script>
+<body>
+	<h1>Scan a tag!</h1>
+	Please!
+	<div id='output'>Tag contents will go here.</div>
+	<hr />
+	<h1>Create a basic Smart Poster</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>Text:</td>
+				<td><input type='text' id='tagText' /></td>
+			</tr>
+			<tr>
+				<td>Uri:</td>
+				<td><input type='text' id='tagUri' /></td>
+			<tr>
+				<td></td>
+				<td><input type='button' value='Share Tag' onClick='shareTag()' /></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
