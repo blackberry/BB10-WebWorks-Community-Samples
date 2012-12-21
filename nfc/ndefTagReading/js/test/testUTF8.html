@@ -1,0 +1,129 @@
+<!--
+ * Copyright 2012 Research In Motion Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+<html>
+<head>
+<script src="../blackberrynfc.ndef.js" type="text/javascript">	
+</script>
+
+<style type="text/css">
+.test span {
+	width: 150px;
+	display: inline-block;
+}
+
+.test span.failed {
+	background-color: #ff7f7f;
+}
+
+.test span.passed {
+	background-color: #7fff7f;
+}
+
+.test span.hex {
+	font-family: "Courier New";
+	font-size: small;
+	width: 350px;
+}
+</style>
+</head>
+<body>
+<h1>Known Answer and Self Consistency Tests</h1>
+<div class='test'>
+<span><b>Original Text</b></span><span class='hex'><b>UTF-8 Hex</b></span><span><b>Reconverted</b></span>
+</div>
+	<div class='test'>
+		<span id='test000'>Montr&#233;al</span><span id='result000'> 4d
+			6f 6e 74 72 c3 a9 61 6c</span>
+	</div>
+	<div class='test'>
+		<span id='test001'>&#127;&#128;</span><span id='result001'>7f
+			e2 82 ac</span>
+	</div>
+	<div class="test">
+		<span id='test002'>&#x7ff;&#x800</span><span id='result002'>df
+			bf e0 a0 80</span>
+	</div>
+	<div class="test">
+		<span id='test003'>&#xffff;</span><span id='result003'>ef bf bf</span>
+	</div>
+	<div class="test">
+		<span id='test004'>&#x10000;</span><span id='result004'>f0 90
+			80 80</span>
+	</div>
+	<div class="test">
+		<span id='test005'>&#x1fedc;</span><span id='result005'>f0 9f
+			bb 9c</span>
+	</div>
+	<div class="test">
+		<span id='test006'>&#26085;&#26412;&#22823;&#23398;</span><span
+			id='result006'>e6 97 a5 e6 9c ac e5 a4 a7 e5 ad a6</span>
+	</div>
+</body>
+</html>
+<script>
+	var hexChars = "0123456789abcdef";
+
+	function toHex(array) {
+		var toReturn = "";
+		for ( var i = 0; i < array.length; ++i) {
+			if (i != 0) {
+				toReturn += " ";
+			}
+			var c = array[i];
+			toReturn += hexChars.substring(c >> 4, (c >> 4) + 1);
+			toReturn += hexChars.substring(c & 15, (c & 15) + 1);
+		}
+		return toReturn;
+	}
+
+	function process() {
+		alert(toHex(blackberrynfc.ndef.util.utf8.stringToUnicode(document.getElementById("test000").textContent)));
+	}
+	
+	function compareStrings(a,b) {
+		return a.replace(/\s/g,"")==b.replace(/\s/g,"");
+	}
+
+	function runTests() {
+		for ( var i = 0;; ++i) {
+			var suffix = "00000" + i;
+			suffix = suffix.substring(suffix.length - 3);
+			var input = document.getElementById("test" + suffix);
+			var output = document.getElementById("result" + suffix);
+
+			if (input == null || output == null) {
+				break;
+			}
+			
+			var revertedOutput = document.getElementById("reverted" + suffix);
+			
+			if (revertedOutput==null) {
+				revertedOutput = document.createElement("span");
+				revertedOutput.id = "reverted"+suffix;
+				input.parentNode.appendChild(revertedOutput);
+			}
+			var converted = blackberrynfc.ndef.util.utf8.stringToUnicode(input.textContent);
+			var reverted = blackberrynfc.ndef.util.utf8.unicodeToString(converted); 
+			var hex = toHex(converted);
+			var passed = compareStrings(hex,output.textContent);
+			var revertedPassed =  reverted===input.textContent;
+			output.className = "hex " + (passed ? "passed" : "failed");
+			revertedOutput.textContent = reverted;
+			revertedOutput.className = revertedPassed ? "passed" : "failed";
+		}
+	}
+	runTests();
+</script>
