@@ -1,0 +1,110 @@
+<!--
+ * Copyright 2012 Research In Motion Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+<html>
+<script src="../blackberrynfc.ndef.js" type="text/javascript">	
+</script>
+<style>
+TD.base64 {
+	font-family: "Courier New";
+}
+
+TD.pass {
+	background-color: #7fff7f;
+}
+
+TD.fail {
+	background-color: #ff7f7f;
+}
+</style>
+<body>
+	<script>
+		function testArray(a, expectedBase64) {
+			document.write("<tr><td>");
+			document.write(a);
+			document.write("</td><td class='base64'>");
+
+			var a64 = blackberrynfc.ndef.util.base64.intArrayToBase64(a);
+			document.write(a64);
+
+			document.write("</td><td>");
+
+			var b = blackberrynfc.ndef.util.base64.base64ToIntArray(a64);
+			document.write(b);
+
+			var pass = a.toString() == b.toString();
+			if (expectedBase64 != undefined) {
+				pass &= expectedBase64 == a64;
+			}
+			document
+					.write("</td><td class='" + (pass ? "pass" : "fail") + "'>");
+			
+			document.write(pass ? "pass" : "FAIL");
+
+			document.write("</td></tr>");
+		}
+
+		document.write("<h1>Random Self Consistency Tests</h1>");
+
+		document
+				.write("<table><thead><tr><th>In</th><th>Base64</th><th>Out</th></tr></thead><tbody>");
+		for ( var i = 1; i <= 10; ++i) {
+			var a = Array();
+			for ( var j = 0; j < i; ++j) {
+				a.push(Math.floor(Math.random() * 256));
+			}
+			testArray(a);
+		}
+		document.write("</tbody></table>");
+
+		document.write("<h1>Known Answer Tests</h1>");
+		document
+				.write("<table><thead><tr><th>In</th><th>Base64</th><th>Out</th></tr></thead><tbody>");
+
+		testArray(Array(), "");
+		var singleZero = Array();
+		singleZero[0] = 0;
+		testArray(singleZero, "AA==");
+		testArray(Array(0, 0), "AAA=");
+		testArray(Array(0, 0, 0), "AAAA");
+		testArray(Array(0, 0, 1), "AAAB");
+		testArray(Array(0, 0, 2), "AAAC");
+		testArray(Array(0, 0, 4), "AAAE");
+		testArray(Array(0, 0, 8), "AAAI");
+		testArray(Array(0, 0, 16), "AAAQ");
+		testArray(Array(0, 0, 32), "AAAg");
+		testArray(Array(0, 0, 64), "AABA");
+		testArray(Array(0, 0, 128), "AACA");
+		testArray(Array(0, 1, 0), "AAEA");
+		testArray(Array(0, 2, 0), "AAIA");
+		testArray(Array(0, 4, 0), "AAQA");
+		testArray(Array(0, 8, 0), "AAgA");
+		testArray(Array(0, 16, 0), "ABAA");
+		testArray(Array(0, 32, 0), "ACAA");
+		testArray(Array(0, 64, 0), "AEAA");
+		testArray(Array(0, 128, 0), "AIAA");
+		testArray(Array(1, 0, 0), "AQAA");
+		testArray(Array(2, 0, 0), "AgAA");
+		testArray(Array(4, 0, 0), "BAAA");
+		testArray(Array(8, 0, 0), "CAAA");
+		testArray(Array(16, 0, 0), "EAAA");
+		testArray(Array(32, 0, 0), "IAAA");
+		testArray(Array(64, 0, 0), "QAAA");
+		testArray(Array(128, 0, 0), "gAAA");
+		document.write("</tbody></table>");
+	</script>
+</body>
+</html>
+
