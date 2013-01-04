@@ -42,7 +42,7 @@ self.update = function () {
 		);
 	}
 
-	/* Cap the maximum horizontal veloicities between -5.0 and 5.0. */
+	/* Cap the maximum horizontal velocities between -5.0 and 5.0. */
 	self.hero.SetLinearVelocity(
 		new Box2D.Common.Math.b2Vec2(
 			Math.max(-5.0, Math.min(self.hero.GetLinearVelocity().x, 5.0)),

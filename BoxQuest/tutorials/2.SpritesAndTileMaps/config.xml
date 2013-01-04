@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        id="com.oros.boxquest"
+        version="1.0.0.0">
+
+    <name>BoxQuest</name>
+    <author>Oros</author>
+    <content src="index.html" />
+
+    <feature id="blackberry.app.orientation">
+        <param name="mode" value="landscape" />
+    </feature>
+</widget>
