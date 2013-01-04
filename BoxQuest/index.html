@@ -52,6 +52,7 @@
 					]
 				};
 				script.src = script.c.engineDir + 'platform/jsloader.js';
+				document.ccConfig = script.c;
 				document.body.appendChild(script);
 				/* Once the noted script completes, it will load and trigger main.js. */
 			}
