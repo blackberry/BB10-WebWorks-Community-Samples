@@ -19,7 +19,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets"
 		xmlns:rim="http://www.blackberry.com/ns/widgets"
 		id="com.oros.boxquest"
-		version="1.0.0">
+		version="1.0.0.0">
 
 	<name>BoxQuest</name>
 	<author>Erik Oros</author>

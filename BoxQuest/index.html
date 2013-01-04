@@ -21,7 +21,7 @@
 		<script type="text/javascript">
 			/* Ensure that our viewport is scaled properly. */
 			(function () {
-				var meta = document.createElement("meta");
+				var meta = document.createElement('meta');
 				meta.setAttribute('name', 'viewport');
 				meta.setAttribute('content', 'initial-scale=' + (1.0 / window.devicePixelRatio) + ',user-scalable=no');
 				document.getElementsByTagName('head')[0].appendChild(meta);
@@ -32,7 +32,7 @@
 	<body>
 		<div id="freewill"></div>
 		<canvas id="ccCanvas"></canvas>
-		<script type="text/javascript" src="./js/webworks-1.0.2.9.js"></script>
+		<script type="text/javascript" src="local:///chrome/webworks.js"></script>
 		<script type="text/javascript">
 			/* Once WebWorks is ready, we will begin our Cocos2d-HTML5 initailization. */
 			function onwebworksready() {
@@ -52,6 +52,7 @@
 					]
 				};
 				script.src = script.c.engineDir + 'platform/jsloader.js';
+				document.ccConfig = script.c;
 				document.body.appendChild(script);
 				/* Once the noted script completes, it will load and trigger main.js. */
 			}

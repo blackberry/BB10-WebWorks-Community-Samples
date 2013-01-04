@@ -1,2 +1,0 @@
-To successfully compile this application, you will need to copy the the **cocos2d** and **CocosDenshion** folders from the Cocos2d-HTML5 Github repository. This repository is available here:
-https://github.com/cocos2d/cocos2d-html5
