@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+    cursor: default;
+    font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#freewill {
+    bottom: 0px;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 999;
+}

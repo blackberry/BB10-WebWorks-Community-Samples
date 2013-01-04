@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            (function () {
+                var meta = document.createElement('meta');
+                meta.setAttribute('name', 'viewport');
+                meta.setAttribute('content', 'initial-scale=' + (1.0 / window.devicePixelRatio) + ',user-scalable=no');
+                document.getElementsByTagName('head')[0].appendChild(meta);
+            }());
+        </script>
+        <link type="text/css" rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+	    <div id="freewill"></div>
+        <canvas id="ccCanvas"></canvas>
+        <script type="text/javascript" src="local:///chrome/webworks.js"></script>
+        <script type="text/javascript">
+            function onwebworksready() {
+                document.removeEventListener('webworksready', onwebworksready, false);
+
+                var script = document.createElement('script');
+                script.id = 'cocos2d-html5';
+                script.c = {
+                    box2d: false,
+                    engineDir: './cocos/cocos2d/',
+                    appFiles: [
+                        './js/Freewill.js',
+                        './js/SceneStart.js'
+                    ]
+                };
+                script.src = script.c.engineDir + 'platform/jsloader.js';
+                document.body.appendChild(script);
+            }
+
+            function ondomcontentloaded() {
+                window.removeEventListener('DOMContentLoaded', ondomcontentloaded, false);
+                document.addEventListener('webworksready', onwebworksready, false);
+            }
+
+            window.addEventListener('DOMContentLoaded', ondomcontentloaded, false);
+        </script>
+    </body>
+</html>

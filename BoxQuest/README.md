@@ -35,9 +35,6 @@
 >   slight modifications to meet the requirements for this sample, but ultimately Freewill.js can be leveraged in any HTML5 application
 >   requiring virtual controls.
 >   
->   Currently, a hidden Joystick is used to move the hero by dragging anywhere on the left half of the screen and a hidden
->   button is used to make the hero jump by tapping anywhere on the right half of the screen.
->   
 >   The code is currently commented out, but if you would like to use the keyboard to control the hero, you can make the modifications
 >   in SceneStart.js to accept keyboard input instead of leveraging Freewill.js.
 
@@ -118,4 +115,4 @@
 >   Immense thanks to the following people. They might not know how much they
 >   helped me, but I appreciate it none the less.
 >   *   The [Cocos2d-HTML5 Community](http://www.cocos2d-x.org/projects/cocos2d-x/boards/19)
->   *   [Seb Lee-Delisle (@seb_ly)](http://creativejs.com/2011/09/box2d-javascript-tutorial-series-by-seth-ladd/) for compiling, and [Seth Ladd (@sethladd)](http://blog.sethladd.com/) for writing, the Box2dWeb tutorials.
+>   *   [Seb Lee-Delisle (@seb_ly)](http://creativejs.com/2011/09/box2d-javascript-tutorial-series-by-seth-ladd/) for compiling the Box2DWeb tutorials by [Seth Ladd (@sethladd)](http://blog.sethladd.com/)
