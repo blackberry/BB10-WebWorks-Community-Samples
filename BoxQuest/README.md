@@ -19,7 +19,7 @@
 >   *   **index.html:** Our main content to load, initializes WebWorks and kicks off Cocos2d-HTML5.
 >   *   **main.js:** Creates our Cocos2d-HTML5 application and preloads our resources.
 >   *   **SceneStart.js:** Initiates our main Cocos2d-HTML5 Scene and Layer, and kicks off the physics Web Worker.
-
+>   
 >   Because this is a sample intended for the BlackBerry platform, to run this application on a desktop browser you will need to either:
 >   *   Modify **index.html** to explicitly call **onwebworksready();** instead of adding the event listener; or
 >   *   Leverage the [Ripple Emulator](https://developer.blackberry.com/html5/download/) in Chrome for the missing WebWorks functionality.
