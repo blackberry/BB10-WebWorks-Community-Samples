@@ -24,9 +24,17 @@
 >   *   Modify **index.html** to explicitly call **onwebworksready();** instead of adding the event listener; or
 >   *   Leverage the [Ripple Emulator](https://developer.blackberry.com/html5/download/) in Chrome for the missing WebWorks functionality.
 >   
->   To successfully compile this application, you will need to copy the the **cocos2d** and **CocosDenshion** folders from the Cocos2d-HTML5 Github
->   repository into the **cocos** subfolder of this project. The repository is available here:
->   https://github.com/cocos2d/cocos2d-html5
+>   To successfully compile this application, there are two approaches. First, if you've cloned this repository from Github, you're
+>   already set as the **BB10-WebWorks-Community-Samples/Boxquest/cocos** folder should already be populated. You can also copy
+>   the **cocos** folder to the appropriate **tutorials** to allow them to run as well. This is possible since the
+>   Cocos2d-HTML5 framework is included as a submodule in Github and *is the recommended approach*.
+>   
+>   Alternatively, you can download the Cocos2d-HTML5 framework from Github, however for best results please use this
+>   specific version: https://github.com/cocos2d/cocos2d-html5/tree/a02ffc496de71ec3c51a98ce4a71dffaab0a69e8
+>   
+>   Once downloaded, the process would be the same; specifically to copy the Cocos2d-HTML5 framework into the **cocos**
+>   subfolders of the main project and tutorials. For reference, the file structure should be that **cocos2d** is a direct
+>   child of the **cocos** folder.
 
 ### Virtual Controls (Freewill.js)
 >   
