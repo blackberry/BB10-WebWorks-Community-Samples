@@ -103,8 +103,8 @@
 
 ## Tested With
 >   
->   *   BlackBerry 10 WebWorks SDK 1.0.2.9
->   *   BlackBerry Dev Alpha B, 10.0.9.388
+>   *   BlackBerry 10 WebWorks SDK 1.0.4.5
+>   *   BlackBerry Dev Alpha B, 10.0.9.1675
 
 ## Known Issues
 >   
