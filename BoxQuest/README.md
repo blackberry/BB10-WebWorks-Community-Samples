@@ -41,7 +41,7 @@
 >   Freewill.js is a Joystick and Button framework intially developed for Cocos2d-HTML5. It was then generalized to be framework
 >   agnostic while developing [PeaksAndValleys](https://github.com/blackberry/WebGL-Samples/tree/master/PeaksAndValleys). There have been some
 >   slight modifications to meet the requirements for this sample, but ultimately Freewill.js can be leveraged in any HTML5 application
->   requiring virtual controls.
+>   requiring virtual controls. For a basic sample implementation, please see: https://github.com/oros/Freewill.js
 >   
 >   The code is currently commented out, but if you would like to use the keyboard to control the hero, you can make the modifications
 >   in SceneStart.js to accept keyboard input instead of leveraging Freewill.js.
