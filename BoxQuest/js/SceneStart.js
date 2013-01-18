@@ -123,7 +123,7 @@ var LayerStart = cc.Layer.extend({
 		this.freewill.move = this.freewill.addJoystick({
 			imageBase: './images/freewill/buttonblue.png',						/* Irrelevant since we never see the Joystick. */
 			imagePad: './images/freewill/buttonblue.png',						/* Irrelevant since we never see the Joystick. */
-			fixed: true,														/* Joystick won't move. */
+			fixed: false,														/* Joystick will move. */
 			pos: [0.0, 0.0],													/* Irrelevant since we never see the Joystick. */
 			trigger: [0.0, 0.0, window.innerWidth / 2.0, window.innerHeight],	/* The touch area that triggers this Joystick will be the left half of the screen. */
 			opacLow: 0.0,														/* Lowest opacity is 0; invisible. */
