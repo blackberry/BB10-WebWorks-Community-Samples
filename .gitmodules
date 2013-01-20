@@ -1,0 +1,3 @@
+[submodule "boxquest/cocos"]
+	path = BoxQuest/cocos
+	url = https://github.com/cocos2d/cocos2d-html5.git

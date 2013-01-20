@@ -24,19 +24,24 @@
 >   *   Modify **index.html** to explicitly call **onwebworksready();** instead of adding the event listener; or
 >   *   Leverage the [Ripple Emulator](https://developer.blackberry.com/html5/download/) in Chrome for the missing WebWorks functionality.
 >   
->   To successfully compile this application, you will need to copy the the **cocos2d** and **CocosDenshion** folders from the Cocos2d-HTML5 Github
->   repository into the **cocos** subfolder of this project. The repository is available here:
->   https://github.com/cocos2d/cocos2d-html5
+>   To successfully compile this application, there are two approaches. First, if you've cloned this repository from Github, you're
+>   already set as the **BB10-WebWorks-Community-Samples/Boxquest/cocos** folder should already be populated. You can also copy
+>   the **cocos** folder to the appropriate **tutorials** to allow them to run as well. This is possible since the
+>   Cocos2d-HTML5 framework is included as a submodule in Github and *is the recommended approach*.
+>   
+>   Alternatively, you can download the Cocos2d-HTML5 framework from Github, however for best results please use this
+>   specific version: https://github.com/cocos2d/cocos2d-html5/tree/a02ffc496de71ec3c51a98ce4a71dffaab0a69e8
+>   
+>   Once downloaded, the process would be the same; specifically to copy the Cocos2d-HTML5 framework into the **cocos**
+>   subfolders of the main project and tutorials. For reference, the file structure should be that **cocos2d** is a direct
+>   child of the **cocos** folder.
 
 ### Virtual Controls (Freewill.js)
 >   
 >   Freewill.js is a Joystick and Button framework intially developed for Cocos2d-HTML5. It was then generalized to be framework
 >   agnostic while developing [PeaksAndValleys](https://github.com/blackberry/WebGL-Samples/tree/master/PeaksAndValleys). There have been some
 >   slight modifications to meet the requirements for this sample, but ultimately Freewill.js can be leveraged in any HTML5 application
->   requiring virtual controls.
->   
->   Currently, a hidden Joystick is used to move the hero by dragging anywhere on the left half of the screen and a hidden
->   button is used to make the hero jump by tapping anywhere on the right half of the screen.
+>   requiring virtual controls. For a basic sample implementation, please see: https://github.com/oros/Freewill.js
 >   
 >   The code is currently commented out, but if you would like to use the keyboard to control the hero, you can make the modifications
 >   in SceneStart.js to accept keyboard input instead of leveraging Freewill.js.
@@ -106,8 +111,8 @@
 
 ## Tested With
 >   
->   *   BlackBerry 10 WebWorks SDK 1.0.2.9
->   *   BlackBerry Dev Alpha B, 10.0.9.388
+>   *   BlackBerry 10 WebWorks SDK 1.0.4.5
+>   *   BlackBerry Dev Alpha B, 10.0.9.1675
 
 ## Known Issues
 >   
@@ -118,4 +123,4 @@
 >   Immense thanks to the following people. They might not know how much they
 >   helped me, but I appreciate it none the less.
 >   *   The [Cocos2d-HTML5 Community](http://www.cocos2d-x.org/projects/cocos2d-x/boards/19)
->   *   [Seb Lee-Delisle (@seb_ly)](http://creativejs.com/2011/09/box2d-javascript-tutorial-series-by-seth-ladd/) for compiling, and [Seth Ladd (@sethladd)](http://blog.sethladd.com/) for writing, the Box2dWeb tutorials.
+>   *   [Seb Lee-Delisle (@seb_ly)](http://creativejs.com/2011/09/box2d-javascript-tutorial-series-by-seth-ladd/) for compiling the Box2DWeb tutorials by [Seth Ladd (@sethladd)](http://blog.sethladd.com/)

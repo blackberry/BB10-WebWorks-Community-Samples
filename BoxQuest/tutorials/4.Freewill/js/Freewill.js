@@ -34,12 +34,6 @@ var Freewill = function (params) {
 		/* Initialize our controls arrays. */
 		controls = this.controls = [];
 		this.container = params.container;
-		this.container.style.position = 'fixed';
-		this.container.style.left = '0px'; this.container.style.right = '0px';
-		this.container.style.top = '0px'; this.container.style.bottom = '0px';
-		this.container.style.border = '0px'; this.container.style.margin = '0px'; this.container.style.padding = '0px';
-		this.container.style.overflow = 'hidden';
-		this.container.style.zIndex = '999';
 
 		/* The global 'touchstart' listener for the container. Will cycle through all of our
 		 * controls to find the appropriate owner.
@@ -145,8 +139,6 @@ Freewill.prototype.addJoystick = function (params) {
 				joystick.velocity = [0.0, 0.0];
 				joystick.direction = 0;
 				joystick.context = joystick.getContext('2d');
-				joystick.context.drawImage(base, 0.0, 0.0);
-				joystick.context.drawImage(pad, (base.width - pad.width) / 2.0, (base.height - pad.height) / 2.0);
 
 				/* Set the Joystick's position. */
 				params.pos = typeof params.pos !== 'undefined' ? params.pos : [0.0, 0.0];
@@ -173,22 +165,13 @@ Freewill.prototype.addJoystick = function (params) {
 					if (this.fixed === false) {
 						this.style.left	= (point[0] - base.width / 2.0) + 'px';
 						this.style.top	= (point[1] - base.height / 2.0) + 'px';
-						this.x = point[0];
-						this.y = point[1];
-
-						/* Draw the control. */
-						this.context.clearRect(0.0, 0.0, this.width, this.height);
-						this.context.drawImage(base, 0.0, 0.0);
-						this.context.drawImage(pad, (base.width - pad.width) / 2.0, (base.height - pad.height) / 2.0);
-					} else {
-						this.x = parseFloat(this.style.left.replace('px', '')) + base.width / 2.0;
-						this.y = parseFloat(this.style.top.replace('px', '')) + base.height / 2.0;
-
-						/* Draw the control based on movement from center. */
-						this._onTouchMove(touch, point);
 					}
+					this.x = point[0];
+					this.y = point[1];
 
-
+					/* Draw the control. */
+					this.context.drawImage(base, 0.0, 0.0);
+					this.context.drawImage(pad, (base.width - pad.width) / 2.0, (base.height - pad.height) / 2.0);
 
 					/* If there is a user-defined onTouchStart function, invoke it now. */
 					if (this.onTouchStart) {
@@ -235,7 +218,6 @@ Freewill.prototype.addJoystick = function (params) {
 					this.direction = Math.floor(4 + (-Math.atan2(dy, dx) + Math.PI / 8) * 4 / Math.PI) % 8;
 
 					/* Draw the control. */
-					this.context.clearRect(0.0, 0.0, this.width, this.height);
 					this.context.drawImage(base, 0.0, 0.0);
 					this.context.drawImage(pad, dx + (base.width - pad.width) / 2.0, dy + (base.height - pad.height) / 2.0);
 
@@ -251,7 +233,6 @@ Freewill.prototype.addJoystick = function (params) {
 					this.velocity = [0.0, 0.0];
 
 					/* Draw the control. */
-					this.context.clearRect(0.0, 0.0, this.width, this.height);
 					this.context.drawImage(base, 0.0, 0.0);
 					this.context.drawImage(pad, (base.width - pad.width) / 2.0, (base.height - pad.height) / 2.0);
 
