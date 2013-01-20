@@ -1,0 +1,40 @@
+<div data-bb-type="screen" data-bb-effect="slide-up">
+
+	<div data-bb-type="image-list"> 
+		<div data-bb-type="header" >Set Player Names</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+		<table align="center" width="100%" cellpadding="10px"><tr>
+			<td width="70%"><input type="text" id="player1box" value="" /></td>
+			<td width="30%"><div data-bb-type="button" onclick="localStorage.setItem('player1name',player1box.value)">Set</div></td>
+		</tr></table>
+	</div>	
+
+	<div data-bb-type="round-panel"> 
+		<table align="center" width="100%" cellpadding="10px"><tr>
+			<td width="70%"><input type="text" id="player2box" value="" /></td>
+			<td width="30%"><div data-bb-type="button" onclick="localStorage.setItem('player2name',player2box.value)">Set</div></td>
+		</tr></table>
+	</div>	
+
+	<div data-bb-type="round-panel"> 
+		<table align="center" width="100%" cellpadding="10px"><tr>
+			<td width="70%"><input type="text" id="player3box" value="" /></td>
+			<td width="30%"><div data-bb-type="button" onclick="localStorage.setItem('player3name',player3box.value)">Set</div></td>
+		</tr></table>
+	</div>	
+	
+	<div data-bb-type="round-panel"> 
+		<table align="center" width="100%" cellpadding="10px"><tr>
+			<td width="70%"><input type="text" id="player4box" value="" /></td>
+			<td width="30%"><div data-bb-type="button" onclick="localStorage.setItem('player4name',player4box.value)">Set</div></td>
+		</tr></table>
+	</div>	
+
+	<div data-bb-type="button" data-bb-style="stretch" onclick="localStorage.removeItem('player1name');localStorage.removeItem('player2name');localStorage.removeItem('player3name');localStorage.removeItem('player4name');bb.popScreen();">Clear All</div>
+
+	<div data-bb-type="action-bar">
+		<div data-bb-type="action" data-bb-style="button" data-bb-img="images/down.png" onclick="bb.popScreen();">Back</div>
+	</div>
+</div>

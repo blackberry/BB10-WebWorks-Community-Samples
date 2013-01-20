@@ -1,0 +1,19 @@
+<div data-bb-type="screen" data-bb-title="Settings" data-bb-effect="fade" >
+		<script src="cssjs/list.js" type="text/JavaScript"></script>
+
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Delete localStorage values</div>
+	For information on deleting just one localStorage key, check the "Clearing localStorage" section.<br>
+		<div data-bb-type="button" data-bb-style="stretch"  onclick="localStorage.clear();alert('Deleted');">Delete ALL localStorage</div>
+	</div>
+	
+	<div data-bb-type="round-panel">
+		<div data-bb-type="header"><font size="6">Saved localStorage Values</font></div>
+		<div id="localStorage"></div>
+		 <div data-bb-type="button" data-bb-style="stretch"  onclick="displayStorage();bb.scroller.refresh();">Load localStorage</div>
+		</div>
+	
+	<div data-bb-type="action-bar" data-bb-back-caption="Back">
+
+	</div>
+</div>

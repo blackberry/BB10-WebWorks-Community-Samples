@@ -1,0 +1,102 @@
+<div data-bb-type="screen" data-bb-effect="fade">
+	<div data-bb-type="image-list" data-bb-header-justify="left" >
+		<div data-bb-type="header" style="text-align: center; font-size: 70px; height:100px; line-height:100px; background: -webkit-gradient(linear, center top, center bottom, from(#3F3F3F), to(#262626)); font-weight: normal; color: white;">system APIs</div>
+	</div>
+
+
+	<div data-bb-type="round-panel"> 
+	A Sampling of blackberry.system APIs for WebWorks. 
+	For more information, visit <a href="#" onclick="window.open('https://developer.blackberry.com/html5/apis/blackberry.system.html','_blank')">the BlackBerry WebWorks System API page</a>.<br>
+	If an api's info hasn't loaded, just press the button to the left and it will load.<br><br>
+	
+	<table width="100%"><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.getCurrentTimezone(): ' + blackberry.system.getCurrentTimezone())">Timezone: </div></td>
+		<td width="50%" style="text-align: right;" id="getCurrentTimezone">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.getFontInfo().fontFamily: ' + blackberry.system.getFontInfo().fontFamily)">fontFamily: </div></td>
+		<td width="50%" style="text-align: right;" id="fontFamily">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.getFontInfo().fontSize: ' + blackberry.system.getFontInfo().fontSize)">fontSize: </div></td>
+		<td width="50%" style="text-align: right;" id="fontSize">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'input.keyboard.issuretype\'): ' + blackberry.system.hasCapability('input.keyboard.issuretype'))">SureType: </div></td>
+		<td width="50%" style="text-align: right;" id="issuretype">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'input.touch\'): ' + blackberry.system.hasCapability('input.touch'))">Touch: </div></td>
+		<td width="50%" style="text-align: right;" id="touch">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'media.audio.capture\'): ' + blackberry.system.hasCapability('media.audio.capture'))">AudioCapture: </div></td>
+		<td width="50%" style="text-align: right;" id="audio">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'media.video.capture\'): ' + blackberry.system.hasCapability('media.video.capture'))">VideoCapture: </div></td>
+		<td width="50%" style="text-align: right;" id="video">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'media.recording\'): ' + blackberry.system.hasCapability('media.recording'))">MediaRecord: </div></td>
+		<td width="50%" style="text-align: right;" id="recording">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'location.gps\'): ' + blackberry.system.hasCapability('location.gps'))">GPS: </div></td>
+		<td width="50%" style="text-align: right;" id="gps">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'location.maps\'): ' + blackberry.system.hasCapability('location.maps'))">Maps: </div></td>
+		<td width="50%" style="text-align: right;" id="maps">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'storage.memorycard\'): ' + blackberry.system.hasCapability('storage.memorycard'))">MemCard: </div></td>
+		<td width="50%" style="text-align: right;" id="memorycard">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'network.bluetooth\'): ' + blackberry.system.hasCapability('network.bluetooth'))">Bluetooth: </div></td>
+		<td width="50%" style="text-align: right;" id="bluetooth">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'network.wlan\'): ' + blackberry.system.hasCapability('network.wlan'))">WLAN: </div></td>
+		<td width="50%" style="text-align: right;" id="wlan">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'network.3gpp\'): ' + blackberry.system.hasCapability('network.3gpp'))">3GPP: </div></td>
+		<td width="50%" style="text-align: right;" id="3gpp">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'network.cdma\'): ' + blackberry.system.hasCapability('network.cdma'))">CDMA: </div></td>
+		<td width="50%" style="text-align: right;" id="cdma">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasCapability(\'network.iden\'): ' + blackberry.system.hasCapability('network.iden'))">IDEN: </div></td>
+		<td width="50%" style="text-align: right;" id="iden">...</td>
+	</tr><tr width="100%">
+		<!--<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasDataCoverage(): ' + blackberry.system.hasDataCoverage())">hasDataCoverage: </div></td>
+		<td width="50%" style="text-align: right;" id="hasDataCoverage">...</td>
+	</tr><tr width="100%">-->
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hasPermission(blackberry.system): ' + blackberry.system.hasPermission(blackberry.system))">Permission(sys): </div></td>
+		<td width="50%" style="text-align: right;" id="hasPermissionSys">...</td>
+	</tr><tr width="100%">
+		<!--<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.isMassStorageActive(): ' + blackberry.system.isMassStorageActive())">isMassStorageActive: </div></td>
+		<td width="50%" style="text-align: right;" id="isMassStorageActive">...</td>
+	</tr><tr width="100%">-->
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.deviceLockedStatus: ' + blackberry.system.deviceLockedStatus)">LockStatus: </div></td>
+		<td width="50%" style="text-align: right;" id="deviceLockedStatus">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.hardwareId: ' + blackberry.system.hardwareId)">HardwareId: </div></td>
+		<td width="50%" style="text-align: right;" id="hardwareId">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.language: ' + blackberry.system.language)">Language: </div></td>
+		<td width="50%" style="text-align: right;" id="language">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.model: ' + blackberry.system.model)">Model: </div></td>
+		<td width="50%" style="text-align: right;" id="model">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.name: ' + blackberry.system.name)">Name: </div></td>
+		<td width="50%" style="text-align: right;" id="name">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.region: ' + blackberry.system.region)">Region: </div></td>
+		<td width="50%" style="text-align: right;" id="region">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.scriptApiVersion: ' + blackberry.system.scriptApiVersion)">ScriptApi: </div></td>
+		<td width="50%" style="text-align: right;" id="scriptApiVersion">...</td>
+	</tr><tr width="100%">
+		<td width="50%"><div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show('blackberry.system.softwareVersion: ' + blackberry.system.softwareVersion)">Software: </div></td>
+		<td width="50%" style="text-align: right;" id="softwareVersion">...</td>
+	</tr><tr width="100%">
+	
+	</tr></table>
+
+
+	<div data-bb-type="button" data-bb-style="stretch" data-bb-style="stretch" onclick="blackberry.system.setWallpaper('local:///images/wallpaper.jpg');blackberry.ui.toast.show('local:///images/wallpaper.jpg Set!')" >blackberry.system.setWallpaper()</div>
+
+	</div>
+
+</div>

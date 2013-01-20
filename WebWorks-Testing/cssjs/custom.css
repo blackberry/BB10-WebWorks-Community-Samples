@@ -1,0 +1,59 @@
+
+.bb-bb10-lowres-screen {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(25%,#b7b7b7), color-stop(50%,#939393), color-stop(76%,#bcbcbc), color-stop(100%,#dbdbdb)); 
+}
+
+.bb-bb10-hires-screen {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(25%,#b7b7b7), color-stop(50%,#939393), color-stop(76%,#bcbcbc), color-stop(100%,#dbdbdb)); 
+}
+
+
+.bb-bb10-round-panel-light {
+	border-color: #C6C6C6;
+	color: Black;
+	background-color: rgba(255,255,255,0.2);
+}
+.bb-bb10-panel-header-lowres
+{
+	color: #000000;
+}
+
+.bb-bb10-panel-header-hires
+{
+	color: #000000;
+}
+
+.bb-bb10-image-list-header-hires
+{
+	height:80px;
+	line-height:80px;
+	font-size: 30pt;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	margin-bottom: 1px;
+	font-weight: normal;
+	overflow:hidden;
+}
+
+.bb-bb10-image-list-header-lowres
+{
+	height:42px;
+	line-height:45px;
+	font-size: 22pt;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	margin-bottom: 1px;
+	overflow:hidden;
+}
+
+.bb-bb10-image-list-header-normal-light {
+	background: -webkit-gradient(linear, center top, center bottom, from(#3F3F3F), to(#262626));
+	font-weight: normal;
+	color: white;
+}
+
+.bb-bb10-image-list-header-normal-dark {
+	background: -webkit-gradient(linear, center top, center bottom, from(#3F3F3F), to(#262626));
+	font-weight: normal;
+	color: white;
+}

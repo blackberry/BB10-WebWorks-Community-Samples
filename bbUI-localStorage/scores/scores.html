@@ -1,0 +1,57 @@
+<div data-bb-type="screen" data-bb-effect="slide-up">
+
+	<div data-bb-type="image-list"> 
+		<div data-bb-type="header">Scores</div>
+	</div>
+
+	<div data-bb-type="round-panel"> 
+	These scores come from my new app, Fact or Fiction. 
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+		<div id="player1title" data-bb-type="panel-header" style="font-size: 30pt; font-weight: normal;">.</div>
+		<table align="center" width="100%" cellpadding="10px"><tr>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.setItem('player1','0');getElementById('showStorage1').innerHTML = localStorage.getItem('player1')">Reset</div></td>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.player1=Number(localStorage.player1)-1;getElementById('showStorage1').innerHTML = localStorage.getItem('player1')">-1</div></td>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.player1=Number(localStorage.player1)+1;getElementById('showStorage1').innerHTML = 	localStorage.getItem('player1')">+1</div></td>
+			<td width="19%"><div style="font-size: 60px" id="showStorage1"></div></td>
+		</tr></table>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+		<div id="player2title" data-bb-type="panel-header" style="font-size: 30pt; font-weight: normal;">.</div>
+		<table align="center" width="100%" cellpadding="10px"><tr>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.setItem('player2','0');getElementById('showStorage2').innerHTML = localStorage.getItem('player2')">Reset</div></td>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.player2=Number(localStorage.player2)-1;getElementById('showStorage2').innerHTML = localStorage.getItem('player2')">-1</div></td>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.player2=Number(localStorage.player2)+1;getElementById('showStorage2').innerHTML = 	localStorage.getItem('player2')">+1</div></td>
+			<td width="19%"><div style="font-size: 60px" id="showStorage2"></div></td>
+		</tr></table>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+		<div id="player3title" data-bb-type="panel-header" style="font-size: 30pt; font-weight: normal;">.</div>
+		<table align="center" width="100%" cellpadding="10px"><tr>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.setItem('player3','0');getElementById('showStorage3').innerHTML = localStorage.getItem('player3')">Reset</div></td>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.player3=Number(localStorage.player3)-1;getElementById('showStorage3').innerHTML = localStorage.getItem('player3')">-1</div></td>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.player3=Number(localStorage.player3)+1;getElementById('showStorage3').innerHTML = 	localStorage.getItem('player3')">+1</div></td>
+			<td width="19%"><div style="font-size: 60px" id="showStorage3"></div></td>
+		</tr></table>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+		<div id="player4title" data-bb-type="panel-header" style="font-size: 30pt; font-weight: normal;">.</div>
+		<table align="center" width="100%" cellpadding="10px"><tr>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.setItem('player4','0');getElementById('showStorage4').innerHTML = localStorage.getItem('player4')">Reset</div></td>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.player4=Number(localStorage.player4)-1;getElementById('showStorage4').innerHTML = localStorage.getItem('player4')">-1</div></td>
+			<td width="27%"><div data-bb-type="button" onclick="localStorage.player4=Number(localStorage.player4)+1;getElementById('showStorage4').innerHTML = 	localStorage.getItem('player4')">+1</div></td>
+			<td width="19%"><div style="font-size: 60px" id="showStorage4"></div></td>
+		</tr></table>
+	</div>
+
+
+	<div data-bb-type="action-bar">
+		<div data-bb-type="action" data-bb-style="button" data-bb-img="images/process.png" onclick="bb.pushScreen('scores/playernames.html','playernames');">Set Player Names</div>
+		<div data-bb-type="action" data-bb-style="button" data-bb-img="images/down.png" onclick="bb.popScreen();">Back</div>
+	</div>
+
+</div>
