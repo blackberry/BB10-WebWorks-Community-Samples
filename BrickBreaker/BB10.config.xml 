@@ -1,0 +1,23 @@
+?xml version="1.0" encoding="utf-8"?>
+<widget xmlns=" http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="2.1.0.0" id="brickbreaker">
+
+  <name>BrickBreakerBB10</name>
+
+  <author>Browser Team, Updated for BB10 by Ashish Kumar (ashii007@gmailcom)</author>
+  <description>
+      A BrickBreaker game, the classic standard on BlackBerry, re-implemented in HTML5.
+      Specifically for BB10 - webworks Gold SDK
+  
+      Rename this file to config.xml to build this project for BB10. the current config.xml is good for playbook build only.
+      Rest of the code works as-is.
+
+  </description>
+  <icon src="imgs/icon.png"/>
+  <content src="index.html"/>
+
+  <feature id="blackberry.app">
+    <param name="orientation" value="landscape" />
+  </feature>
+</widget>
