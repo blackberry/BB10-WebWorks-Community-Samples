@@ -1,0 +1,21 @@
+<project>
+	<!-- Build Properties Overrides -->
+	
+	<!-- 
+	Any properties that exist here will override the ones defined
+	in buildTasks.xml, as long as this file is included first.
+	-->
+
+	<!-- Code Signing Password -->
+	<property name="sign.pw" value="*****"/>
+
+	<!-- Set the details of the device or simulator for deployment -->
+	<!-- For BB10 device -->
+	<property name="device.native.ip" value="169.254.0.1"/>
+	<property name="device.native.pw" value="" />
+	<!-- For Tablet device -->
+	<property name="device.air.ip" value="169.254.0.5"/>
+	<property name="device.air.pw" value="" />
+	<!-- For BBOS Java device (only password is needed) -->
+	<property name="device.java.pw" value="" />
+</project>

@@ -27,7 +27,13 @@
 	<!-- Fail the build on JSLint, JSHint, CSSLint errors -->
 	<property name="lintfail" value="false"/>
 	
-	<!-- Include the Targets  -->
+	<!-- Include the Properties and Targets  -->
+	<!-- 
+	The ${ant.home} variable will only work if running the Ant included in this repository. On Mac, which uses its own Ant, set a direct file path here.
+	
+	The buildProperties.xml file is optional but allows you to separate out certain settings, like passwords.
+	-->
+	<!-- <include file="${ant.home}/../buildProperties.xml" /> -->
 	<include file="${ant.home}/../buildTasks.xml" />
 
 	<!-- Default Build - Change as needed to the sdk and build properties you want:
@@ -58,16 +64,6 @@
 	- test, prod, beta to load the matching build created above
 	-->
 	<target name="build" depends="build.native.prod,build.deploy.native.sim.prod"></target>
-
-	<!-- Set the details of the device or simulator for deployment -->
-	<!-- For BB10 device -->
-	<property name="device.native.ip" value="169.254.0.1"/>
-	<property name="device.native.pw" value="" />
-	<!-- For Tablet device -->
-	<property name="device.air.ip" value="169.254.0.2"/>
-	<property name="device.air.pw" value="" />
-	<!-- For BBOS Java device (only password is needed) -->
-	<property name="device.java.pw" value="" />
 
 	<!-- Add additional Targets here -->
 	<target name="example" depends=""></target>
