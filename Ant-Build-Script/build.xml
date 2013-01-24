@@ -43,10 +43,10 @@
 	build.ripple (deploy to your file system for serving up in Ripple)
 
 	Specific builds follow the pattern:
-	build.[java, air, native].[test, prod, beta]
-	- use java for BlackBerry 5 through 7.x smartphones
-	- air for PlayBook 1.x through 2.x
-	- native for BlackBerry 10
+	build.[bbos, tablet, bb10].[test, prod, beta]
+	- use bbos for BlackBerry 5 through 7.x smartphones
+	- tablet for PlayBook 1.x through 2.x
+	- bb10 for BlackBerry 10
 
 	- use test for WebInspector, source output, and debug tokens. Java builds will only run on simulators.
 	- use prod for regular signing with a build id and no debugging.
@@ -58,12 +58,12 @@
 	build.minify concatenates and minifies the JS and CSS files
 
 	Deployment commands follow the pattern:
-	build.deploy.[native.[device, sim], air, java].[test, prod, beta]
-	- native, air, java as defined above
-	- only for native builds, use device for real devices and sim for VMWare based simulators
+	build.deploy.[bb10.[device, sim], tablet, bbos].[test, prod, beta]
+	- bb10, tablet, bbos as defined above
+	- only for bb10 builds, use device for real devices and sim for VMWare based simulators
 	- test, prod, beta to load the matching build created above
 	-->
-	<target name="build" depends="build.native.prod,build.deploy.native.sim.prod"></target>
+	<target name="build" depends="build.bb10.prod,build.deploy.bb10.device.prod"></target>
 
 	<!-- Add additional Targets here -->
 	<target name="example" depends=""></target>
