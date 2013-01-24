@@ -329,7 +329,7 @@
 
 	<!-- JSLint target, run separately -->
 	<target name="jslint">
-	  <apply dir="${src.js.dir}" executable="bbos" parallel="false" failonerror="${lintfail}">
+	  <apply dir="${src.js.dir}" executable="java" parallel="false" failonerror="${lintfail}">
 			<fileset dir="${src.js.dir}">
 				<include name="**/*.js"/>
 				<exclude name="**/*.min.js"/>
@@ -345,7 +345,7 @@
 
 	<!-- JSHint target, run separately -->
 	<target name="jshint">
-		<apply dir="${src.js.dir}" executable="bbos" parallel="false" failonerror="${lintfail}">
+		<apply dir="${src.js.dir}" executable="java" parallel="false" failonerror="${lintfail}">
 			<fileset dir="${src.js.dir}">
 				<include name="**/*.js"/>
 				<exclude name="**/*.min.js"/>
@@ -361,7 +361,7 @@
 
 	<!-- CSSLint target, run separately -->
 	<target name="csslint">
-		<apply dir="${src.css.dir}" executable="bbos" parallel="false" failonerror="${lintfail}">
+		<apply dir="${src.css.dir}" executable="java" parallel="false" failonerror="${lintfail}">
 			<fileset dir="${src.css.dir}">
 				<include name="**/*.css"/>
 				<exclude name="**/*.min.css"/>
@@ -400,7 +400,7 @@
 	<!--Minify JS files-->
 	<target name="js.minify" depends="js.concatenate,-copy.html" 
 		description="Minifies JavaScript files">
-		<apply executable="bbos" parallel="false" dest="${build.js.dir}">
+		<apply executable="java" parallel="false" dest="${build.js.dir}">
 			<fileset 
 				dir="${build.js.dir}" 
 				includes="${jsconcat}"/>
@@ -421,7 +421,7 @@
 	<!--Minify CSS files-->
 	<target name="css.minify" depends="css.concatenate,-copy.html" 
 		description="Minifies CSS files">
-		<apply executable="bbos" parallel="false"  dest="${build.css.dir}">
+		<apply executable="java" parallel="false"  dest="${build.css.dir}">
 			<fileset 
 				dir="${build.css.dir}" 
 				includes="${cssconcat}"/>
