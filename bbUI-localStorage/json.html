@@ -1,0 +1,47 @@
+<div data-bb-type="screen" data-bb-title="Settings" data-bb-effect="fade" >
+		<script src="cssjs/list.js" type="text/JavaScript"></script>
+
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">JSON</div>
+		Sometimes you might want to store more than one item in localStorage; there's no real reason to have several hundred localStorage values. You can use JSON to store and retrieve multiple items from localStorage.
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Stringify</div>
+		Saving a JSON string is quite easy. Here's the sample code for the button below:<br>
+		<br>localStorage.setItem('jsonString', JSON.stringify({	
+		<br>option1: 'Hello World',
+		<br>option2: 'Goodbye World',
+		<br>option3: document.getElementById('JSONbox').value,
+		<br>}))
+		<br>
+		<br> The id of the box below is JSONbox; whatever you enter as the content of it will be saved.
+		<input id="JSONbox" type="text" value="Help! I've been stringified!" onclick="this.value = ''" />
+		<div data-bb-type="button" data-bb-style="stretch"  onclick="saveJSON();">Stringify!</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Parse the String</div>
+		Once you've stored a string, it wouldn't be much good if you couldn't retrieve a specific item. Retrieval is quite simple as well.<br>
+		To retrieve a specific saved value, just execute the following:<br>
+		<center>JSON.parse(localStorage.getItem('yourvalue')).theStringName</center><br>
+		For this example, you could run any of the following:<br><br>
+		
+		<div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show(JSON.parse(localStorage.getItem('jsonString')).option1)">JSON.parse(localStorage.getItem('jsonString')).option1</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show(JSON.parse(localStorage.getItem('jsonString')).option2)">JSON.parse(localStorage.getItem('jsonString')).option2</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.ui.toast.show(JSON.parse(localStorage.getItem('jsonString')).option3)">JSON.parse(localStorage.getItem('jsonString')).option3</div>
+		Although in this example I used BlackBerry Toasts, you could use the JSON string to populate pretty much anything, like a text box:<br><br>
+		
+		<input style="text-align: center;" id="exportbox" value="You haven't put your string here yet." type="text" />
+		<table width="100%"><tr>
+			<td width="33.33%"><div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('exportbox').value = JSON.parse(localStorage.getItem('jsonString')).option1">option1</div></td>
+			<td width="33.33%"><div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('exportbox').value = JSON.parse(localStorage.getItem('jsonString')).option2">option2</div></td>
+			<td width="33.33%"><div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('exportbox').value = JSON.parse(localStorage.getItem('jsonString')).option3">option3</div></td>
+		</tr></table>
+		Anytime you need to store multiple values, localStorage + JSON is the way to go.
+	</div>
+
+	<div data-bb-type="action-bar" data-bb-back-caption="Back">
+
+	</div>
+</div>

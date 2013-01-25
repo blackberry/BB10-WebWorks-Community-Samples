@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widget 
+	xmlns="http://www.w3.org/ns/widgets"
+	xmlns:rim="http://www.blackberry.com/ns/widgets"  
+	rim:header="RIM-Widget:rim/widget" 
+	xml:lang="en"
+	id="localstorage7db657fe20749f1b97ca3a7f16e89a5" 
+	version="1.2.0.0">
+	
+	<name>localStorage</name>
+	<description>How to use localStorage to make better bbUI apps</description>
+	<author 
+		href="https://scrapps.org"
+		rim:copyright="Copyright 2009-2013 SCrApps">
+		SCrApps
+	</author>
+
+	<icon src="images/icon.png" />
+	
+	<rim:splash src="images/splashscreen-wide.jpg"/>
+	<rim:splash src="images/splashscreen-tall.jpg"/>
+	
+	<content src="index.html" />
+
+	<access uri="*" subdomains="true" />	
+	<feature id="blackberry.app">
+		<param name="websecurity" value="disable" />
+	</feature>
+
+	<feature id="blackberry.app" />
+	<feature id="blackberry.invoke" />
+	<feature id="blackberry.invoke.card" />
+	<feature id="blackberry.ui.toast" />
+	<!--
+	<feature id="blackberry.bbm.platform" />
+	<feature id="blackberry.system" />
+	<feature id="blackberry.pim.calendar" />
+	-->
+	
+	<!--
+	<feature id="blackberry.app">
+		<param name="orientation" value="portrait" />
+	</feature>
+	-->
+
+	<rim:permissions>
+		<!--
+		<rim:permit>bbm_connect</rim:permit>
+		<rim:permit>access_pimdomain_calendars</rim:permit>
+		<rim:permit>access_shared</rim:permit>
+		<rim:permit>use_camera</rim:permit>
+		<rim:permit>read_device_identifying_information</rim:permit>
+		<rim:permit>read_geolocation</rim:permit>
+		<rim:permit>record_audio</rim:permit>
+		<rim:permit>_sys_use_consumer_push</rim:permit>
+		<rim:permit>run_when_backgrounded</rim:permit>
+		<rim:permit>access_location_services</rim:permit>
+		<rim:permit>access_pimdomain_messages</rim:permit>
+		<rim:permit>access_pimdomain_contacts</rim:permit>
+		<rim:permit>access_pimdomain_notebooks</rim:permit>
+		<rim:permit>post_notifications</rim:permit>
+		<rim:permit>access_sms_mms</rim:permit>
+		-->
+	</rim:permissions>
+
+  </widget>

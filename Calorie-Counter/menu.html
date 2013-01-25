@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<div data-bb-type="screen" data-bb-title="Menus" data-bb-effect="fade">
+
+	<div data-bb-type="menu" >
+		<div data-bb-type="menu-item" data-bb-img="images/bbm.png" onclick="setPM();">Update Status</div>
+		<div data-bb-type="menu-item" data-bb-img="images/bbm.png" onclick="invite();" >Share This App</div>
+		<div data-bb-type="menu-item" data-bb-img="images/yourinfo.png" onclick="window.open('http://www.scrapps.org/privacy.html', '_blank');">Privacy Policy</div>
+	</div>
+	
+	<div data-bb-type="image-list" data-bb-header-justify="left" >
+		<div data-bb-type="header" style="text-align:center; font-size: 50px;">CALORIE COUNTER</div>
+	</div>
+	
+	<div data-bb-type="round-panel">
+	<div data-bb-type="panel-header">Breakfast</div><input style="text-align: center;" id="breakfast" type="number" value="0" onclick="if (this.value == '0') this.value=''" onkeydown="addTotal()" />
+	<div data-bb-type="panel-header">Lunch</div><input style="text-align: center;" id="lunch" type="number" value="0" onclick="if (this.value == '0') this.value=''" onkeydown="addTotal()" />
+	<div data-bb-type="panel-header">Dinner</div><input style="text-align: center;" id="dinner" type="number" value="0" onclick="if (this.value == '0') this.value=''" onkeydown="addTotal()" />
+	<div data-bb-type="panel-header">Snacks</div><input style="text-align: center;" id="snacks" type="number" value="0" onclick="if (this.value == '0') this.value=''" onkeydown="addTotal()" />
+	<br><br>
+	<div data-bb-type="panel-header">Total</div><input style="text-align: center;" id="total" type="number" value="0" />
+	</div>
+	<br>
+	<div data-bb-type="button" data-bb-style="stretch" onclick="appWorld()" >Like this app? Get some more!</div>	
+	
+	
+	<div data-bb-type="action-bar">
+		<div data-bb-type="action" data-bb-style="button" data-bb-img="images/trash.png" onclick="clearAll()">Clear</div>
+		<div data-bb-type="action" data-bb-style="button" data-bb-img="images/calendar.png" onclick="addToCal()">Export to Calendar</div>
+		<div data-bb-type="action" data-bb-style="button" data-bb-img="images/bbm.png" onclick="setPM()">Update BBM</div>
+	</div>
+</div>
+	

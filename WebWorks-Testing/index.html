@@ -1,0 +1,19 @@
+<script language="javascript"> 
+function onLoad() {
+	if (localStorage.getItem('iframe') == 'true') {window.open('settings.html','_top')}
+	else if (localStorage.getItem('load') != null) {
+		if (localStorage.getItem('load') == 'Landscape') {
+			if (screen.width > 1000) { window.open(localStorage.getItem('goto'),'_top')}
+			else { window.open('settings.html','_top')}
+		}
+		else if (localStorage.getItem('load') == 'Portrait') {
+			if (screen.width < 1000) { window.open(localStorage.getItem('goto'),'_top')}
+			else { window.open('settings.html','_top')}
+		}
+		else if (localStorage.getItem('load') == 'Either') {window.open(localStorage.getItem('goto'),'_top')}
+	}
+	else { window.open('settings.html','_top')}
+}
+
+window.onload = onLoad;
+</script>
