@@ -1,0 +1,22 @@
+<div data-bb-type="screen" data-bb-effect="slide-up">
+
+	<div data-bb-type="image-list"> 
+		<div data-bb-type="header">Hiding Things</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+		<div data-bb-type="panel-header">Style="display:none"</div>
+		You probably know that you can hide things with css display: none. You can have this done automatically with localStorage.<br><br>
+		Example:<br>
+		<font color="blue"><i>if</i></font> (localStorage.getItem('hideinfo') != null) {document.getElementById('hideinfo').style.display = 'none'}<br>
+		This script will hide the Background Info section on the main page of this app. Press the button below to enable it.<br>
+			<div data-bb-type="button" data-bb-style="stretch" onclick="localStorage.setItem('hideinfo','set')">Hide the Background Info.</div><br>
+		If you'd live to restore it, just press this:<br>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="localStorage.removeItem('hideinfo')">localStorage.removeItem('hideinfo')</div>
+
+	</div>
+	<div data-bb-type="action-bar" data-bb-back-caption="Back"></div>
+</div>
+
+
+

@@ -1,0 +1,21 @@
+<div data-bb-type="screen" data-bb-effect="slide-up">
+
+	<div data-bb-type="image-list"> 
+		<div data-bb-type="header">Counter</div>
+	</div>
+
+	<center>
+	<div style="font-size: 250px" id="counter">_</div>
+	</center>
+	
+	<div data-bb-type="button" data-bb-style="stretch" onclick="localStorage.setItem('counter','0');getElementById('counter').innerHTML = localStorage.getItem('counter')">Reset</div>
+	<div data-bb-type="button" data-bb-style="stretch" onclick="localStorage.counter=Number(localStorage.counter)-1;getElementById('counter').innerHTML = localStorage.getItem('counter')">-1</div>
+	<div data-bb-type="button" data-bb-style="stretch" onclick="localStorage.counter=Number(localStorage.counter)+1;getElementById('counter').innerHTML = 	localStorage.getItem('counter')">+1</div>
+	<div style="font-size: 60px" id="counter"></div>
+
+	<div data-bb-type="round-panel"> 
+	This code is included in the Scores page, but this is a more simplified version.
+	</div>
+			
+	<div data-bb-type="action-bar" data-bb-back-caption="Back"></div>
+</div>

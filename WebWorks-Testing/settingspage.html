@@ -1,0 +1,64 @@
+<div data-bb-type="screen" data-bb-effect="fade">
+	<div data-bb-type="image-list" data-bb-header-justify="left" >
+		<div data-bb-type="header" onclick="title();" style="text-align:center;">The WebWorks Testing App</div>
+	</div>
+	<div data-bb-type="round-panel" id="hello" style="display: none;"> 
+		The WebWorks Testing app was originally a simple app that launched html files from your BlackBerry's internal memory. At this point, it has expanded a fair bit beyond it's humble origins in features, but still (in my opinion) fulfills its original goal of making WebWorks apps even easier to build and test.<br><br>
+		<div data-bb-type="panel-header">Setup:</div>
+		First, decide where you'd like to load your WebWorks code from. If you'd like to load it from an external URL (like a home server, a personal webpage, etc), just type the domain name or IP address into the box with the "http://" in front of it, and click the "Set Web Location" button. If you'd like to load it from the BlackBerry filesystem, just type where you're going to store the files into the box with "file:///accounts/1000/shared/" in front of it. For example, if you wanted to use the same directory as the original WebWorks Testing app, you could just type misc/Testing/index.html into that box.<br>
+		Next, you choose how you'd like to return to this settings page (so you can change the location of your testing files or clear the WebWorks Testing app's localStorage cache). You do this by selecting one of the checkboxes. Landscape will open this settings screen if the BlackBerry is not in Landscape mode, portrait will open it if your BlackBerry is not in portrait mode. If you select Either and leave these settings, you'll never see them again unless you delete/reinstall the app. And if you select Neither, you'll be returned to this screen next time you launch the app.<br>
+		If you have any questions, feel free to email me or post on my Github account (github.com/SCrid2000).
+		<div data-bb-type="button" data-bb-style="stretch" value="URL Button" onclick="localStorage.setItem('hello','set');loadingTime()">Hide this info</div>
+
+	</div>
+	<div data-bb-type="round-panel"> 
+		<div data-bb-type="panel-header">Load code from:</div>
+	
+	<div data-bb-type="row">
+		<table width="100%"><tr>
+			<td>http://</td>
+			<td width="100%"><input type="url" id="urlbox" /></td>
+		</tr></table>
+		<table width="100%"><tr>	
+			<td>file:///accounts/1000/shared/ </td>
+			<td width="100%"><input type="text" id="localbox" /></td>
+		</tr></table>
+
+		<div data-bb-type="button" data-bb-style="stretch" id="urlbutton" onclick="localStorage.setItem('goto','http://' + getElementById('urlbox').value);loadingTime();">Set Web location</div>
+			<div data-bb-type="button" data-bb-style="stretch" id="localbutton" value="URL Button" onclick="localStorage.setItem('goto','file:///accounts/1000/shared/' + getElementById('localbox').value);loadingTime();">Set Internal location</div>
+			<div data-bb-type="button" data-bb-style="stretch" id="localbutton" value="URL Button" onclick="localStorage.setItem('goto','file:///accounts/1000/shared/misc/Testing/index.html' + getElementById('localbox').value);loadingTime();">Set internal misc/Testing/index.html</div>
+			<table><tr>
+				<td width="80%">Load in iframe? </td>
+				<td><div data-bb-type="toggle" id="iframetoggle" data-bb-on="Yes" data-bb-off="No" onchange="localStorage.setItem('iframe',this.checked);" ></td>
+			</tr></table>
+	</div>
+	</div>
+	<div data-bb-type="round-panel"> 
+		<div data-bb-type="panel-header">Launch my WebWorks code when my BlackBerry Orientation is:</div>
+		
+	<div data-bb-type="row">
+		<table width="100%"><tr>
+			<td width="10%"><input id="Portraitradio" name="group1" type="radio" onchange="localStorage.setItem('load','Portrait');loadingTime();" /></td>
+			<td width="40%">Portrait</td>
+			<td width="10%"><input id="Landscaperadio" name="group1" type="radio" onchange="localStorage.setItem('load','Landscape');loadingTime();" /></td>
+			<td width="40%">Landscape</td> 
+		</tr><tr>
+			<td width="10%"><input id="Eitherradio" name="group1" type="radio" onchange="localStorage.setItem('load','Either');loadingTime();" /></td>
+			<td width="40%">Either</td> 
+			<td width="10%"><input id="Neitherradio" name="group1" type="radio" onchange="localStorage.setItem('load','Neither');loadingTime();" /></td>
+			<td width="40%">Neither</td> 
+		</tr></table>
+	</div>
+	</div>
+
+	<div data-bb-type="round-panel" style="overflow: hidden;"> 
+		<div data-bb-type="panel-header">Current Settings:</div>
+		<a id="goto">...</a><br>
+		<a id="url">...</a>
+	</div>
+
+	<div data-bb-type="action-bar">
+		<div data-bb-type="action" data-bb-style="button" data-bb-img="images/accept.png" onclick="window.open('index.html','_top')">Save/Launch</div>
+		<div data-bb-type="action" data-bb-style="button" data-bb-img="images/trash.png" onclick="unCheckAll();loadingTime();">Reset Settings</div>
+	</div>
+</div>

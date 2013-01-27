@@ -1,0 +1,10 @@
+<div data-bb-type="screen" data-bb-title="Menus" data-bb-effect="fade">
+	<div data-bb-type="menu" >
+		<div data-bb-type="menu-item" data-bb-img="images/back.png" onclick="javascript:self.history.go(-1);">Back</div>
+		<div data-bb-type="menu-item" data-bb-img="images/home.png" onclick="document.getElementById('theiframe').src = localStorage.getItem('goto')">Reload</div>
+		<div data-bb-type="menu-item" data-bb-img="images/next.png" onclick="javascript:self.history.go(1);">Forward</div>
+		<div data-bb-type="menu-item" data-bb-img="images/process.png" onclick="bb.pushScreen('settingspage.html','settings');">Settings</div>
+	</div>
+	
+	<iframe src="" id="theiframe" width="100%" height="100%" frameborder="0px"></iframe	>
+</div>

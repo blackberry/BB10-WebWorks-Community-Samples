@@ -1,0 +1,125 @@
+<head>
+<link rel="stylesheet" href="jquery.mobile-1.2.0.min.css" />
+<script src="jquery-1.8.3.min.js"></script>
+<script src="jquery.mobile-1.2.0.min.js"></script>
+<script src="local:///chrome/webworks.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<style type="text/css">
+body {
+	background-image: url(images/background.png);
+	background-repeat:repeat-y;
+	background-position:center center;
+	background-attachment:scroll;
+	background-size:100% 100%;
+	position: relative;
+}
+.ui-page {
+    background: transparent;
+}
+.ui-content{
+    background: transparent;
+}
+.ui-icon-bbmicon {
+	background: url(images/bbm.png);
+	background-size: 18px 18px;
+}
+.toggle .ui-slider-switch { width: 9em; margin-top: 10px;}
+</style>
+
+
+<script>
+function invite() {
+blackberry.bbm.platform.users.inviteToDownload()
+}
+
+function setPM() {
+blackberry.bbm.platform.self.setPersonalMessage('I\'m Playing ToeTacTic; it\'s ' + next +'\'s turn to go.')
+}
+
+function onLoadFunctions() {
+	blackberry.event.addEventListener('onaccesschanged', function (accessible, status) {
+		if (status === 'unregistered') {
+			blackberry.bbm.platform.register({
+				uuid: 'da6530a5-923d-4b27-ab97-096a4b17ed14'
+			});
+		} else if (status === 'allowed') {
+			bbm.registered = accessible;
+		}
+	}, false)
+}
+
+function appWorld() {
+    blackberry.invoke.invoke({
+        target: "sys.appworld",
+        uri: "appworld://vendor/4735"
+    });
+}
+
+function setNext() {
+if (window.next == 'images/x.png') {window.next = 'images/o.png'}
+else if (window.next == 'images/o.png') {window.next = 'images/x.png'}
+}
+
+function newGame() {
+document.getElementById('1').src = 'images/blank.png'
+document.getElementById('2').src = 'images/blank.png'
+document.getElementById('3').src = 'images/blank.png'
+document.getElementById('4').src = 'images/blank.png'
+document.getElementById('5').src = 'images/blank.png'
+document.getElementById('6').src = 'images/blank.png'
+document.getElementById('7').src = 'images/blank.png'
+document.getElementById('8').src = 'images/blank.png'
+document.getElementById('9').src = 'images/blank.png'
+window.next = document.getElementById('toggle').value;
+}
+</script>
+
+</head>
+
+
+<body onload="window.next = 'images/x.png'">
+<div data-role="page" data-theme="b">
+
+<div data-role="header" data-position="fixed" data-theme="b">
+	<h1>Toe Tac Tic</h1>
+	<a onclick="setPM();" data-icon="bbmicon" data-direction="reverse">Status</a>
+	<a onclick="invite();" data-icon="bbmicon" data-direction="reverse">Share</a>
+</div>
+
+<div class="toggle"><center>
+		<select name="toggle" id="toggle" data-role="slider" onchange="window.next=this.value">
+				<option value="images/x.png">X Goes First</option>
+				<option value="images/o.png">O Goes First</option>
+		</select>
+</center></div>
+
+<div style="margin: 5%;">
+	<table style="width: 100%;"><tr>
+		<td style="text-align: center; width: 33%; border-right:1px solid #000; border-bottom:1px solid #000;"><img id="1" onclick="if (this.src=='local:///images/blank.png') {this.src=next; setNext();}" src="images/blank.png" width="100%"/></td>
+		<td style="text-align: center; width: 33%; border-right:1px solid #000; border-left:1px solid #000; border-bottom:1px solid #000;"><img id="2" onclick="if (this.src=='local:///images/blank.png') {this.src=next; setNext();}" src="images/blank.png" width="100%" /></td>
+		<td style="text-align: center; width: 33%; border-left:1px solid #000; border-bottom:1px solid #000;"><img id="3" onclick="if (this.src=='local:///images/blank.png') {this.src=next; setNext();}" src="images/blank.png" width="100%" /></td>
+	</tr><tr>
+		<td style="text-align: center; width: 33%; border:1px solid #000; border-left:0px;"><img id="4" onclick="if (this.src=='local:///images/blank.png') {this.src=next; setNext();}" src="images/blank.png" width="100%"/></td>
+		<td style="text-align: center; width: 33%; border:1px solid #000;"><img id="5" onclick="if (this.src=='local:///images/blank.png') {this.src=next; setNext();}" src="images/blank.png" width="100%" /></td>
+		<td style="text-align: center; width: 33%; border:1px solid #000; border-right:0px;"><img id="6" onclick="if (this.src=='local:///images/blank.png') {this.src=next; setNext();}" src="images/blank.png" width="100%" /></td>
+	</tr><tr>
+		<td style="text-align: center; width: 33%; border-right:1px solid #000; border-top:1px solid #000;"><img id="7" onclick="if (this.src=='local:///images/blank.png') {this.src=next; setNext();}" src="images/blank.png" width="100%"/></td>
+		<td style="text-align: center; width: 33%; border-right:1px solid #000; border-left:1px solid #000; border-top:1px solid #000;"><img id="8" onclick="if (this.src=='local:///images/blank.png') {this.src=next; setNext();}" src="images/blank.png" width="100%" /></td>
+		<td style="text-align: center; width: 33%; border-left:1px solid #000; border-top:1px solid #000;"><img id="9" onclick="if (this.src=='local:///images/blank.png') {this.src=next; setNext();}" src="images/blank.png" width="100%" /></td>
+	</tr></table>
+</div>
+
+<div style="margin: 5%;">
+	<input type="button" value="New Game" onclick="newGame();" />
+</div>
+
+<div data-role="footer" data-position="fixed" data-theme="b" data-tap-toggle="false">
+<div data-role="controlgroup" data-type="horizontal" style="text-align:center" data-tap-toggle="false">
+	<a onclick="appWorld();" data-role="button">Like this App? Get some more!</a>
+</div></div>
+
+<script type="text/javascript">
+setTimeout("onLoadFunctions()",1500)
+</script>
+</div>
+</body>

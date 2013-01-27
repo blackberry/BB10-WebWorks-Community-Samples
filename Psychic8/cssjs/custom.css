@@ -1,0 +1,107 @@
+/* ================================================= 
+  Custom Background Image
+=================================================*/   
+
+.bb-bb10-lowres-screen {
+	background-image:url('../images/background.png');
+}
+
+.bb-bb10-hires-screen {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(25%,#b7b7b7), color-stop(50%,#939393), color-stop(76%,#bcbcbc), color-stop(100%,#dbdbdb)); 
+}
+
+/* ================================================= 
+   Round panel
+   =================================================*/
+
+.bb-round-panel-top-left {
+	margin-right: 1px; 
+	height: 1px; 	
+}
+
+.bb-round-panel-top-right {
+	margin-top: -1px; 
+	margin-left: 1px; 
+	background-position: 100% 0; 
+	height: 1px; 
+	font-size: 2px;
+}
+
+.bb-round-panel-bottom-left {
+	margin-right: 1px; 
+	background-position: 0 -7px; 
+	height: 1px;
+	font-size: 2px;
+}
+
+.bb-round-panel-bottom-right {
+	margin-top: -1px; 
+	margin-left: 1px; 
+	background-position: 100% -7px; 
+	height: 1px; 
+	font-size: 2px; 
+}
+
+.bb-round-panel-inside {
+	border-left: 1px solid #ffffff;
+	border-right: 1px solid #ffffff;
+	background: rgba(50,50,50,0.2);
+	padding-left: 3px;
+	padding-right: 3px;
+	overflow:auto;
+}
+
+/* ================================================= 
+   BB10 Round panels
+   =================================================*/
+
+.bb-bb10-round-panel-light {
+	border-color: #C6C6C6;
+	color: Black;
+	background-color: rgba(255,255,255,0.2);
+}
+.bb-bb10-panel-header-lowres
+{
+	color: #000000;
+}
+
+.bb-bb10-panel-header-hires
+{
+	color: #000000;
+}
+
+/* ================================================= 
+   Image List BB10
+   =================================================*/
+  
+.bb-bb10-image-list-header-hires
+{
+	height:99px;
+	line-height:99px;
+	font-size: 51pt;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	margin-bottom: 1px;
+}
+
+.bb-bb10-image-list-header-lowres
+{
+	height:42px;
+	line-height:45px;
+	font-size: 22pt;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	margin-bottom: 1px;
+}
+
+.bb-bb10-image-list-header-normal-light {
+	background: -webkit-gradient(linear, center top, center bottom, from(#3F3F3F), to(#262626));
+	font-weight: normal;
+	color: white;
+}
+
+.bb-bb10-image-list-header-normal-dark {
+	background: -webkit-gradient(linear, center top, center bottom, from(#3F3F3F), to(#262626));
+	font-weight: normal;
+	color: white;
+}
