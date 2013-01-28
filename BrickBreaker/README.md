@@ -1,13 +1,13 @@
 # BrickBreakerBold
 
-BrickBreaker Bold takes the classic, standard BlackBerry game and re-implements it using a combination of the latest web technologies including HTML5, CSS3 and Javascript.
+BrickBreaker Bold (BETA) takes the classic, standard BlackBerry game and re-implements it using a combination of the latest web technologies including HTML5, CSS3 and Javascript.
 
 The sample code for this application is Open Source under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
 
 
 **Applies To**
 
-* [BlackBerry WebWorks SDK for PlayBook and BB10](https://bdsc.webapps.blackberry.com/html5/download/sdk)
+* [BlackBerry WebWorks SDK for BB10](https://bdsc.webapps.blackberry.com/html5/download/sdk)
 
 **Producer**
 
@@ -24,36 +24,19 @@ The sample code for this application is Open Source under the [Apache 2.0 Licens
 
 **Known Issues**
 
-* Enabling sound may cause loss of frames on PlayBook Device.
+* Some audio sound effects are duplicated.
+* Enabling the rotating light (r) causes frame loss when sound effects are played.
 
 **Tested On**
-* BlackBerry Playbook v2.1
 * BlackBerry 10 (pre-release)
 
-## How to Build
+## Building and Testing on Device:
 
-1. Create a .zip archive of the project's root directory using your program of choice.
-2. Navigate to the \bbwp\ directory of your SDK installation.
+* [Download BlackBerry WebWorks SDK for BB10](https://bdsc.webapps.blackberry.com/html5/download/sdk)
 
-	**Example:**
-	`cd C:\Program Files\Research In Motion\BlackBerry WebWorks SDK for TabletOS 2.2.0.5\bbwp`
+* [Package And Deploy Instructions] (https://developer.blackberry.com/html5/documentation/running_your_bb10_app_2008471_11.html)
 
-3. Compile the .zip archive into a .bar file using the following command:
-`bbwp "INSERT-PATH-TO-ZIP\ARCHIVE.ZIP" -o "TARGET-PATH"`
-
-	**Example:**
-	`bbwp "C:\Documents and Settings\User\Desktop\BrickBreakerBold.zip" -o "C:\Documents and Settings\User\Desktop"`
-
-4. Navigate to the \bbwp\blackberry-tablet-sdk\bin\ directory of your SDK installation.
-
-	**Example:**
-	`cd C:\Program Files\Research In Motion\BlackBerry WebWorks SDK for TabletOS 2.2.0.5\bbwp\blackberry-tablet-sdk\bin\`
-
-5. Ensuring that your Playbook or BB10 is connected to your computer via USB, and that development mode is enabled on your device, install the application on your device using the following command:
-`blackberry-deploy -installApp -device DEVICE-IP -package "TARGET-PATH\ARCHIVE.BAR" -password DEVICE-PASSWORD`
-
-	**Example:**
-	`blackberry-deploy -installApp -device 169.254.0.1 -package "C:\Documents and Settings\User\Desktop\BrickBreakerBold.bar" -password thisismypassword`
+* OR Checkout the repo onto you local webserver and load from any browser.
 
 ## More Info
 
