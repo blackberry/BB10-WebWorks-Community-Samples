@@ -29,9 +29,6 @@ body{
     font-size: 24px;
 }
 
-
-
-
 #resume_game {
     display:block;
     width: 100%;
@@ -81,12 +78,21 @@ body{
 #about{
     width:80%;
     position:absolute;
-    left:10%;
-    top:40%;
+    left:20%;
+    top:30%;
     z-index:1;
     -webkit-transform:translateZ(0);
 }
 
+#open_source{
+    color: white;
+    font-family: "Myriad Pro", sans-serif;
+    font-weight: bold;
+    font-size: 18%;
+    position: absolute;
+    left: 20%;
+    bottom: 20%;
+}
 
 #main_logo{
     width:100%;
@@ -282,9 +288,9 @@ body{
 
 #welcome_screen{
     width:50%;
-    height:65%;
+    height:75%;
     position:absolute;
-    top:25%;
+    top:20%;
     left:25%;
     -webkit-transform:translateZ(0);
 }
