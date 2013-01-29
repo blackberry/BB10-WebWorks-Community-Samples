@@ -71,7 +71,20 @@ $(document).ready( function () {
             $("#button_music_off").show();
             audio.background.pause();
             audio.musicEnabled = !audio.musicEnabled;
+            event.preventDefault();
         });
+
+        $("#button_music_on").bind("mousedown", function () {
+            buttonMusicOn.style.opacity = 1;
+        });
+        $("#button_music_on").bind("mouseup", function () {
+            buttonMusicOn.style.opacity = 0.7;
+            $(this).hide();
+            $("#button_music_off").show();
+            audio.background.pause();
+            audio.musicEnabled = !audio.musicEnabled;
+        });
+
         $("#button_music_off").bind("touchstart", function () {
             buttonMusicOff.style.opacity = 1;
         });
@@ -81,7 +94,22 @@ $(document).ready( function () {
             $("#button_music_on").show();
             audio.background.play();
             audio.musicEnabled = !audio.musicEnabled;
+            event.preventDefault();
         });
+
+        $("#button_music_off").bind("mousedown", function () {
+            buttonMusicOff.style.opacity = 1;
+        });
+        $("#button_music_off").bind("mouseup", function () {
+            buttonMusicOff.style.opacity = 0.7;
+            $(this).hide();
+            $("#button_music_on").show();
+            audio.background.play();
+            audio.musicEnabled = !audio.musicEnabled;
+            event.preventDefault();
+        });
+
+
         $("#button_sfx_on").bind("touchstart", function () {
             buttonSfxOn.style.opacity = 1;
         });
@@ -90,6 +118,7 @@ $(document).ready( function () {
             $(this).hide();
             $("#button_sfx_off").show();
             audio.sfxEnabled = !audio.sfxEnabled;
+            event.preventDefault();
         });
         $("#button_sfx_off").bind("touchstart", function () {
             buttonSfxOff.style.opacity = 1;
@@ -99,7 +128,29 @@ $(document).ready( function () {
             $(this).hide();
             $("#button_sfx_on").show();
             audio.sfxEnabled = !audio.sfxEnabled;
+            event.preventDefault();
         });
+
+        $("#button_sfx_on").bind("mousedown", function () {
+            buttonSfxOn.style.opacity = 1;
+        });
+        $("#button_sfx_on").bind("mouseup", function () {
+            buttonSfxOn.style.opacity = 0.7;
+            $(this).hide();
+            $("#button_sfx_off").show();
+            audio.sfxEnabled = !audio.sfxEnabled;
+        });
+        $("#button_sfx_off").bind("mousedown", function () {
+            buttonSfxOff.style.opacity = 1;
+        });
+        $("#button_sfx_off").bind("mouseup", function () {
+            buttonSfxOff.style.opacity = 0.7;
+            $(this).hide();
+            $("#button_sfx_on").show();
+            audio.sfxEnabled = !audio.sfxEnabled;
+        });
+
+
         if (audio.musicEnabled) {
             audio.background.play();
             $("#button_music_off").hide();
