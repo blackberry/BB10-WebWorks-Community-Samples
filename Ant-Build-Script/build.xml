@@ -29,12 +29,15 @@
 	
 	<!-- Include the Properties and Targets  -->
 	<!-- 
-	The ${ant.home} variable will only work if running the Ant included in this repository. On Mac, which uses its own Ant, set a direct file path here.
-	
+	The ${ant.home} variable will only work if running the Ant included in this repository. On Mac, which uses its own Ant, set a direct file path here.-->
+	<property name="anthome" value="C:\GITHUB\blackberry\BB10-WebWorks-Community-Samples\Ant-Build-Script\tools\apache-ant-1.8.2" />
+
+	<!--
 	The buildProperties.xml file is optional but allows you to separate out certain settings, like passwords.
 	-->
 	<!-- <include file="${ant.home}/../buildProperties.xml" /> -->
-	<include file="${ant.home}/../buildTasks.xml" />
+	<include file="${anthome}/../buildTasks.xml" />
+	
 
 	<!-- Default Build - Change as needed to the sdk and build properties you want:
 	build.test (build in all SDKs+Ripple with WebInspector, source output, and debug token for Tablet and BB10)
@@ -66,5 +69,5 @@
 	<target name="build" depends="build.bb10.prod,build.deploy.bb10.device.prod"></target>
 
 	<!-- Add additional Targets here -->
-	<target name="example" depends=""></target>
+	<target name="example" depends="build.createDebugToken.bb10,build.deployDebugToken.bb10"></target>
 </project>

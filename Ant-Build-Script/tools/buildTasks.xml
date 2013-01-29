@@ -23,12 +23,16 @@
 	<!-- Set the details of the device or simulator for deployment -->
 	<!-- For BB10 device -->
 	<property name="device.bb10.ip" value="169.254.0.1"/>
-	<property name="device.bb10.pw" value="" />
+	<property name="device.bb10.pw" value="********" />
+	<property name="device.bb10.pin" value="********" />
+
 	<!-- For BB10 Simulator -->
 	<property name="sim.bb10.ip" value="192.168.0.134"/>
 	<!-- For Tablet device -->
 	<property name="device.tablet.ip" value="169.254.0.5"/>
-	<property name="device.tablet.pw" value="" />
+	<property name="device.tablet.pw" value="********" />
+	<property name="device.tablet.pin" value="********" />
+
 	<!-- For BBOS Java device (only password is needed) -->
 	<property name="device.bbos.pw" value="" />
 
@@ -38,7 +42,7 @@
 	<!-- SDK locations -->
 	<property name="bbwp.bbos.dir" value="C:\Program Files\Research In Motion\BlackBerry WebWorks SDK 2.3.1.5"/>
 	<property name="bbwp.tablet.dir" value="C:\Program Files\Research In Motion\BlackBerry WebWorks SDK for TabletOS 2.2.0.5"/>
-	<property name="bbwp.bb10.dir" value="C:\Program Files\Research In Motion\BlackBerry 10 WebWorks SDK 1.0.2.9"/>
+	<property name="bbwp.bb10.dir" value="C:\Program Files\Research In Motion\BlackBerry 10 WebWorks SDK 1.0.4.7"/>
 	<!-- Use RippleSites or a WebServer to host the project for testing in Ripple -->
 	<property name="ripple.dir" value="C:\Apache2.2\htdocs\${ant.project.name}"/>
 
@@ -317,6 +321,40 @@
 			<arg line="-u -w${device.bbos.pw} load ./${bin.bbos}${bin.beta}/OTAInstall/${ant.project.name}.jad"/>
 		</exec>
 	</target>
+
+	<!-- Debug Token tasks -->
+
+	<target name="createDebugToken.bb10">
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-debugtokenrequest${commandExtension}">
+			<arg line="-storepass ${sign.pw} -devicepin ${device.bb10.pin} debugtoken.bar"/>
+		</exec>
+		<move file="debugtoken.bar" todir="${bbwp.bb10.dir}"/>
+	</target>
+
+	<target name="deployDebugToken.bb10">
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installDebugToken '${bbwp.bb10.dir}/debugtoken.bar' -device ${device.bb10.ip} -password ${device.bb10.pw}"/>
+		</exec>
+	</target>
+
+	<target name="createDebugToken.tablet">
+		<exec executable="${bbwp.tablet.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-debugtokenrequest${commandExtension}">
+			<arg line="-storepass ${sign.pw} -devicepin ${device.tablet.pin} playbookdebugtoken.bar"/>
+		</exec>
+		<move file="playbookdebugtoken.bar" todir="${user.home}"/>
+	</target>
+
+	<target name="deployDebugToken.tablet">
+		<exec executable="${bbwp.tablet.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installDebugToken '${user.home}/playbookdebugtoken.bar' -device ${device.tablet.ip} -password ${device.tablet.pw}"/>
+		</exec>
+	</target>
+
+	<target name="setDebugToken.tablet">
+		<echo message="Edit ${bbwp.tablet.dir}/bbwp/bin/bbwp.properties" />
+		<echo message="Ensure that the debug_token node is set to: ${user.home}/playbookdebugtoken.bar" />
+	</target>
+
 
 	<!-- Optimization Tasks -->
 
