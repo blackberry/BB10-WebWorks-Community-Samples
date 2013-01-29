@@ -31,11 +31,15 @@
 	<!-- For BB10 device -->
 	<property name="device.bb10.ip" value="169.254.0.1"/>
 	<property name="device.bb10.pw" value="" />
+	<property name="device.bb10.pin" value="" />
+
 	<!-- For BB10 Simulator -->
 	<property name="sim.bb10.ip" value="192.168.0.134"/>
 	<!-- For Tablet device -->
 	<property name="device.tablet.ip" value="169.254.0.5"/>
 	<property name="device.tablet.pw" value="" />
+	<property name="device.tablet.pin" value="" />
+
 	<!-- For BBOS Java device (only password is needed) -->
 	<property name="device.bbos.pw" value="" />
 </project>
