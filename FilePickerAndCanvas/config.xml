@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * Copyright (c) 2012 Research In Motion Limited.
+ * Copyright (c) 2013 Matthew Haag
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at:
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.0.0.0"
+        id="com.quark.fpcd"
+        xml:lang="en">
+
+	<!-- Application details. -->
+    <name>File Picker Canvas Demo</name>
+    <author>Matthew Haag (Quark Mobility)</author>
+
+	<!-- Application startup page. -->
+    <content src="index.html"/>
+
+	<!-- Application icon. -->
+	<icon src="img/fc.png" />
+
+	<!-- Required features for BBUI.js. -->
+	<feature id="blackberry.app">
+	    <param name="orientation" value="portrait" />
+	</feature>
+	<feature id="blackberry.ui.dialog" />
+	
+	<!-- Additional features. -->
+	<feature id="blackberry.invoke" />
+	<feature id="blackberry.invoke.card" />
+	<feature id="blackberry.io" />
+	<feature id="blackberry.ui.toast" />
+
+	<rim:permissions>
+	    <rim:permit>access_shared</rim:permit>
+	</rim:permissions>
+</widget>
