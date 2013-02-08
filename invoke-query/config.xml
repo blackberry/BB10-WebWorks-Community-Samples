@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.0.0.6"
+        id="iFQueryDemo">
+    <name>iF Query</name>
+    <content src="index.html"/>
+    <author rim:copyright="No Copyright"
+            href="http://www.rim.com/"
+            email="rodn@newyyz.com">New Toronto Group</author>
+    <description>This app demonstrates how to query the invocation framework.</description>
+    <feature id="blackberry.invoke" required="true" version="1.0.0.0"/>
+</widget>
