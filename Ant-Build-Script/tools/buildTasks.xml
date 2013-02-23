@@ -45,6 +45,7 @@
 	<property name="bbwp.bb10.dir" value="C:\Program Files\Research In Motion\BlackBerry 10 WebWorks SDK 1.0.4.7"/>
 	<!-- Use RippleSites or a WebServer to host the project for testing in Ripple -->
 	<property name="ripple.dir" value="C:\Apache2.2\htdocs\${ant.project.name}"/>
+	<property name="ripple.port" value=":9910"/>
 
 	<!-- set the .bat extension for windows machines -->
 	<condition property="commandExtension" value=".bat" else="">
@@ -89,6 +90,10 @@
 		<copy todir="${ripple.dir}">
 			<fileset dir="${build.dir}"/>
 		</copy>
+		<script language="javascript"><![CDATA[
+			location = "http://localhost" + project.getProperty('ripple.port') + "/" + project.getProperty('ant.project.name') + "/index.html";
+			java.awt.Desktop.getDesktop().browse(java.net.URI.create(location));
+		]]></script>
 	</target>
 
 	<target name="all" 
