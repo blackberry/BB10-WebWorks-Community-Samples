@@ -42,4 +42,8 @@
 
 	<!-- For BBOS Java device (only password is needed) -->
 	<property name="device.bbos.pw" value="" />
+
+	<!-- For hosting sites on a webserver -->
+	<property name="ripple.port" value=":80"/>
+
 </project>
