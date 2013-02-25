@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html> 
+	<head>
+		<meta name="x-blackberry-defaultHoverEffect" content="false" />
+		<link  rel="stylesheet" type="text/css" href="cssjs/bbui.css"><link />
+		<script type="text/javascript" src="cssjs/bbui.js"></script>
+		<script type="text/javascript" src="cssjs/custom.js"></script>
+		<script type="text/javascript" src="local:///chrome/webworks.js"></script>
+		<script type="text/javascript">
+			var webworksreadyFired = false;
+			document.addEventListener('webworksready', function(e) {
+				if (webworksreadyFired) return;
+				webworksreadyFired = true;
+				
+				bb.init({controlsDark: true,
+						listsDark: true,
+						bb10ForPlayBook: true,
+						coloredTitleBar: false,
+						onscreenready: function(element, id) {},
+						ondomready: function(element, id, params) {
+									loading();
+								}
+						});
+				bb.pushScreen('main.html', 'main');
+			}, false);
+			
+			window.addEventListener('load',function() {
+					if (navigator.userAgent.indexOf('Version/10.0') < 0) {
+						var evt = document.createEvent('Events');
+						evt.initEvent('webworksready', true, true);
+						document.dispatchEvent(evt);
+					}
+				});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
