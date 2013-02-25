@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<div style="background-color: #252525;color:white;" data-bb-type="screen" data-bb-effect="fade">
+
+	<div data-bb-type="round-panel"> 
+		<div data-bb-type="panel-header">Upload To YouTube</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="newUpload()">Create New Video and Upload</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="fileUpload()">Select a Video to Upload</div>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+		<div data-bb-type="panel-header">Settings</div>
+		When the app launches:
+		<table style="width: 100%;"><tr>
+			<td><select id="loadthis" style="text-align: left;">
+				<option value="one">Load This Screen</option>
+				<option value="two">Launch Video Camera</option>
+				<option value="three">Launch File Picker</option>
+			</select></td>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="localStorage.setItem('loadpage',document.getElementById('loadthis').value)">Apply</div><td>
+
+		</tr></table>
+	</div>
+	
+	<div data-bb-type="round-panel"> 
+	<div data-bb-type="panel-header">Other Stuff</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.bbm.platform.users.inviteToDownload()">Share This App</div>
+		<div data-bb-type="button" data-bb-style="stretch" onclick="appWorld()">Get More Apps</div>
+	</div>
+
+
+</div>
+	
