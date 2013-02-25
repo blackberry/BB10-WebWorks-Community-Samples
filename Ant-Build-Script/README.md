@@ -60,11 +60,11 @@ __build.beta__ (build in all SDKs+Ripple with signing _and_ debugging, and a bui
 __build.ripple__ (deploy to your file system for serving up in Ripple)
 
 Specific builds follow the pattern:
-__build.[java, air, native].[test, prod, beta]__
+__build.[bbos, tablet, bb10].[test, prod, beta]__
 
-- use __java__ for BlackBerry 5 through 7.x smartphones
-- __air__ for PlayBook 1.x through 2.x
-- __native__ for BlackBerry 10
+- use __bbos__ for BlackBerry 5 through 7.x smartphones
+- __tablet__ for PlayBook 1.x through 2.x
+- __bb10__ for BlackBerry 10
 - use __test__ for WebInspector, source output, and debug tokens. Will still sign the app for Java Smartphones.
 - use __prod__ for regular signing with a build id and no debugging
 - use __beta__ for regular signing with a build id and WebInspector turned on.
@@ -83,9 +83,9 @@ Besides building and linting projects, you can also use this script to deploy to
 
 Deployment commands follow the pattern:
 
-__build.deploy.[native.[device, sim], air, java].[test, prod, beta]__
-- __native__, __air__, __java__ for each platform as defined above
-- only for __native__ builds, use __device__ for real devices and __sim__ for VMWare based simulators
+__build.deploy.[bb10.[device, sim], tablet, bbos].[test, prod, beta]__
+- __bb10__, __tablet__, __bbos__ for each platform as defined above
+- only for __bb10__ builds, use __device__ for real devices and __sim__ for VMWare based simulators
 - __test__, __prod__, __beta__ to load the matching build created above
 
 ## Build a Project

@@ -17,16 +17,32 @@
  *
  -->
 <project basedir="." name="build">
-	<!-- Code Signing Password -->
+	<!-- Code Signing Key Password -->
 	<property name="sign.pw" value="********"/>
+
+	<!-- Set the details of the device or simulator for deployment -->
+	<!-- For BB10 device -->
+	<property name="device.bb10.ip" value="169.254.0.1"/>
+	<property name="device.bb10.pw" value="********" />
+	<property name="device.bb10.pin" value="********" />
+
+	<!-- For BB10 Simulator -->
+	<property name="sim.bb10.ip" value="192.168.0.134"/>
+	<!-- For Tablet device -->
+	<property name="device.tablet.ip" value="169.254.0.5"/>
+	<property name="device.tablet.pw" value="********" />
+	<property name="device.tablet.pin" value="********" />
+
+	<!-- For BBOS Java device (only password is needed) -->
+	<property name="device.bbos.pw" value="" />
 
 	<!-- Files to exclude from zip -->
 	<property name="file.excludes" value="build/ bin/ .project .externalToolBuilders/ build.xml build.number"/>
 
 	<!-- SDK locations -->
-	<property name="bbwp.java.dir" value="C:\Program Files\Research In Motion\BlackBerry WebWorks SDK 2.3.1.5"/>
-	<property name="bbwp.air.dir" value="C:\Program Files\Research In Motion\BlackBerry WebWorks SDK for TabletOS 2.2.0.5"/>
-	<property name="bbwp.native.dir" value="C:\Program Files\Research In Motion\BlackBerry 10 WebWorks SDK 1.0.2.9"/>
+	<property name="bbwp.bbos.dir" value="C:\Program Files\Research In Motion\BlackBerry WebWorks SDK 2.3.1.5"/>
+	<property name="bbwp.tablet.dir" value="C:\Program Files\Research In Motion\BlackBerry WebWorks SDK for TabletOS 2.2.0.5"/>
+	<property name="bbwp.bb10.dir" value="C:\Program Files\Research In Motion\BlackBerry 10 WebWorks SDK 1.0.4.7"/>
 	<!-- Use RippleSites or a WebServer to host the project for testing in Ripple -->
 	<property name="ripple.dir" value="C:\Apache2.2\htdocs\${ant.project.name}"/>
 
@@ -60,9 +76,9 @@
 	<property name="src.css.dir" value="${basedir}/css"/>
 	<!-- Output directories for files -->
 	<property name="output.dir" value="bin"/>
-	<property name="bin.java" value="${output.dir}/java"/>
-	<property name="bin.air" value="${output.dir}/tablet"/>
-	<property name="bin.native" value="${output.dir}/bb10"/>
+	<property name="bin.bbos" value="${output.dir}/bbos"/>
+	<property name="bin.tablet" value="${output.dir}/tablet"/>
+	<property name="bin.bb10" value="${output.dir}/bb10"/>
 	<!-- Append this value to the Output Directory for test builds -->
 	<property name="bin.test" value="-test"/>
 	<!-- Append this value to the Output Directory for beta builds -->
@@ -78,27 +94,27 @@
 	<target name="all" 
 		description="Builds project files for production use"
 		depends="
-			java.prod,
-			air.prod,
-			native.prod,
+			bbos.prod,
+			tablet.prod,
+			bb10.prod,
 			ripple">
 	</target>
 	
 	<target name="test" 
 		description="Builds project files with WebInspector and Debug Token"
 		depends="
-			java.test,
-			air.test,
-			native.test,
+			bbos.test,
+			tablet.test,
+			bb10.test,
 			ripple">
 	</target>
 
 	<target name="beta" 
 		description="Builds project files with WebInspector but Signed as well"
 		depends="
-			java.test,
-			air.beta,
-			native.beta,
+			bbos.test,
+			tablet.beta,
+			bb10.beta,
 			ripple">
 	</target>
 
@@ -131,180 +147,214 @@
 	</target>
 
 	<!-- for Java Smartphone -->
-	<target name="java.prod" depends="zip" 
+	<target name="bbos.prod" depends="zip" 
 		description="for Java Smartphone - Production">
-		<exec executable="${bbwp.java.dir}/bbwp">
-			<arg line="${zip.name} -g ${sign.pw} -o ./${bin.java}"/>
+		<exec executable="${bbwp.bbos.dir}/bbwp">
+			<arg line="${zip.name} -g ${sign.pw} -o ./${bin.bbos}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
 
 	<!-- for Java Smartphone Test -->
-	<target name="java.test" depends="zip" 
+	<target name="bbos.test" depends="zip" 
 		description="for Java Smartphone - Test">
-		<exec executable="${bbwp.java.dir}/bbwp">
-			<arg line="${zip.name} -d -s -o ./${bin.java}${bin.test}"/>
+		<exec executable="${bbwp.bbos.dir}/bbwp">
+			<arg line="${zip.name} -d -s -o ./${bin.bbos}${bin.test}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
 	
 	<!-- for Java Smartphone Beta -->
-	<target name="java.beta" depends="zip" 
+	<target name="bbos.beta" depends="zip" 
 		description="for Java Smartphone - Beta">
-		<exec executable="${bbwp.java.dir}/bbwp">
-			<arg line="${zip.name} -g ${sign.pw} -d -o ./${bin.java}${bin.beta}"/>
+		<exec executable="${bbwp.bbos.dir}/bbwp">
+			<arg line="${zip.name} -g ${sign.pw} -d -o ./${bin.bbos}${bin.beta}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
 
 	<!-- for Tablet -->
-	<target name="air.prod" depends="zip" 
+	<target name="tablet.prod" depends="zip" 
 		description="for Tablet - Production">
 		<local name="build.number"/>
 		<buildnumber/>
-		<exec executable="${bbwp.air.dir}/bbwp/bbwp">
-			<arg line="${zip.name} -g ${sign.pw} -buildId ${build.number} -o ./${bin.air}"/>
+		<exec executable="${bbwp.tablet.dir}/bbwp/bbwp">
+			<arg line="${zip.name} -g ${sign.pw} -buildId ${build.number} -o ./${bin.tablet}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
 
 	<!-- for Tablet Test -->
-	<target name="air.test" depends="zip" 
+	<target name="tablet.test" depends="zip" 
 		description="for Tablet - Test">
-		<exec executable="${bbwp.air.dir}/bbwp/bbwp">
-			<arg line="${zip.name} -d -s -o ./${bin.air}${bin.test}"/>
+		<exec executable="${bbwp.tablet.dir}/bbwp/bbwp">
+			<arg line="${zip.name} -d -s -o ./${bin.tablet}${bin.test}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
 
 	<!-- for Tablet Beta-->
-	<target name="air.beta" depends="zip" 
+	<target name="tablet.beta" depends="zip" 
 		description="for Tablet - Beta">
 		<local name="build.number"/>
 		<buildnumber/>
-		<exec executable="${bbwp.air.dir}/bbwp/bbwp">
-			<arg line="${zip.name} -g ${sign.pw} -buildId ${build.number} -d -o ./${bin.air}${bin.beta}"/>
+		<exec executable="${bbwp.tablet.dir}/bbwp/bbwp">
+			<arg line="${zip.name} -g ${sign.pw} -buildId ${build.number} -d -o ./${bin.tablet}${bin.beta}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
 
 	<!-- for BB10 -->
-	<target name="native.prod" depends="zip" 
+	<target name="bb10.prod" depends="zip" 
 		description="for BB10 - Production">
 		<local name="build.number"/>
 		<buildnumber/>
-		<exec executable="${bbwp.native.dir}/bbwp${commandExtension}">
-			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -o ./${bin.native}"/>
+		<exec executable="${bbwp.bb10.dir}/bbwp${commandExtension}">
+			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -o ./${bin.bb10}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
 
 	<!-- for BB10 Test -->
-	<target name="native.test" depends="zip" 
+	<target name="bb10.test" depends="zip" 
 		description="for BB10 - Test">
-		<exec executable="${bbwp.native.dir}/bbwp${commandExtension}">
-			<arg line="${zip.name} -d -s -o ./${bin.native}${bin.test}"/>
+		<exec executable="${bbwp.bb10.dir}/bbwp${commandExtension}">
+			<arg line="${zip.name} -d -s -o ./${bin.bb10}${bin.test}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
 
 	<!-- for BB10 Beta -->
-	<target name="native.beta" depends="zip" 
+	<target name="bb10.beta" depends="zip" 
 		description="for BB10 - Beta">
 		<local name="build.number"/>
 		<buildnumber/>
-		<exec executable="${bbwp.native.dir}/bbwp${commandExtension}">
-			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -d -o ./${bin.native}${bin.beta}"/>
+		<exec executable="${bbwp.bb10.dir}/bbwp${commandExtension}">
+			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -d -o ./${bin.bb10}${bin.beta}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
 
 	<!-- BB10 Deployment Commands -->
-	<target name="deploy.native.device.prod" depends="" 
+	<target name="deploy.bb10.device.prod" depends="" 
 		description="Deploy signed BB10 build (prod) to device">
-		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.native.pw} -device ${device.native.ip} -package ./${bin.native}/device/${ant.project.name}.bar"/>
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installApp -launchApp -password ${device.bb10.pw} -device ${device.bb10.ip} -package ./${bin.bb10}/device/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
-	<target name="deploy.native.device.test" depends="" 
+	<target name="deploy.bb10.device.test" depends="" 
 		description="Deploy debug BB10 build (test) to device">
-		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.native.pw} -device ${device.native.ip} -package ./${bin.native}${bin.test}/device/${ant.project.name}.bar"/>
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installApp -launchApp -password ${device.bb10.pw} -device ${device.bb10.ip} -package ./${bin.bb10}${bin.test}/device/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 	
-	<target name="deploy.native.device.beta" depends="" 
+	<target name="deploy.bb10.device.beta" depends="" 
 		description="Deploy signed BB10 build with WebInspector (beta) to device">
-		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.native.pw} -device ${device.native.ip} -package ./${bin.native}${bin.beta}/device/${ant.project.name}.bar"/>
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installApp -launchApp -password ${device.bb10.pw} -device ${device.bb10.ip} -package ./${bin.bb10}${bin.beta}/device/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
-	<target name="deploy.native.sim.prod" depends="" 
+	<target name="deploy.bb10.sim.prod" depends="" 
 		description="Deploy signed BB10 build (prod) to simulator">
-		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -device ${device.native.ip} -package ./${bin.native}/simulator/${ant.project.name}.bar"/>
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installApp -launchApp -device ${sim.bb10.ip} -package ./${bin.bb10}/simulator/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
-	<target name="deploy.native.sim.test" depends="" 
+	<target name="deploy.bb10.sim.test" depends="" 
 		description="Deploy debug BB10 build (test) to simulator">
-		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -device ${device.native.ip} -package ./${bin.native}${bin.test}/simulator/${ant.project.name}.bar"/>
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installApp -launchApp -device ${sim.bb10.ip} -package ./${bin.bb10}${bin.test}/simulator/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 	
-	<target name="deploy.native.sim.beta" depends="" 
+	<target name="deploy.bb10.sim.beta" depends="" 
 		description="Deploy signed BB10 build with WebInspector (beta) to simulator">
-		<exec executable="${bbwp.native.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -device ${device.native.ip} -package ./${bin.native}${bin.beta}/simulator/${ant.project.name}.bar"/>
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installApp -launchApp -device ${sim.bb10.ip} -package ./${bin.bb10}${bin.beta}/simulator/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
 	<!-- Tablet Deployment Commands -->
-	<target name="deploy.air.prod" depends="" 
+	<target name="deploy.tablet.prod" depends="" 
 		description="Deploy signed Tablet build (prod) to device">
-		<exec executable="${bbwp.air.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.air.pw} -device ${device.air.ip} -package ./${bin.air}/${ant.project.name}.bar"/>
+		<exec executable="${bbwp.tablet.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installApp -launchApp -password ${device.tablet.pw} -device ${device.tablet.ip} -package ./${bin.tablet}/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
-	<target name="deploy.air.test" depends="" 
+	<target name="deploy.tablet.test" depends="" 
 		description="Deploy debug Tablet build (test) to device">
-		<exec executable="${bbwp.air.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.air.pw} -device ${device.air.ip} -package ./${bin.air}${bin.test}/${ant.project.name}.bar"/>
+		<exec executable="${bbwp.tablet.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installApp -launchApp -password ${device.tablet.pw} -device ${device.tablet.ip} -package ./${bin.tablet}${bin.test}/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 	
-	<target name="deploy.air.beta" depends="" 
+	<target name="deploy.tablet.beta" depends="" 
 		description="Deploy signed BB10 build with WebInspector (beta) to device">
-		<exec executable="${bbwp.air.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
-			<arg line="-installApp -launchApp -password ${device.air.pw} -device ${device.air.ip} -package ./${bin.air}${bin.beta}/${ant.project.name}.bar"/>
+		<exec executable="${bbwp.tablet.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installApp -launchApp -password ${device.tablet.pw} -device ${device.tablet.ip} -package ./${bin.tablet}${bin.beta}/${ant.project.name}.bar"/>
 		</exec>
 	</target>
 
 	<!-- BBOS Javaloader commands -->
-	<target name="deploy.java.prod"
+	<target name="deploy.bbos.prod"
 		description="Javaloader for prod build">
-		<exec executable="${bbwp.java.dir}/bin/JavaLoader">
-			<arg line="-u -w${device.java.pw} load ./${bin.java}/OTAInstall/${ant.project.name}.jad"/>
+		<exec executable="${bbwp.bbos.dir}/bin/JavaLoader">
+			<arg line="-u -w${device.bbos.pw} load ./${bin.bbos}/OTAInstall/${ant.project.name}.jad"/>
 		</exec>
 	</target>
 
-	<target name="deploy.java.test"
+	<target name="deploy.bbos.test"
 		description="Javaloader for test build">
-		<exec executable="${bbwp.java.dir}/bin/JavaLoader">
-			<arg line="-u load ./${bin.java}${bin.test}/OTAInstall/${ant.project.name}.jad"/>
+		<exec executable="${bbwp.bbos.dir}/bin/JavaLoader">
+			<arg line="-u load ./${bin.bbos}${bin.test}/OTAInstall/${ant.project.name}.jad"/>
 		</exec>
 	</target>
 	
-	<target name="deploy.java.beta"
+	<target name="deploy.bbos.beta"
 		description="Javaloader for beta build">
-		<exec executable="${bbwp.java.dir}/bin/JavaLoader">
-			<arg line="-u -w${device.java.pw} load ./${bin.java}${bin.beta}/OTAInstall/${ant.project.name}.jad"/>
+		<exec executable="${bbwp.bbos.dir}/bin/JavaLoader">
+			<arg line="-u -w${device.bbos.pw} load ./${bin.bbos}${bin.beta}/OTAInstall/${ant.project.name}.jad"/>
 		</exec>
 	</target>
+
+	<!-- Debug Token tasks -->
+
+	<target name="createDebugToken.bb10">
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-debugtokenrequest${commandExtension}">
+			<arg line="-storepass ${sign.pw} -devicepin ${device.bb10.pin} debugtoken.bar"/>
+		</exec>
+		<move file="debugtoken.bar" todir="${bbwp.bb10.dir}"/>
+	</target>
+
+	<target name="deployDebugToken.bb10">
+		<exec executable="${bbwp.bb10.dir}/dependencies/tools/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installDebugToken '${bbwp.bb10.dir}/debugtoken.bar' -device ${device.bb10.ip} -password ${device.bb10.pw}"/>
+		</exec>
+	</target>
+
+	<target name="createDebugToken.tablet">
+		<exec executable="${bbwp.tablet.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-debugtokenrequest${commandExtension}">
+			<arg line="-storepass ${sign.pw} -devicepin ${device.tablet.pin} playbookdebugtoken.bar"/>
+		</exec>
+		<move file="playbookdebugtoken.bar" todir="${user.home}"/>
+	</target>
+
+	<target name="deployDebugToken.tablet">
+		<exec executable="${bbwp.tablet.dir}/bbwp/blackberry-tablet-sdk/bin/blackberry-deploy${commandExtension}">
+			<arg line="-installDebugToken '${user.home}/playbookdebugtoken.bar' -device ${device.tablet.ip} -password ${device.tablet.pw}"/>
+		</exec>
+	</target>
+
+	<target name="setDebugToken.tablet">
+		<echo message="Edit ${bbwp.tablet.dir}/bbwp/bin/bbwp.properties" />
+		<echo message="Ensure that the debug_token node is set to: ${user.home}/playbookdebugtoken.bar" />
+	</target>
+
 
 	<!-- Optimization Tasks -->
 

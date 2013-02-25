@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+ *
+ * Copyright 2013 Research In Motion Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ -->
+<project>
+	<!-- Build Properties Overrides -->
+	
+	<!-- 
+	Any properties that exist here will override the ones defined
+	in buildTasks.xml, as long as this file is included first.
+	-->
+
+	<!-- Code Signing Password -->
+	<property name="sign.pw" value="*****"/>
+
+	<!-- Set the details of the device or simulator for deployment -->
+	<!-- For BB10 device -->
+	<property name="device.bb10.ip" value="169.254.0.1"/>
+	<property name="device.bb10.pw" value="" />
+	<property name="device.bb10.pin" value="" />
+
+	<!-- For BB10 Simulator -->
+	<property name="sim.bb10.ip" value="192.168.0.134"/>
+	<!-- For Tablet device -->
+	<property name="device.tablet.ip" value="169.254.0.5"/>
+	<property name="device.tablet.pw" value="" />
+	<property name="device.tablet.pin" value="" />
+
+	<!-- For BBOS Java device (only password is needed) -->
+	<property name="device.bbos.pw" value="" />
+</project>
