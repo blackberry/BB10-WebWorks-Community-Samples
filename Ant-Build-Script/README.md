@@ -3,6 +3,8 @@ WebWorks Build Script
 
 This is an Ant build script for building BlackBerry WebWorks applications for BlackBerry Java smartphones, BlackBerry PlayBook tablets, and BlackBerry 10 devices. With some basic set up, the script can sign and create both test and production builds, deploy to the file system for Ripple, and support optimization with JSLint, JSHint, CSSLint, as well as JS and CSS concatenation and minification.
 
+Watch a [video](http://www.youtube.com/watch?v=89bOz3w_z5E) showing how to setup the script.
+
 ## Script Setup
 
 The project is designed to work in two parts: 
