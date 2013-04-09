@@ -42,7 +42,7 @@
 	<!-- SDK locations -->
 	<property name="bbwp.bbos.dir" value="C:\Program Files\Research In Motion\BlackBerry WebWorks SDK 2.3.1.5"/>
 	<property name="bbwp.tablet.dir" value="C:\Program Files\Research In Motion\BlackBerry WebWorks SDK for TabletOS 2.2.0.5"/>
-	<property name="bbwp.bb10.dir" value="C:\Program Files\Research In Motion\BlackBerry 10 WebWorks SDK 1.0.4.7"/>
+	<property name="bbwp.bb10.dir" value="C:\Program Files\Research In Motion\BlackBerry 10 WebWorks SDK 1.0.4.11"/>
 	<!-- Use RippleSites or a WebServer to host the project for testing in Ripple -->
 	<property name="ripple.dir" value="C:\Apache2.2\htdocs\${ant.project.name}"/>
 	<property name="ripple.port" value=":9910"/>
