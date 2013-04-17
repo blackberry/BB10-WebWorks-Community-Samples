@@ -60,6 +60,11 @@
 	build.lint runs jslint, jshint and csslint
 	build.minify concatenates and minifies the JS and CSS files
 
+	Debug Tokens can be created and deployed using the following commands:
+	build.[createDebugToken, deployDebugToken].[bb10, tablet]
+	- the Debug Token will be created for the Device Pins listed in the device.[bb10, tablet].pin property.
+	- for BB10, it will deploy to the correct directory, but the Tablet SDK requires modifying the bbwp.properties file in the SDK.
+
 	Deployment commands follow the pattern:
 	build.deploy.[bb10.[device, sim], tablet, bbos].[test, prod, beta]
 	- bb10, tablet, bbos as defined above
