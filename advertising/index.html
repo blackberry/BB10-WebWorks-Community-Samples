@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<!--
+ * Copyright (c) 2012 Research In Motion Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<html>
+	<head>
+		<title>Advertising</title>
+	</head>
+	<body>
+		<!-- This will hold the returned ad. -->
+		<div id="ad0" style="height: 50px;"></div>
+
+		<script type="text/javascript" src="local:///chrome/webworks.js"></script>
+		<script type="text/javascript" src="advertising.js"></script>
+		<script type="text/javascript">
+			/*global advertising */
+
+			/* Filler callback function. */
+			function onComplete() {
+				console.log('Complete.');
+			}
+
+			function populateDiv() {
+				var div = document.querySelector('#ad0');
+
+				/* Just some values to make the rendering a little nicer; completely customizable. */
+				div.style.backgroundColor = 'black';
+				div.style.color = 'white';
+				div.style.fontFamily = '"Slate Pro", Slate, "Myriad Pro", "BBAlpha Sans", Helvetica';
+				div.style.fontSize = '48px';
+				div.style.textAlign = 'center';
+
+				/**
+					A number of OPTIONAL properties can be specified as
+					follows:
+					
+					min_size_x, min_size_y, size_x, and size_y will affect the
+					dimensions of the ads that can be displayed. We will pick
+					the ad that remains within these constraints and fills the
+					most area of the target div. Minimum and maximum values
+					should be provided in pairs; for example if you supply a
+					minimum X value, you should supply a minimum Y value as
+					well.
+
+					refreshRate specifies, in milliseconds, how often the Ad
+					Network service should be polled for a new ad. Only
+					applies if an ad was successfully retrieved.
+
+					defaultImage indicates the image to use if no ads from the
+					Ad Network were able to be returned; for example, if the
+					service is not available, or no ads match the current
+					criteria.
+
+					defaultURL specifies a URL to open when the defaultImage
+					is clicked. defaultURL has no impact if defaultImage is not
+					specified.
+
+					defaultHTML specifies HTML content to be displayed. This
+					will only be presented if the Ad Network fails to load any
+					ads and no defaultImage is provided.
+
+					callback specifies a function to invoke once the banner
+					function completes. If specified, callback is invoked under
+					all scenarios.
+
+					params specifies a JavaScript object that contains additional
+					parameters to pass to the web service request.
+				*/
+				advertising.banner(15562, 'ad0', {
+					min_size_x: 0,
+					min_size_y: 0,
+					size_x: div.offsetWidth,
+					size_y: div.offsetHeight,
+					refreshRate: 10 * 60 * 1000, /* Refresh every 10 minutes. */
+					defaultImage: 'hippoEyes.png',
+					defaultURL: 'http://developer.blackberry.com/html5',
+					defaultHTML: 'Womp womp.',
+					callback: onComplete,
+					params: { /* Any additional params to pass to the Mocean web service. */
+						test: 1, /* Request ads in test mode? 1 = yes, 0 or no value = no. */
+						ua: window.navigator.userAgent /* User-agent. */
+					}
+				});
+			}
+
+			/* Once the document has loaded, fetch our ads. */
+			window.addEventListener('DOMContentLoaded', function () {
+				document.addEventListener('webworksready', populateDiv, false);
+			}, false);
+		</script>
+	</body>
+</html>
