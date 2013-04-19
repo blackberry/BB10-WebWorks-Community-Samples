@@ -1,0 +1,74 @@
+<!doctype html5>
+<html>
+    <head>
+        <title>slimgur</title>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+
+		<script type="text/javascript" src="local:///chrome/webworks.js"></script>
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/underscore_1.4.3.js" type="text/javascript"></script>
+        <script src="js/backbone_0.9.9.js" type="text/javascript"></script>
+
+        <script src="js/app.js" type="text/javascript"></script>
+        <script src="js/bb.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+				
+		</script>
+    </head>
+    <body id="app">
+        <!-- file field that's clickable anywhere on the screen -->
+        <div id="droparea"></div>
+
+        <div id="wrapper">
+            <input type="file"
+                   accept="image/jpeg;image/png;image/gif" 
+                   id="upload_input">
+            <!--
+            <input type="file" multiple="multiple"
+                   accept="image/jpeg;image/png;image/gif" 
+                   id="upload_input">
+                   -->
+            
+            <div id="gallery">
+                <div id="image_template" class="image">
+
+                    <!-- Details -->
+                    <div class="image_details">
+
+                        <div class="details_wrapper">
+                            <div class="image_data">
+                                <img class="thumb" alt="" src="">
+                            </div>
+
+                            <input class="image_url" type="text" value="" disabled>
+
+                           <div class="button_another button">
+                               <span>Upload another</span>
+                           </div>
+
+                        </div>
+                    </div>
+                    <!-- Large image -->
+                    <div class="image_large_container">
+                        <img class="image_large" alt="" src="">
+                    </div>
+                    <!--
+                    <div class="progress">
+                        <div class="progress_total"></div>
+                        <canvas class="progress_left" 
+                                width=1024 height=768></canvas>
+                    </div>
+                    -->
+                </div>
+           </div> 
+        </div>
+
+        <div id="progress">
+            <div id="progress_icon_ghost"></div>
+            <div id="progress_icon"></div>
+        </div>
+    </body>
+</html>
