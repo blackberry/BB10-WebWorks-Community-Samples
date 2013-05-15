@@ -75,4 +75,15 @@
 
 	<!-- Add additional Targets here -->
 	<target name="example" depends="build.createDebugToken.bb10,build.deployDebugToken.bb10"></target>
+
+	<!-- Extension Points 
+	You can add targets into the build flow using the following extension points. Use the "extensionOf" attribute
+	to add to the dependency list
+
+	build.FilesReady - App files are copied into the build directory
+	build.ZipBuilt - The zip has been created from the files in the build directory
+	-->
+	<target name="ExtExample" extensionOf="build.ZipBuilt">
+		<echo>Zip Is ready</echo>
+	</target>
 </project>
