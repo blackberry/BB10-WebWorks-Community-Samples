@@ -49,6 +49,8 @@ In the /tools directory of the repository is a buildTasks.xml file plus some too
 
 > tools.dir: update if you put the tools in a different location than the directory above _%ANT_HOME%_.
 
+> paramsfile: Set this value to a params.json file if you need to send parameters to downstream tools in the build process, such as the blackberry-signer (ie: proxy setup), or blackberry-nativepackager tools. Leave the value empty to not use a params file.
+
 > review the other properties, but they shouldn't need changing.
 
 ## Build Targets
