@@ -85,12 +85,26 @@
 	<!-- Append this value to the Output Directory for beta builds -->
 	<property name="bin.beta" value="-beta"/>
 
+	<!-- 
+	Set a JSON file to be passed into the BB10 BBWP tool with settings for downstream tools
+	- See the example in the SDK directory (params-example.json) for what you can do
+	- Recommendation is to put it in the tools directory and reference like so:
+		value="${tools.dir}/params.json"
+	- Otherwise, leave value empty so it's not used
+	-->
+	<property name="paramsfile" value=""/>
 	
 	<!-- Extension Points -->
 	<!-- These are defined points in the build process where other tasks can be injected -->
-
 	<extension-point name="FilesReady" depends="-copy.html"/>
 	<extension-point name="ZipBuilt" depends="zip"/>
+
+
+	<condition property="paramsarg" value="-p ${paramsfile}" else="">
+		<not>
+			<length string="${paramsfile}" trim="true" length="0" />
+		</not>
+	</condition>
 
 	<!-- Targets -->
 	<target name="ripple" depends="-copy.html,FilesReady">
@@ -222,7 +236,7 @@
 		<local name="build.number"/>
 		<buildnumber/>
 		<exec executable="${bbwp.bb10.dir}/bbwp${commandExtension}">
-			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -o ./${bin.bb10}"/>
+			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -o ./${bin.bb10} ${paramsarg}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
@@ -231,7 +245,7 @@
 	<target name="bb10.test" depends="zip,ZipBuilt" 
 		description="for BB10 - Test">
 		<exec executable="${bbwp.bb10.dir}/bbwp${commandExtension}">
-			<arg line="${zip.name} -d -s -o ./${bin.bb10}${bin.test}"/>
+			<arg line="${zip.name} -d -s -o ./${bin.bb10}${bin.test} ${paramsarg}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
@@ -242,7 +256,7 @@
 		<local name="build.number"/>
 		<buildnumber/>
 		<exec executable="${bbwp.bb10.dir}/bbwp${commandExtension}">
-			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -d -o ./${bin.bb10}${bin.beta}"/>
+			<arg line="${zip.name} -g ${sign.pw} --buildId ${build.number} -d -o ./${bin.bb10}${bin.beta} ${paramsarg}"/>
 		</exec>
 		<echo>Finished</echo>
 	</target>
