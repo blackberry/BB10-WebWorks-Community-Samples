@@ -93,6 +93,12 @@
 	- Otherwise, leave value empty so it's not used
 	-->
 	<property name="paramsfile" value=""/>
+	
+	<!-- Extension Points -->
+	<!-- These are defined points in the build process where other tasks can be injected -->
+	<extension-point name="FilesReady" depends="-copy.html"/>
+	<extension-point name="ZipBuilt" depends="zip"/>
+
 
 	<condition property="paramsarg" value="-p ${paramsfile}" else="">
 		<not>
@@ -101,7 +107,7 @@
 	</condition>
 
 	<!-- Targets -->
-	<target name="ripple" depends="-copy.html">
+	<target name="ripple" depends="-copy.html,FilesReady">
 		<copy todir="${ripple.dir}">
 			<fileset dir="${build.dir}"/>
 		</copy>
@@ -162,7 +168,7 @@
 	</target>
 
 	<!-- Zip the application elements -->
-	<target name="zip" depends="-copy.html">
+	<target name="zip" depends="-copy.html,FilesReady">
 		<zip basedir="${build.dir}" destfile="${zip.name}"/>
 	</target>
 
@@ -176,7 +182,7 @@
 	</target>
 
 	<!-- for Java Smartphone Test -->
-	<target name="bbos.test" depends="zip" 
+	<target name="bbos.test" depends="zip,ZipBuilt" 
 		description="for Java Smartphone - Test">
 		<exec executable="${bbwp.bbos.dir}/bbwp">
 			<arg line="${zip.name} -d -s -o ./${bin.bbos}${bin.test}"/>
@@ -185,7 +191,7 @@
 	</target>
 	
 	<!-- for Java Smartphone Beta -->
-	<target name="bbos.beta" depends="zip" 
+	<target name="bbos.beta" depends="zip,ZipBuilt" 
 		description="for Java Smartphone - Beta">
 		<exec executable="${bbwp.bbos.dir}/bbwp">
 			<arg line="${zip.name} -g ${sign.pw} -d -o ./${bin.bbos}${bin.beta}"/>
@@ -194,7 +200,7 @@
 	</target>
 
 	<!-- for Tablet -->
-	<target name="tablet.prod" depends="zip" 
+	<target name="tablet.prod" depends="zip,ZipBuilt" 
 		description="for Tablet - Production">
 		<local name="build.number"/>
 		<buildnumber/>
@@ -205,7 +211,7 @@
 	</target>
 
 	<!-- for Tablet Test -->
-	<target name="tablet.test" depends="zip" 
+	<target name="tablet.test" depends="zip,ZipBuilt" 
 		description="for Tablet - Test">
 		<exec executable="${bbwp.tablet.dir}/bbwp/bbwp">
 			<arg line="${zip.name} -d -s -o ./${bin.tablet}${bin.test}"/>
@@ -214,7 +220,7 @@
 	</target>
 
 	<!-- for Tablet Beta-->
-	<target name="tablet.beta" depends="zip" 
+	<target name="tablet.beta" depends="zip,ZipBuilt" 
 		description="for Tablet - Beta">
 		<local name="build.number"/>
 		<buildnumber/>
@@ -225,7 +231,7 @@
 	</target>
 
 	<!-- for BB10 -->
-	<target name="bb10.prod" depends="zip" 
+	<target name="bb10.prod" depends="zip,ZipBuilt" 
 		description="for BB10 - Production">
 		<local name="build.number"/>
 		<buildnumber/>
@@ -236,7 +242,7 @@
 	</target>
 
 	<!-- for BB10 Test -->
-	<target name="bb10.test" depends="zip" 
+	<target name="bb10.test" depends="zip,ZipBuilt" 
 		description="for BB10 - Test">
 		<exec executable="${bbwp.bb10.dir}/bbwp${commandExtension}">
 			<arg line="${zip.name} -d -s -o ./${bin.bb10}${bin.test} ${paramsarg}"/>
@@ -245,7 +251,7 @@
 	</target>
 
 	<!-- for BB10 Beta -->
-	<target name="bb10.beta" depends="zip" 
+	<target name="bb10.beta" depends="zip,ZipBuilt" 
 		description="for BB10 - Beta">
 		<local name="build.number"/>
 		<buildnumber/>
