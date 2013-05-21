@@ -36,7 +36,7 @@
 	The buildProperties.xml file is optional but allows you to separate out certain settings, like passwords.
 	-->
 	<!-- <include file="${ant.home}/../buildProperties.xml" /> -->
-	<include file="${anthome}/../buildTasks.xml" />
+	<include file="${anthome}/../buildTasks-cordova.xml" />
 	
 
 	<!-- Default Build - Change as needed to the sdk and build properties you want:

@@ -27,17 +27,17 @@ When setting up a project to use this build script, add the build.xml file to th
 
 * build target: Set to a list of targets you want to build
 
-* For _Windows_ you are then set, but the default path for including the buildTasks.xml file will not work on _MacOS_ or _Linux_ which contain Ant already and put it in a different directory. Change this path to wherever you placed buildTasks.xml.
+* For _Windows_ you are then set, but the default path for including the buildTasks-cordova.xml file will not work on _MacOS_ or _Linux_ which contain Ant already and put it in a different directory. Change this path to wherever you placed buildTasks-cordova.xml.
 
 ## Common Build Tasks and Tools
 
-In the /tools directory of the repository is a buildTasks.xml file plus some tools and script files. This folder is meant to be placed in one location and be accessed by the project build scripts. These are common settings and tasks that should change when your build environment changes, not individual projects.
+In the /tools directory of the repository is a buildTasks-cordova.xml file plus some tools and script files. This folder is meant to be placed in one location and be accessed by the project build scripts. These are common settings and tasks that should change when your build environment changes, not individual projects.
 
 1. To use these tools, create a directory with all the contents somewhere on your system, like __c:\BuildTools__. 
 
 2. If you've got Ant installed already, then that simplifies things. If not, create an __%ANT_HOME%__ environment variable and point it at the __apache-ant-1.8.2__ directory. Then add __%ANT_HOME%/bin__ to your system __PATH__ variable.
 
-3. Open __buildTasks.xml__ and edit the following properties:
+3. Open __buildTasks-cordova.xml__ and edit the following properties:
 
 > sign.pw: Code signing password.
 
