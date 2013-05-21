@@ -96,6 +96,8 @@
 	
 	<!-- Extension Points -->
 	<!-- These are defined points in the build process where other tasks can be injected -->
+	<extension-point name="Start"/>
+	<extension-point name="Initialized" depends="-init"/>
 	<extension-point name="FilesReady" depends="-copy.html"/>
 	<extension-point name="ZipBuilt" depends="zip"/>
 
@@ -151,7 +153,7 @@
 		<delete dir="bin"/>
 	</target>
 
-	<target name="-init">
+	<target name="-init" depends="Start">
 		<delete dir="${build.dir}"/>
 		<delete file="${ant.project.name}.zip"/>
 		
@@ -161,7 +163,7 @@
 	</target>
 
 	<!-- Copy files to build directory -->
-	<target name="-copy.html" depends="-init">
+	<target name="-copy.html" depends="-init,Initialized">
 		<copy todir="${build.dir}">
 			<fileset dir="${src.dir}" excludes="${file.excludes}"/>
 		</copy>
