@@ -79,7 +79,9 @@
 	<!-- Extension Points 
 	You can add targets into the build flow using the following extension points. Use the "extensionOf" attribute
 	to add to the dependency list
-
+	
+	build.Started - no actions yet taken
+	build.Initialized - Build directories created, no files copied
 	build.FilesReady - App files are copied into the build directory
 	build.ZipBuilt - The zip has been created from the files in the build directory
 	-->
