@@ -71,7 +71,7 @@
 	- only for bb10 builds, use device for real devices and sim for VMWare based simulators
 	- test, prod, beta to load the matching build created above
 	-->
-	<target name="build" depends="build.bb10.prod,build.deploy.bb10.device.prod"></target>
+	<target name="build" depends="build.cordova.prod"></target>
 
 	<!-- Add additional Targets here -->
 	<target name="example" depends="build.createDebugToken.bb10,build.deployDebugToken.bb10"></target>

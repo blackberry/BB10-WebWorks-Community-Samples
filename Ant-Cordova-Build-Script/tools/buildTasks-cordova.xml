@@ -69,14 +69,14 @@
 
 	<!-- Build Directories -->
 	<property name="zip.name" value="${ant.project.name}.zip"/>
-	<property name="build.dir" value="build"/>
+	<property name="build.dir" value="assembly"/>
 	<property name="build.js.dir" value="${build.dir}/js"/>
 	<property name="build.css.dir" value="${build.dir}/css"/>
-	<property name="src.dir" value="${basedir}"/>
-	<property name="src.js.dir" value="${basedir}/js"/>
-	<property name="src.css.dir" value="${basedir}/css"/>
+	<property name="src.dir" value="${basedir}/www"/>
+	<property name="src.js.dir" value="${src.dir}/js"/>
+	<property name="src.css.dir" value="${src.dir}/css"/>
 	<!-- Output directories for files -->
-	<property name="output.dir" value="bin"/>
+	<property name="output.dir" value="build"/>
 	<property name="bin.bbos" value="${output.dir}/bbos"/>
 	<property name="bin.tablet" value="${output.dir}/tablet"/>
 	<property name="bin.bb10" value="${output.dir}/bb10"/>
