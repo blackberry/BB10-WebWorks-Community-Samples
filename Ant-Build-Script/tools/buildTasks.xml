@@ -94,19 +94,18 @@
 	-->
 	<property name="paramsfile" value=""/>
 	
-	<!-- Extension Points -->
-	<!-- These are defined points in the build process where other tasks can be injected -->
-	<extension-point name="Start"/>
-	<extension-point name="Initialized" depends="-init"/>
-	<extension-point name="FilesReady" depends="-copy.html"/>
-	<extension-point name="ZipBuilt" depends="zip"/>
-
-
 	<condition property="paramsarg" value="-p ${paramsfile}" else="">
 		<not>
 			<length string="${paramsfile}" trim="true" length="0" />
 		</not>
 	</condition>
+
+	<!-- Extension Points -->
+	<!-- These are defined points in the build process where other tasks can be injected -->
+	<extension-point name="Start"/>
+	<extension-point name="Initialized" depends="Start,-init"/>
+	<extension-point name="FilesReady" depends="Initialized,-copy.html"/>
+	<extension-point name="ZipBuilt" depends="FilesReady,zip"/>
 
 	<!-- Targets -->
 	<target name="ripple" depends="-copy.html,FilesReady">
@@ -175,7 +174,7 @@
 	</target>
 
 	<!-- for Java Smartphone -->
-	<target name="bbos.prod" depends="zip" 
+	<target name="bbos.prod" depends="zip,ZipBuilt" 
 		description="for Java Smartphone - Production">
 		<exec executable="${bbwp.bbos.dir}/bbwp">
 			<arg line="${zip.name} -g ${sign.pw} -o ./${bin.bbos}"/>
