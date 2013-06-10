@@ -1,9 +1,8 @@
 WebWorks Build Script
 =====================
 
-This is an Ant build script for building BlackBerry WebWorks applications for BlackBerry Java smartphones, BlackBerry PlayBook tablets, and BlackBerry 10 devices. With some basic set up, the script can sign and create both test and production builds, deploy to the file system for Ripple, and support optimization with JSLint, JSHint, CSSLint, as well as JS and CSS concatenation and minification.
+This is an Ant build script for building BlackBerry WebWorks applications for BlackBerry 10 devices using [Apache Cordova/PhoneGap](http://phonegap.com/). With some basic set up, the script can sign and create both test and production builds, deploy to the file system for Ripple, and support optimization with JSLint, JSHint, CSSLint, as well as JS and CSS concatenation and minification.
 
-Watch a [video](http://www.youtube.com/watch?v=89bOz3w_z5E) showing how to setup the script.
 
 ## Script Setup
 
@@ -19,7 +18,7 @@ The build.xml file is meant to be placed in the project's main directory and mod
 
 When setting up a project to use this build script, add the build.xml file to the project and change these properties in the script:
 
-* Project name: change this from the default to the name you wish to use for the project build files (zip, bar, jad/cod files and ripple directory).
+* Project name: change this from the default to the name you wish to use for the project build files (bar files and ripple directory).
 
 * jsconcat, cssconcat: update these if you want a specific name for your combined and minified files.
 
@@ -27,7 +26,7 @@ When setting up a project to use this build script, add the build.xml file to th
 
 * build target: Set to a list of targets you want to build
 
-* For _Windows_ you are then set, but the default path for including the buildTasks-cordova.xml file will not work on _MacOS_ or _Linux_ which contain Ant already and put it in a different directory. Change this path to wherever you placed buildTasks-cordova.xml.
+* anthome: point to the location of ant within the tools directory of the script, one directory below where buildTasks-cordova.xml is found. 
 
 ## Common Build Tasks and Tools
 
@@ -41,56 +40,53 @@ In the /tools directory of the repository is a buildTasks-cordova.xml file plus 
 
 > sign.pw: Code signing password.
 
-> file.excludes: add any additional files that shouldn't be zipped, like project files from your editor.
+> device.bb10.ip: the IP you use when your device is in debug mode. Default is 169.254.0.1
 
-> bbwp.xxx.dir: update the locations of the the SDKs that should be used.
+> device.bb10.pw: the password for your device
+
+> device.bb10.pin: the pin of your device
+
+> sim.bb10.ip: the ip of your simulator, found on the bottom of the screen when you run it.
+
+> ndk.dir: update the location where you BlackBerry Native SDK is installed.
+
+> qnxhost.version: get this value from the bbndk-env script files in your NDK directory. Using the lowest value of QNX_HOST_VERSION should be fine.
+
+> qnxtarget.version: get this value from the bbndk-env script files in your NDK directory. Using the lowest value of QNX_TARGET_VERSION should be fine.
 
 > ripple.dir: update the location of your local webserver (or Ripple localhost) so that projects can be pushed out to the webserver.
 
-> tools.dir: update if you put the tools in a different location than the directory above _%ANT_HOME%_.
+> ripple.port: change to port of your webserver or Ripple server if necessary. Include the colon. May be left empty to use port 80.
 
 > paramsfile: Set this value to a params.json file if you need to send parameters to downstream tools in the build process, such as the blackberry-signer (ie: proxy setup), or blackberry-nativepackager tools. Leave the value empty to not use a params file.
+
+> cordova.dir: set this to where you've unzipped your cordova-blackberry files. In a later release, this will be used for additional features, but right now it's unused.
 
 > review the other properties, but they shouldn't need changing.
 
 ## Build Targets
 
-__build.test__ (build in all SDKs+Ripple with WebInspector, source output, and debug token for Tablet and BB10)
+Build and Deploy together using the following commands:
+cordova.device.[test, prod] or cordova.sim.test
 
-__build.prod__ (build in all SDKs+Ripple with signing and no debugging, and a build id number for Tablet and BB10)
+To Build Only use the pattern:
+cordova.build.[test, prod]
+- use test for WebInspector, and debug tokens.
+- use prod for signing with a build id and no debugging.
 
-__build.beta__ (build in all SDKs+Ripple with signing _and_ debugging, and a build id number for Tablet and BB10)
+Lint/Hint and Minify targets can be included before the build here
+cordova.optimize runs both lint and minify tasks
+cordova.lint runs jslint, jshint and csslint
+cordova.minify concatenates and minifies the JS and CSS files
 
-__build.ripple__ (deploy to your file system for serving up in Ripple)
-
-Specific builds follow the pattern:
-__build.[bbos, tablet, bb10].[test, prod, beta]__
-
-- use __bbos__ for BlackBerry 5 through 7.x smartphones
-- __tablet__ for PlayBook 1.x through 2.x
-- __bb10__ for BlackBerry 10
-- use __test__ for WebInspector, source output, and debug tokens. Will still sign the app for Java Smartphones.
-- use __prod__ for regular signing with a build id and no debugging
-- use __beta__ for regular signing with a build id and WebInspector turned on.
-
-Lint/Hint and Minify targets can be included before the build:
-
-__build.optimize__ runs both lint and minify tasks
-
-__build.lint__ runs jslint, jshint and csslint
-
-__build.minify__ concatenates and minifies the JS and CSS files
-
-## Deploy Targets
-
-Besides building and linting projects, you can also use this script to deploy to your device, or simulator.
+Debug Tokens will be created and deployed automatically using the cordova.device.test command.
 
 Deployment commands follow the pattern:
+cordova.[device, sim].[test, prod]
+- use device for real devices and sim for VMWare based simulators
+- test, prod to load the matching build created above
 
-__build.deploy.[bb10.[device, sim], tablet, bbos].[test, prod, beta]__
-- __bb10__, __tablet__, __bbos__ for each platform as defined above
-- only for __bb10__ builds, use __device__ for real devices and __sim__ for VMWare based simulators
-- __test__, __prod__, __beta__ to load the matching build created above
+Use the cordova.cleantargets command to keep your project clean of generated targets (these are automatically created by the script).
 
 ## Build a Project
 
