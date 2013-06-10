@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+ *
+ * Copyright 2012-2013 Research In Motion Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ -->
+ 
+<!-- Set name to the application name: used for BAR/COD and directory on file system -->
+<project default="build" basedir="." name="ProjectName">
+
+	<!-- Concatenation destinations -->
+	<property name="jsconcat" value="scripts.js"/>
+	<property name="cssconcat" value="styles.css"/>
+
+	<!-- Fail the build on JSLint, JSHint, CSSLint errors -->
+	<property name="lintfail" value="false"/>
+	
+	<!-- Include the Properties and Targets  -->
+	<!-- 
+	The ${ant.home} variable will only work if running the Ant included in this repository. On Mac, or in some IDEs which uses their own Ant, set a direct file path here.-->
+	<property name="anthome" value="C:\GITHUB\blackberry\BB10-WebWorks-Community-Samples\Ant-Build-Script\tools\apache-ant-1.8.2" />
+
+	<!--
+	The buildProperties.xml file is optional but allows you to separate out certain settings, like passwords.
+	-->
+	<!-- <include file="${anthome}/../buildProperties.xml" /> -->
+	<include file="${anthome}/../buildTasks-cordova.xml" />
+	
+
+	<!-- Default Build - Change as needed to the sdk and build properties you want:
+
+	Build and Deploy together using the following commands:
+	cordova.device.[test, prod] or cordova.sim.test
+
+	To Build Only use the pattern:
+	cordova.build.[test, prod]
+	- use test for WebInspector, and debug tokens.
+	- use prod for signing with a build id and no debugging.
+
+	Lint/Hint and Minify targets can be included before the build here
+	cordova.optimize runs both lint and minify tasks
+	cordova.lint runs jslint, jshint and csslint
+	cordova.minify concatenates and minifies the JS and CSS files
+
+	Debug Tokens will be created and deployed automatically using the cordova.device.test command.
+	
+	Deployment commands follow the pattern:
+	cordova.[device, sim].[test, prod]
+	- use device for real devices and sim for VMWare based simulators
+	- test, prod to load the matching build created above
+
+	Use the cordova.cleantargets command to keep your project clean of generated targets (these are automatically created by the script).
+	-->
+	<target name="build" depends="cordova.device.prod"></target>
+
+	<!-- Add additional Targets here -->
+
+	<!-- Extension Points 
+	You can add targets into the build flow using the following extension points. Use the "extensionOf" attribute
+	to add to the dependency list
+
+	build.Started - no actions yet taken
+	build.Initialized - Environment Variables are set
+	build.FilesReady - Targets are set, ready to build
+	-->
+	<target name="ExtExample" extensionOf="build.FilesReady">
+		<echo>Build is about to start</echo>
+	</target>
+</project>
