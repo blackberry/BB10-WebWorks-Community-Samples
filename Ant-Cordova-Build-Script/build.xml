@@ -63,7 +63,7 @@
 
 	Use the cordova.cleantargets command to keep your project clean of generated targets (these are automatically created by the script).
 	-->
-	<target name="build" depends="cordova.device.test"></target>
+	<target name="build" depends="cordova.device.prod"></target>
 
 	<!-- Add additional Targets here -->
 

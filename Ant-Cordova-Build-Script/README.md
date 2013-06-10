@@ -94,6 +94,8 @@ Try it out by copying build.xml into a project, editing the script as above and 
 
 This script should work well with IDE's like Eclipse and Sublime Text and others too.
 
+If you are starting a new project, run the create command from your cordova-blackberry/bin directory, and copy the default build.xml into the newly created project directory. Once you've updated the settings in build.xml as noted above, run the build script to build and deploy the template app to your device.
+
 ## Dependencies
 
 The script is dependent on several tools:
