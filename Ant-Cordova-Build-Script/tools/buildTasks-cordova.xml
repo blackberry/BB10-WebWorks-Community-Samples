@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+ *
+ * Copyright 2012-2013 Research In Motion Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ -->
+<project basedir="." name="cordova">
+	<!-- Code Signing Key Password -->
+	<property name="sign.pw" value="********"/>
+
+	<!-- Set the details of the device or simulator for deployment -->
+	<!-- For BB10 device -->
+	<property name="device.bb10.ip" value="169.254.0.1"/>
+	<property name="device.bb10.pw" value="********" />
+	<property name="device.bb10.pin" value="********" />
+
+	<!-- For BB10 Simulator -->
+	<property name="sim.bb10.ip" value="192.168.0.134"/>
+	
+	
+	<!-- Directory of your BlackBerry NDK directory -->
+	<property name="ndk.dir" value="C:\bbndk"/>
+	<!-- Host and Target versions pulled from bbndk-env scripts -->
+	<property name="qnxhost.version" value="10_1_0_231"/>
+	<property name="qnxtarget.version" value="10_1_0_1720"/>
+
+	<!-- The Main Cordova installation -->
+	<property name="cordova.dir" value="C:\cordova-blackberry"/>
+
+	<!-- Use RippleSites or a WebServer to host the project for testing in Ripple -->
+	<property name="ripple.dir" value="C:\Apache2.2\htdocs\${ant.project.name}"/>
+	<property name="ripple.port" value=":9910"/>
+
+	<!-- set the .bat extension for windows machines -->
+	<condition property="commandExtension" value=".bat" else="">
+		<os family="windows"/>
+	</condition>
+
+	<!-- Build Tool locations -->
+	<property name="tools.dir" value="${anthome}/.."/>
+	<property name="yui.dir" value="${tools.dir}/yuicompressor-2.4.7"/>
+	<property name="rhino.dir" value="${tools.dir}/rhino1_7R3"/>
+	<property name="yui.jar" value="${yui.dir}/build/yuicompressor-2.4.7.jar"/>
+	<property name="rhino.jar" value="${rhino.dir}/js.jar"/>
+	<property name="jslint.js" value="${tools.dir}/fulljslint.js"/>
+	<property name="jshint.js" value="${tools.dir}/fulljshint.js"/>
+	<property name="csslint.js" value="${tools.dir}/csslint-rhino.js"/>
+
+	<!-- Build Tool options -->
+	<property name="tool.jslint.opts" value=""/>
+	<property name="tool.jshint.opts" value=""/>
+	<property name="tool.csslint.opts" value=""/>
+
+	<!-- Build Directories -->
+	<property name="src.dir" value="${basedir}/www"/>
+	<property name="src.js.dir" value="${src.dir}/js"/>
+	<property name="src.css.dir" value="${src.dir}/css"/>
+
+	<!-- 
+	Set a JSON file to be passed into the BB10 BBWP tool with settings for downstream tools
+	- See the example in the SDK directory (params-example.json) for what you can do
+	- Recommendation is to put it in the tools directory and reference like so:
+		value="${tools.dir}/params.json"
+	- Otherwise, leave value empty so it's not used
+	-->
+	<property name="paramsfile" value=""/>
+	
+	<!-- Extension Points -->
+	<!-- These are defined points in the build process where other tasks can be injected -->
+	<extension-point name="Start"/>
+	<extension-point name="Initialized" depends="Start"/>
+	<extension-point name="FilesReady" depends="Initialized"/>
+
+
+	<condition property="paramsarg" value="-p ${paramsfile}" else="">
+		<not>
+			<length string="${paramsfile}" trim="true" length="0" />
+		</not>
+	</condition>
+
+	<!-- Loading Environment Variables for Cordova -->
+	<property environment="env"/>
+	<condition property="path" value="${env.Path}" else="${env.PATH}">
+		<isset property="env.Path"/>
+	</condition>
+
+	<!-- Targets -->
+
+	<target name="device.test" depends="build.device.test,deploy.device.test"/>
+	<target name="sim.test" depends="build.sim.test,deploy.sim.test"/>
+	<target name="device.prod" depends="build.device.prod,deploy.device.prod"/>
+
+	<target name="build.device.test" depends="env,target,FilesReady">
+		<exec executable="cordova/build${commandExtension}">
+			<arg line="debug bb10device -k ${sign.pw} ${paramsarg}" />
+			<env key="QNX_TARGET_VERSION" value="${qnxtarget.version}"/>
+			<env key="QNX_TARGET" value="${QNX_TARGET}"/>
+			<env key="QNX_HOST_VERSION" value="${qnxhost.version}"/>
+			<env key="QNX_HOST" value="${QNX_HOST}"/>
+			<env key="QNX_CONFIGURATION" value="${QNX_CONFIGURATION}"/>
+			<env key="MAKEFLAGS" value="${MAKEFLAGS}"/>
+			<env key="LD_LIBRARY_PATH" value="${LD_LIBRARY_PATH};${env.LD_LIBRARY_PATH}"/>
+			<env key="PATH" value="${PATH};${path}"/>
+			<env key="QDE" value="${QDE}"/>
+			<env key="CPUVARDIR" value="${CPUVARDIR}"/>
+		</exec>
+	</target>
+	
+	<target name="deploy.device.test" depends="env,target,FilesReady">
+		<exec executable="cordova/run${commandExtension}">
+			<arg line="bb10device -k ${sign.pw} --no-build ${paramsarg}" />
+			<env key="QNX_TARGET_VERSION" value="${qnxtarget.version}"/>
+			<env key="QNX_TARGET" value="${QNX_TARGET}"/>
+			<env key="QNX_HOST_VERSION" value="${qnxhost.version}"/>
+			<env key="QNX_HOST" value="${QNX_HOST}"/>
+			<env key="QNX_CONFIGURATION" value="${QNX_CONFIGURATION}"/>
+			<env key="MAKEFLAGS" value="${MAKEFLAGS}"/>
+			<env key="LD_LIBRARY_PATH" value="${LD_LIBRARY_PATH};${env.LD_LIBRARY_PATH}"/>
+			<env key="PATH" value="${PATH};${path}"/>
+			<env key="QDE" value="${QDE}"/>
+			<env key="CPUVARDIR" value="${CPUVARDIR}"/>
+		</exec>
+	</target>
+
+	<target name="build.sim.test" depends="env,target,FilesReady">
+		<exec executable="cordova/build${commandExtension}" vmlauncher="false">
+			<arg line="debug bb10sim ${paramsarg}"/>
+			<env key="QNX_TARGET_VERSION" value="${qnxtarget.version}"/>
+			<env key="QNX_TARGET" value="${QNX_TARGET}"/>
+			<env key="QNX_HOST_VERSION" value="${qnxhost.version}"/>
+			<env key="QNX_HOST" value="${QNX_HOST}"/>
+			<env key="QNX_CONFIGURATION" value="${QNX_CONFIGURATION}"/>
+			<env key="MAKEFLAGS" value="${MAKEFLAGS}"/>
+			<env key="LD_LIBRARY_PATH" value="${LD_LIBRARY_PATH};${env.LD_LIBRARY_PATH}"/>
+			<env key="PATH" value="${PATH};${path}"/>
+			<env key="QDE" value="${QDE}"/>
+			<env key="CPUVARDIR" value="${CPUVARDIR}"/>
+		</exec>
+	</target>
+
+	<target name="deploy.sim.test" depends="env,target,FilesReady">
+		<exec executable="cordova/run${commandExtension}" vmlauncher="false">
+			<arg line="bb10sim --no-build ${paramsarg}"/>
+			<env key="QNX_TARGET_VERSION" value="${qnxtarget.version}"/>
+			<env key="QNX_TARGET" value="${QNX_TARGET}"/>
+			<env key="QNX_HOST_VERSION" value="${qnxhost.version}"/>
+			<env key="QNX_HOST" value="${QNX_HOST}"/>
+			<env key="QNX_CONFIGURATION" value="${QNX_CONFIGURATION}"/>
+			<env key="MAKEFLAGS" value="${MAKEFLAGS}"/>
+			<env key="LD_LIBRARY_PATH" value="${LD_LIBRARY_PATH};${env.LD_LIBRARY_PATH}"/>
+			<env key="PATH" value="${PATH};${path}"/>
+			<env key="QDE" value="${QDE}"/>
+			<env key="CPUVARDIR" value="${CPUVARDIR}"/>
+		</exec>
+	</target>
+
+	<target name="build.device.prod" depends="env,target,FilesReady">
+		<buildnumber/>
+		<exec executable="cordova/build${commandExtension}">
+			<arg line="release bb10device -k ${sign.pw} -b ${build.number} ${paramsarg}"
+				/>
+			<env key="QNX_TARGET_VERSION" value="${qnxtarget.version}"/>
+			<env key="QNX_TARGET" value="${QNX_TARGET}"/>
+			<env key="QNX_HOST_VERSION" value="${qnxhost.version}"/>
+			<env key="QNX_HOST" value="${QNX_HOST}"/>
+			<env key="QNX_CONFIGURATION" value="${QNX_CONFIGURATION}"/>
+			<env key="MAKEFLAGS" value="${MAKEFLAGS}"/>
+			<env key="LD_LIBRARY_PATH" value="${LD_LIBRARY_PATH};${env.LD_LIBRARY_PATH}"/>
+			<env key="PATH" value="${PATH};${path}"/>
+			<env key="QDE" value="${QDE}"/>
+			<env key="CPUVARDIR" value="${CPUVARDIR}"/>
+		</exec>
+	</target>
+
+	<target name="deploy.device.prod" depends="env,target,FilesReady">
+		<exec executable="cordova/run${commandExtension}">
+			<arg line=" bb10device -k ${sign.pw} -b ${build.number} --no-build ${paramsarg}"
+				/>
+			<env key="QNX_TARGET_VERSION" value="${qnxtarget.version}"/>
+			<env key="QNX_TARGET" value="${QNX_TARGET}"/>
+			<env key="QNX_HOST_VERSION" value="${qnxhost.version}"/>
+			<env key="QNX_HOST" value="${QNX_HOST}"/>
+			<env key="QNX_CONFIGURATION" value="${QNX_CONFIGURATION}"/>
+			<env key="MAKEFLAGS" value="${MAKEFLAGS}"/>
+			<env key="LD_LIBRARY_PATH" value="${LD_LIBRARY_PATH};${env.LD_LIBRARY_PATH}"/>
+			<env key="PATH" value="${PATH};${path}"/>
+			<env key="QDE" value="${QDE}"/>
+			<env key="CPUVARDIR" value="${CPUVARDIR}"/>
+		</exec>
+	</target>
+
+	<target name="target" depends="Initialized,projectfile">
+		<exec executable="cordova/target${commandExtension}">
+			<arg line="add bb10device ${device.bb10.ip} device -p ${device.bb10.pw} --pin ${device.bb10.pin}"/>
+		</exec>
+		<exec executable="cordova/target${commandExtension}">
+			<arg line="add bb10sim ${sim.bb10.ip} simulator"/>
+		</exec>
+	</target>
+	<target name="cleantargets" depends="">
+		<exec executable="cordova/target${commandExtension}">
+			<arg line="remove bb10device"/>
+		</exec>
+		<exec executable="cordova/target${commandExtension}">
+			<arg line="remove bb10sim"/>
+		</exec>
+	</target>
+	<target name="env" depends="Start">
+		<copy file="${ndk.dir}/bbndk-env.sh" tofile="${tools.dir}/bbndk-env1.sh" overwrite="true">
+			<filterchain>
+				<headfilter lines="2" skip="9"/>
+				<deletecharacters chars='"'/>
+				<replacestring from="$QNX_HOST_VERSION" to="${qnxhost.version}"/>
+				<replacestring from="$QNX_TARGET_VERSION" to="${qnxtarget.version}"/>
+			</filterchain>
+		</copy>
+		<loadproperties srcfile="${tools.dir}/bbndk-env1.sh"/>
+		<copy file="${ndk.dir}/bbndk-env.sh" tofile="${tools.dir}/bbndk-env2.sh" overwrite="true">
+			<filterchain>
+				<headfilter lines="6" skip="11"/>
+				<deletecharacters chars='"'/>
+				<replacestring from="$QNX_HOST" to="${QNX_HOST}"/>
+				<replacestring from="$QNX_TARGET" to="${QNX_TARGET}"/>
+				<replacestring from="$QNX_CONFIGURATION" to="${QNX_CONFIGURATION}"/>
+				<replacestring from="$LD_LIBRARY_PATH" to=""/>
+				<replacestring from="$PATH" to=""/>
+			</filterchain>
+		</copy>
+		<loadproperties srcfile="${tools.dir}/bbndk-env2.sh"/>
+	</target>
+
+	<target name="projectfile">
+		<replace file="project.json" token="cordova-BB10-app" value="${ant.project.name}"/>
+	</target>
+
+	<target name="ripple" depends=",FilesReady">
+		<copy todir="${ripple.dir}">
+			<fileset dir="${build.dir}"/>
+		</copy>
+		<script language="javascript"><![CDATA[
+			location = "http://localhost" + project.getProperty('ripple.port') + "/" + project.getProperty('ant.project.name') + "/index.html";
+			java.awt.Desktop.getDesktop().browse(java.net.URI.create(location));
+		]]></script>
+	</target>
+
+	
+
+
+	<!-- Optimization Tasks -->
+
+	<target name="optimize" depends="lint,minify"></target>
+
+	<target name="lint" depends="jslint,jshint,csslint"></target>
+
+	<target name="minify" depends="js.minify,css.minify"></target>
+
+
+	<!-- JSLint target, run separately -->
+	<target name="jslint">
+	  <apply dir="${src.js.dir}" executable="java" parallel="false" failonerror="${lintfail}">
+			<fileset dir="${src.js.dir}">
+				<include name="**/*.js"/>
+				<exclude name="**/*.min.js"/>
+			</fileset>
+			<arg value="-jar" />
+			<arg path="${rhino.jar}" />
+			<arg path="${jslint.js}" />
+			<srcfile/>
+			<arg value="${tool.jslint.opts}" />
+		</apply>
+		<echo>JSLint Successful</echo>
+	</target>
+
+	<!-- JSHint target, run separately -->
+	<target name="jshint">
+		<apply dir="${src.js.dir}" executable="java" parallel="false" failonerror="${lintfail}">
+			<fileset dir="${src.js.dir}">
+				<include name="**/*.js"/>
+				<exclude name="**/*.min.js"/>
+			</fileset>
+			<arg value="-jar" />
+			<arg path="${rhino.jar}" />
+			<arg path="${jshint.js}" />
+			<srcfile/>
+			<arg value="${tool.jshint.opts}" />
+		</apply>
+		<echo>JSHint Successful</echo>
+	</target>
+
+	<!-- CSSLint target, run separately -->
+	<target name="csslint">
+		<apply dir="${src.css.dir}" executable="java" parallel="false" failonerror="${lintfail}">
+			<fileset dir="${src.css.dir}">
+				<include name="**/*.css"/>
+				<exclude name="**/*.min.css"/>
+			</fileset>
+			<arg value="-jar" />
+			<arg path="${rhino.jar}" />
+			<arg path="${csslint.js}" />
+			<srcfile/>
+			<arg value="${tool.csslint.opts}" />
+		</apply>
+		<echo>CSSLint Successful</echo>
+	</target>
+	
+	 <!--Concatenate JS files-->
+	<target name="js.concatenate" depends=""
+		description="Concatenates specified JavaScript files">
+		<concat destfile="${src.js.dir}/${jsconcat}">
+			<fileset 
+				dir="${src.js.dir}"
+				includes="*.js" />
+		</concat>
+		<echo>Finished</echo>
+	</target>
+	
+	<!--Concatenate CSS files-->
+	<target name="css.concatenate" depends="" 
+		description="Concatenates specified CSS files">
+		<concat destfile="${src.css.dir}/${cssconcat}">
+			<fileset 
+				dir="${src.css.dir}"
+				includes="*.css"/>
+		</concat>
+		<echo>Finished</echo>
+	</target>
+	
+	<!--Minify JS files-->
+	<target name="js.minify" depends="js.concatenate" 
+		description="Minifies JavaScript files">
+		<apply executable="java" parallel="false" dest="${src.js.dir}">
+			<fileset 
+				dir="${src.js.dir}" 
+				includes="${jsconcat}"/>
+			<arg line="-jar"/>
+			<arg path="${yui.jar}"/>
+			<srcfile/>
+			<arg line="-o"/>
+			<mapper type="glob" from="*.js" to="*.js-min"/>
+			<targetfile/>
+		</apply>
+		<delete>
+			<fileset dir="${src.js.dir}" includes="*.js" excludes="*.js-min"/>
+		</delete>
+		<move file="${src.js.dir}/${jsconcat}-min" tofile="${src.js.dir}/${jsconcat}"/>
+		<echo>Finished</echo>
+	</target>
+	
+	<!--Minify CSS files-->
+	<target name="css.minify" depends="css.concatenate" 
+		description="Minifies CSS files">
+		<apply executable="java" parallel="false"  dest="${src.css.dir}">
+			<fileset 
+				dir="${src.css.dir}" 
+				includes="${cssconcat}"/>
+			<arg line="-jar"/>
+			<arg path="${yui.jar}"/>
+			<arg line="--line-break 0"/>
+			<srcfile/>
+			<arg line="-o"/>
+			<mapper type="glob" from="*.css" to="*.css-min"/>
+			<targetfile/>
+		</apply>
+		<delete>
+			<fileset dir="${src.css.dir}" includes="*.css" excludes="*.css-min"/>
+		</delete>
+		<move file="${src.css.dir}/${cssconcat}-min" tofile="${src.css.dir}/${cssconcat}"/>
+		<echo>Finished</echo>
+	</target>
+</project>
