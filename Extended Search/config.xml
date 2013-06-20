@@ -27,13 +27,12 @@
 	<feature id="blackberry.ui.toast" />
 	<feature id="blackberry.ui.cover" />
 	<feature id="blackberry.invoked" version="1.0.0" required="true" />
-    <feature id="blackberry.invoke" version="1.0.0" required="true" />
-    <rim:invoke-target id="com.bb.test.extendedsearch">
-        <type>APPLICATION</type>
-        <filter>
-            <action>bb.action.SEARCH.EXTENDED</action>
-            <mime-type>application/vnd.bb.search.criteria</mime-type>
-        </filter>
-    </rim:invoke-target>
-	<rim:permissions></rim:permissions>
+	<feature id="blackberry.invoke" version="1.0.0" required="true" />
+	<rim:invoke-target id="com.bb.test.extendedsearch">
+		<type>APPLICATION</type>
+		<filter>
+			<action>bb.action.SEARCH.EXTENDED</action>
+			<mime-type>application/vnd.bb.search.criteria</mime-type>
+		</filter>
+	</rim:invoke-target>
 </widget>

@@ -17,6 +17,23 @@
 // called by the webworks ready event
 function initApp() {
 	console.log('app init');
+	bb.init({
+		actionBarDark: true,
+		controlsDark: true,
+		listsDark: false,
+
+		// Fires "before" styling is applied and "before" the screen is inserted in the DOM
+		onscreenready: function(element, id) {
+		},
+
+		// Fires "after" styling is applied and "after" the screen is inserted in the DOM
+		ondomready: function(element, id) {
+			if (id === 'main') {
+				welcome();
+			}
+		}
+	});
+
 	blackberry.event.addEventListener("invoked", function (invocationInfo){
 		console.log("Handler start . . .");
 		if (invocationInfo.target) {
@@ -36,22 +53,7 @@ function initApp() {
 		}
 		console.log("Handler end . . .");
 	});
-	bb.init({
-		actionBarDark: true,
-		controlsDark: true,
-		listsDark: false,
 
-		// Fires "before" styling is applied and "before" the screen is inserted in the DOM
-		onscreenready: function(element, id) {
-		},
-
-		// Fires "after" styling is applied and "after" the screen is inserted in the DOM
-		ondomready: function(element, id) {
-			if (id === 'main') {
-				welcome();
-			}
-		}
-	});
 	bb.pushScreen('main.html', 'main');
 }
 
