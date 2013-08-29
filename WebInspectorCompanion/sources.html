@@ -1,0 +1,49 @@
+<!--
+ Copyright 2013 BlackBerry.
+
+ Licensed under the Apache License, Version 2.0 (the "License");  you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an "AS IS" BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and  limitations under the License.
+-->
+<div data-bb-type="screen" data-bb-title="Scripts" data-bb-effect="slide-left">
+	<div data-bb-type="title" data-bb-caption="Scripts"></div>
+
+	<script id="sourcesJS"  src="js/sources.js"></script>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Blocking UI</div>
+		<div>Avoid the use of blocking JavaScript such as alert() or confirm() dialog prompts.</div>
+		<div id="time"></div>
+		<div data-bb-type="button" onclick="displayTime()">Show Time</div>
+		<div data-bb-type="button" onclick="displayTimeNonBlock()">Show Time (non blocking)</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Breakpoints</div>
+		<div>Want to see which code path your application follows at runtime? Set a breakpoint on a relevant line of code in <b>scripts.js</b> and press the button below. F10 step over; F11 step into.</div>
+		<div data-bb-type="button" id="insertDB" onclick="seeMeGo();" >See Me Go</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Watch Expressions</div>
+		<div>Want to see what values a variable is set to at a given point?  Add a variable name or expression to the watch expressions panel.</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Scope Variables</div>
+		<div>Think there may be a conflict with a global variable? Set breakpoints and confirm which scope (local or global) a variable exists in at runtime.</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Pretty Print</div>
+		<div>Minified code becomes formatted. Great for debugging other frameworks.</div>
+	</div>
+
+	<div data-bb-type="action-bar" data-bb-back-caption="Back">
+	</div>
+
+</div>

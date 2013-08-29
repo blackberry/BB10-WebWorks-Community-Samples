@@ -1,0 +1,35 @@
+<!--
+ Copyright 2013 BlackBerry.
+
+ Licensed under the Apache License, Version 2.0 (the "License");  you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an "AS IS" BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and  limitations under the License.
+-->
+<div data-bb-type="screen" data-bb-title="Profiles" data-bb-effect="slide-left">
+	<div data-bb-type="title" data-bb-caption="Profiles"></div>
+
+	<script id="profilesJS"  src="js/profiles.js"></script>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">CPU Load</div>
+		<div>Some slow running script on your page? This gives you the percent time spent in any given function.</div>
+		<div data-bb-type="button" id="profileMe" onclick="runSimulation();" >Start 5s Profile Script</div>
+		<br/>
+		<div>You can also profile inline code using JavaScript. Easily esolate blocks slow running code by wrapping them in console.profile() and console.profileEnd() statements.</div>
+		<div data-bb-type="button" id="profileMe" onclick="autoProfile()" >Inline Profiling</div>
+
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">JavaScript and CSS</div>
+		<div>You can profile both JavaScript and CSS performance. </div>
+	</div>
+
+	<div data-bb-type="action-bar" data-bb-back-caption="Back">
+	</div>
+
+</div>

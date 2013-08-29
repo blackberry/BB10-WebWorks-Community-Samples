@@ -1,0 +1,70 @@
+<!--
+ Copyright 2013 BlackBerry.
+
+ Licensed under the Apache License, Version 2.0 (the "License");  you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an "AS IS" BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and  limitations under the License.
+-->
+<div data-bb-type="screen" data-bb-title="Network" data-bb-effect="slide-left">
+
+	<script id="networkJS"  src="js/network.js"></script>
+	<link   id="networkCSS" href="css/network.css" rel="stylesheet"/>
+
+	<div data-bb-type="title" data-bb-caption="Network"></div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Status Codes</div>
+		<div>Seeing broken images in your app? Check to make sure you aren't getting HTTP 404 "Not found" errors. If so you may have the wrong URL.</div>
+		<img src="https://developer.blackberry.com/html5/files/documentation/icon/knight.png" alt="This image broke, is your WiFi on?"/>
+		<img src="https://developer.blackberry.com/html5/files/documentation/icon/knight-broken.png" alt="This image broke, as expected."/>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Reducing HTTP requests</div>
+		<div>Looking to speed up your web page loading? Inspect how long certain page events are taking, focus on the slower pieces.</div>
+		<div>Application taking long to download? Check to see if there are any large resources that can be optimized.</div>
+
+		<div data-bb-type="panel-header">Images</div>
+		<div id="normalimages"></div>
+		<div data-bb-type="button" onclick="displayImages();" id="plain">Display Images</div>
+
+		<div data-bb-type="panel-header">Sprites</div>
+		<div id="spriteimages"></div>
+		<div data-bb-type="button" onclick="displaySprites();" id="plain">Display Images (Sprites)</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Page Responsiveness</div>
+		<div>Avoid blocking UI by making asynchronous XHR calls</div>
+		<div id="xhrresponse"></div>
+		<div data-bb-type="button" onclick="syncXHR();" id="plain">Load Content</div>
+		<div data-bb-type="button" onclick="asyncXHR();" id="plain">Load Content (async)</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Memory</div>
+		<div>Notice the app slows down after a period of use?  View the memory panel to see the heap size growing and if there are any memory leaks.</div>
+		<div id="jqmresponse"></div>
+		<div data-bb-type="button" onclick="getjQuery();" id="plain">Get jQuery</div>
+		<div data-bb-type="button" onclick="getjQueryMin();" id="plain">Get jQuery (min)</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">HTTP Headers</div>
+		<div>Trying to see what response your web server may be sending back to an HTTP Request? Inspect the Response headers values for each resource.</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">User Events</div>
+		<div>Is a button press taking a really long time to get a response? There may be something else happening at the same time. Look for what actions are happening after the mousedown event.</div>
+	</div>
+
+
+	<div data-bb-type="action-bar" data-bb-back-caption="Back">
+	</div>
+
+</div>

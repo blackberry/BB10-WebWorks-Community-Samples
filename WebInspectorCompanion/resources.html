@@ -1,0 +1,72 @@
+<!--
+ Copyright 2013 BlackBerry.
+
+ Licensed under the Apache License, Version 2.0 (the "License");  you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an "AS IS" BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and  limitations under the License.
+-->
+<div data-bb-type="screen" data-bb-title="Resources" data-bb-effect="slide-left">
+<div data-bb-type="title" data-bb-caption="Resources"></div>
+
+	<script id="resourcesJS"  src="js/resources.js"></script>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Local Storage</div>
+		<div data-bb-type="row">
+			<div data-bb-type="label">Item value:</div>
+			<input type="text" id="txtLocalStorageValue" value="Foo"/>
+			<div data-bb-type="button" id="btnSaveLocal" onclick="addLocalStorageItem();">Insert into localstorage</div>
+		</div>
+		<div data-bb-type="row">
+			<span id="localStorageCount">This value will be replaced by JavaScript</span>
+			<div data-bb-type="button" id="btnClearLocal" onclick="clearLocalStorage();">Clear localstorage</div>
+		</div>
+		<div>Was local storage updated correctly when you navigate to a new page in your site?  Inspect the contents of local storage.</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Cookies</div>
+		<div data-bb-type="row">
+			<div data-bb-type="label">Item value:</div>
+			<input type="text" id="txtCookieValue" value="Chocolate Chip"/>
+			<div data-bb-type="button" id="btnSaveCookie" onclick="addCookie();">Save cookie</div>
+		</div>
+		<div data-bb-type="row">
+			<span id="cookieCount"></span>
+			<div data-bb-type="button" id="btnClearCookies" onclick="clearCookies();">Expire all cookies</div>
+		</div>
+		<div>Did you expect an authentication token stored in a cookie to have expired already? View the value of the expiry time properties for that cookie.</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Databases</div>
+		<div data-bb-type="row">
+			<div data-bb-type="label">Item value:</div>
+			<input type="text" id="txtWebDBValue" value="Test"/>
+			<div data-bb-type="button" id="btnSaveWebDB" onclick="addWebDBItem();">Insert into Database</div>
+		</div>
+		<div data-bb-type="row">
+			<span id="webDBCount"></span>
+			<div data-bb-type="button" id="btnClearWebDB" onclick="clearWebDB();">Clear database</div>
+		</div>
+		<div>Were items added to the datababse correctly? Inspect the contents of your HTML5 database.</div>
+	</div>
+
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">The Frames tree</div>
+		<ul>
+			<li><b>HTML</b> - Want to see what the page source looked like before it was modified by JavaScript?  View the original document that was first loaded.</li>
+			<li><b>Scripts</b> Does the page feel like it is missing some functionality?  Confirm that all dependent javascript files are being referenced correctly.</li>
+			<li><b>Stylesheets</b>  Does the page look like it's missing some styles? Check to confirm that the relevant stylesheet is being recognized correctly.</li>
+		<ul>
+	</div>
+
+	<div data-bb-type="action-bar" data-bb-back-caption="Back">
+	</div>
+
+</div>
