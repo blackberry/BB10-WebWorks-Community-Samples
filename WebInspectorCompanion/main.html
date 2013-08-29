@@ -1,0 +1,39 @@
+<!--
+ Copyright 2013 Research In Motion Limited.
+
+ Licensed under the Apache License, Version 2.0 (the "License");  you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an "AS IS" BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and  limitations under the License.
+-->
+
+<!DOCTYPE HTML>
+<div data-bb-type="screen" data-bb-effect="slide-left"  data-bb-scroll-effect="off">
+
+	<div data-bb-type="menu">
+		<div data-bb-type="menu-item" data-bb-img="images/icons/info.png" data-bb-pin="left">Info</div>
+	    <div data-bb-type="menu-item" data-bb-img="images/icons/settings.png" data-bb-pin="right">Settings</div>
+	</div>
+
+	<div data-bb-type="title" data-bb-caption="Web Inspector Companion"></div>
+
+	<div data-bb-type="image-list" data-bb-images="none">
+		<div id="network"   data-bb-type="item" data-bb-title="Network">Load times, HTTP headers</div>
+		<div id="profiles"  data-bb-type="item" data-bb-title="Profiles">CPU load, CSS and JavaScript</div>
+		<div id="sources"   data-bb-type="item" data-bb-title="Sources">Break points, expressions, variable scope</div>
+		<div id="timeline"  data-bb-type="item" data-bb-title="Timeline">Events, FPS, memory</div>
+		<div id="timelinetouch" data-bb-type="item" data-bb-title="Timeline GPU">Hardware acceleration</div>
+		<div id="elements"  data-bb-type="item" data-bb-title="Elements">Live DOM access, event listeners</div>
+		<div id="advanced"  data-bb-type="item" data-bb-title="Advanced Features">Customize Web Inspector</div>
+		<div id="resources" data-bb-type="item" data-bb-title="Resources">CSS, cookies, storage, DB</div>
+		<div id="console"   data-bb-type="item" data-bb-title="Console">Error logs, command line</div>
+	</div>
+
+	<div data-bb-type="action-bar">
+		<div onclick="loadShareCard({}, 'Web Inspector Companion');" id="btnShare" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/share.png">Share</div>
+	</div>
+
+</div>

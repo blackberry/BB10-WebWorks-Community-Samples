@@ -1,0 +1,93 @@
+/*
+* Copyright 2011-2013 Research In Motion Limited.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+#nav li {
+ 	list-style-type:none;
+	font-size:2em;
+}
+
+#nav li a {
+	background-repeat:no-repeat;
+	padding: 0 0 0 90px;
+	display: block;
+	height: 72px;
+}
+
+#nav li a.item1 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image1.gif');
+}
+#nav li a:hover.item1 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image5_over.gif');
+}
+
+#nav li a.item2 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image2.gif');
+}
+#nav li a:hover.item2 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image5_over.gif');
+}
+
+#nav li a.item3 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image3.gif');
+}
+#nav li a:hover.item3 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image5_over.gif');
+}
+
+#nav li a.item4 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image4.gif');
+}
+#nav li a:hover.item4 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image5_over.gif');
+}
+
+#nav li a.item5 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image5.gif');
+}
+#nav li a:hover.item5 {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1Before/img/image5_over.gif');
+}
+
+
+/* The following are used for Sprite images */
+
+#spriteNav li {
+ 	list-style-type:none;
+	font-size:2em;
+}
+
+#spriteNav li a {
+	background-image:url('http://css-tricks.com/examples/CSS-Sprites/Example1After/img/image_nav.gif');
+	background-repeat:no-repeat;
+	padding: 0 0 0 90px;
+	display: block;
+	height: 72px;
+}
+
+#spriteNav li a.item1 {background-position:0px 0px;}
+#spriteNav li a:hover.item1 {background-position:0px -72px;}
+
+#spriteNav li a.item2 {background-position:0px -143px;}
+#spriteNav li a:hover.item2 {background-position:0px -215px;}
+
+#spriteNav li a.item3 {background-position:0px -287px;}
+#spriteNav li a:hover.item3 {background-position:0px -359px;}
+
+#spriteNav li a.item4 {background-position:0px -431px;}
+#spriteNav li a:hover.item4 {background-position:0px -503px;}
+
+#spriteNav li a.item5 {background-position:0px -575px;}
+#spriteNav li a:hover.item5 {background-position:0px -647px;}
