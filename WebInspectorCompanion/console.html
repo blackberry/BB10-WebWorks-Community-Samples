@@ -1,0 +1,46 @@
+<!--
+ Copyright 2013 BlackBerry.
+
+ Licensed under the Apache License, Version 2.0 (the "License");  you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an "AS IS" BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and  limitations under the License.
+-->
+<div data-bb-type="screen" data-bb-title="Console" data-bb-effect="slide-left">
+	<div data-bb-type="title" data-bb-caption="Console"></div>
+
+	<script id="consoleJS"  src="js/console.js"></script>
+
+	<div data-bb-type="round-panel">
+
+		<div data-bb-type="panel-header">Custom Logging</div>
+		<div>Log your own messages to the console via <b>console.log()</b>.</div>
+		<div data-bb-type="button" id="btnLogMessage" onclick="logMsg()" >Log Message</div>
+
+		<div data-bb-type="panel-header">Warnings</div>
+		<div>Log warning messages to the console via <b>console.warn()</b>.</div>
+		<div data-bb-type="button" id="btnLogWarning" onclick="logWarning()" >Log Warning</div>
+
+		<div data-bb-type="panel-header">Error Logging</div>
+		<div>Notice your page is not behaving correctly? First thing you should do is open the console and check to see if there are any runtime errors.</div>
+		<div data-bb-type="button" id="btnLogError" onclick="generateError()" >blackberry.doesntexist.doSomething();</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Open Browser</div>
+		<div>Notice your page is not behaving correctly? First thing you should do is open the console and check to see if there are any runtime errors.</div>
+		<div data-bb-type="button" id="btnOpenBrowser" onclick="openBrowserBad()">Open Browser</div>
+	</div>
+
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header">Command Line</div>
+		<div>Need to reload the current page? Type <b>window.location.reload()</b> from the console command line. Executing <b>$0</b> in the console will give you reference to the currently selected element in the elements panel.</div>
+	</div>
+
+	<div data-bb-type="action-bar" data-bb-back-caption="Back">
+	</div>
+
+</div>
