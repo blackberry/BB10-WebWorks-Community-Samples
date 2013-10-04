@@ -1,0 +1,188 @@
+body {
+    font-family: Arial;
+    font-size: 100%;
+    background: #222;
+    margin: 0;
+    padding: 0;
+}
+
+#droparea {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: url(../images/splash.png) center center no-repeat;
+    background-size: 60%;
+}
+
+#wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#progress {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#progress_icon {
+    width: 6em;
+    height: 6em;
+    border-radius: 30px;
+    background: #444 url(../images/progress_128.gif) center center no-repeat;
+    background-size: 3.5em;
+    opacity: 0.8;
+    vertical-align: middle;
+    display: inline-block;   
+}
+
+/* Used for vertical centering */
+#progress_icon_ghost {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+
+#upload_input, #image_template {
+    display: none;
+}
+
+#gallery {
+    -webkit-perspective: 200em;
+}
+
+.image {
+    display: block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    -webkit-transition: all ease-in-out 1s;
+    -webkit-transform-style: preserve-3d;
+    // -webkit-perspective doesn't seem to cut it for Chrome
+    -webkit-transform: rotateY(0deg);
+    //height: 100%;
+    text-align: center;
+}
+
+.image.flipped {
+    -webkit-transform: scale(.5) rotateY(180deg) scale(2);
+}
+
+.image.slide_up {
+    -webkit-transform: translateY(100%);
+}
+.image.slide_down {
+    -webkit-transform: scale(.5) rotateY(180deg) scale(2) translateY(100%);
+}
+
+.image_large_container {
+    overflow: scroll;
+    -webkit-backface-visibility: hidden;
+}
+
+.image_large_container > .image_large { 
+    height: 100%;
+    max-height: 100%;
+}
+
+.image > .image_details {
+    color: white;
+    background: #222;
+    position: absolute;
+    top: 0; right: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-transform: rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+    //border-bottom: 10px solid #1E1E1E;
+}
+
+.image_details > .image_data {
+    width: 50%; 
+    float: left;
+    margin: 0 4% 0 0;
+
+}
+
+.image_data > .thumb {
+    height: 70%;
+    overflow: hidden;
+}
+
+.image_details > .image_data {
+    width: 50%; 
+}
+
+.image .image_details .image_url {
+    display: block;
+    font-size: 1.3em;
+    text-align: center;
+    color: white;
+    background: #333;
+    border: none;
+    border-top: 0.3em solid #555;
+    padding: 3%;
+    margin: 3%;
+    width: 94%;
+}
+
+.image .image_details .image_url::-webkit-selection {
+    background: #258; /* Safari */
+}
+
+.button {
+    margin: 0 auto;
+    display: table;
+    font-size: 1.4em;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-shadow: 0px 0.18em 0px #377322;
+    color: white;
+    background: #44892c;
+    border: none;
+    border: 10px solid #347121;
+    width: 94%;
+    height: 1.4em;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.button > span {
+    vertical-align: middle;
+}
+
+
+.image.uploading {
+    -webkit-transform: scale(.5) translateX(50%);
+}
+
+.image.progress {
+    .progress_left {
+        display: none;
+        width: 100%;
+    }
+    
+    .progress_total {
+    }
+}
+
+/* Util */
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+
