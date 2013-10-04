@@ -7,7 +7,7 @@ and filesystem handling, and `js/app.js` for the rest of the app.
 Backbone.js is used for structuring the app and event handling.
 
 ## Author
-Dmitry Kichenko 
+Dmitry Kichenko @dmkc
 
 ## Building
 The easiest way to build is through 
@@ -16,3 +16,7 @@ I used the
 [Ant build script](https://github.com/blackberry/BB10-WebWorks-Community-Samples/tree/master/Ant-Build-Script) 
 from the WebWorks Community repo. If you end up doing the same, make sure
 to set the correct device password in `build.xml`.
+
+## Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
