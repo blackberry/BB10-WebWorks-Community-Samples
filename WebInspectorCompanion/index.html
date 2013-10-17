@@ -30,55 +30,57 @@
 
         <!-- initialization -->
         <script type="text/javascript">
-            document.addEventListener("webworksready", function(){
-                initApp();
-            });
+            window.addEventListener('load', function() {
+                document.addEventListener("webworksready", function(){
+                    initApp();
 
-            bb.init({
-                    actionBarDark: true,
-                    controlsDark: true,
-                    listsDark: false,
+                    bb.init({
+                            actionBarDark: true,
+                            controlsDark: true,
+                            listsDark: false,
 
-                    // Fires "before" styling is applied and "before" the screen is inserted in the DOM
-                    onscreenready: function(element, id) {
-                        if (id === "main") {
-                            element.querySelector("#elements").onclick = function () {
-                                bb.pushScreen('elements.html', 'elements');
-                            };
-                            element.querySelector("#resources").onclick = function () {
-                                bb.pushScreen('resources.html', 'resources');
-                            };
-                            element.querySelector("#timeline").onclick = function () {
-                                bb.pushScreen('timeline.html', 'timeline');
-                            };
-                            element.querySelector("#timelinetouch").onclick = function () {
-                                bb.pushScreen('timelinetouch.html', 'timelinetouch');
-                            };
-                            element.querySelector("#network").onclick = function () {
-                                bb.pushScreen('network.html', 'network');
-                            };
-                            element.querySelector("#sources").onclick = function () {
-                                bb.pushScreen('sources.html', 'sources');
-                            };
-                            element.querySelector("#console").onclick = function () {
-                                bb.pushScreen('console.html', 'console');
-                            };
-                            element.querySelector("#profiles").onclick = function () {
-                                bb.pushScreen('profiles.html', 'profiles');
-                            };
-                            element.querySelector("#advanced").onclick = function () {
-                                bb.pushScreen('advanced.html', 'advanced');
-                            };
-                        }
-                   },
+                            // Fires "before" styling is applied and "before" the screen is inserted in the DOM
+                            onscreenready: function(element, id) {
+                                if (id === "main") {
+                                    element.querySelector("#elements").onclick = function () {
+                                        bb.pushScreen('elements.html', 'elements');
+                                    };
+                                    element.querySelector("#resources").onclick = function () {
+                                        bb.pushScreen('resources.html', 'resources');
+                                    };
+                                    element.querySelector("#timeline").onclick = function () {
+                                        bb.pushScreen('timeline.html', 'timeline');
+                                    };
+                                    element.querySelector("#timelinetouch").onclick = function () {
+                                        bb.pushScreen('timelinetouch.html', 'timelinetouch');
+                                    };
+                                    element.querySelector("#network").onclick = function () {
+                                        bb.pushScreen('network.html', 'network');
+                                    };
+                                    element.querySelector("#sources").onclick = function () {
+                                        bb.pushScreen('sources.html', 'sources');
+                                    };
+                                    element.querySelector("#console").onclick = function () {
+                                        bb.pushScreen('console.html', 'console');
+                                    };
+                                    element.querySelector("#profiles").onclick = function () {
+                                        bb.pushScreen('profiles.html', 'profiles');
+                                    };
+                                    element.querySelector("#advanced").onclick = function () {
+                                        bb.pushScreen('advanced.html', 'advanced');
+                                    };
+                                }
+                           },
 
-                    // Fires "after" styling is applied and "after" the screen is inserted in the DOM
-                    ondomready: function(element, id) {
-                        if (id === 'main') {
-                            welcome();
-                        }
-                    }
-            });
+                            // Fires "after" styling is applied and "after" the screen is inserted in the DOM
+                            ondomready: function(element, id) {
+                                if (id === 'main') {
+                                    welcome();
+                                }
+                            }
+                    });
+                });
+            }, false);
         </script>
     </head>
     <body style="background-color: #181818">
