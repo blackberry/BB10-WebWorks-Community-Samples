@@ -4,7 +4,7 @@ This sample shows how include your application the extended search options. An a
 
 **Applies To**
 
-* [BlackBerry 10 WebWorks SDK](https://developer.blackberry.com/html5/download/sdk) 
+* [BlackBerry 10 WebWorks SDK 2.0](https://developer.blackberry.com/html5/download/sdk) 
 
 **Author(s)**
 
@@ -22,11 +22,9 @@ Icons used here are from [Liz Myers](http://www.myersdesign.com) and are [licens
 
 ## How it Works
 
-In the config.xml, you need the invoke features added, and to declare the invoke target for extended search. In this code, the only thing that needs to be changed is the target id, which must be unique across all applications. The recommendation is to use a reverse URI scheme, and end it with ".extendedsearch", to differentiate it from other targets you might declare in this application:
+In the config.xml, you need to declare the invoke target for extended search. In this code, the only thing that needs to be changed is the target id, which must be unique across all applications. The recommendation is to use a reverse URI scheme, and end it with ".extendedsearch", to differentiate it from other targets you might declare in this application:
 
 ```xml
-	<feature id="blackberry.invoked" version="1.0.0" required="true" />
-	<feature id="blackberry.invoke" version="1.0.0" required="true" />
 	<rim:invoke-target id="com.bb.test.extendedsearch">
 		<type>APPLICATION</type>
 		<filter>
@@ -65,8 +63,36 @@ The rest is essentially identical to the invokable example. Setup a listener for
 
 ## How to Build
 
-1. Clone the repo to your local machine
-2. Use Using the Ripple Mobile Emulator and the BlackBerry 10 WebWorks SDK, package the contents of your local BB10-WebWorks-Samples/WindowCovers folder into a BlackBerry application, or if you've set up the [WebWorks Ant Build script](https://github.com/blackberry/BB10-WebWorks-Community-Samples/Ant-Build-Script), run the build using the build.xml file in the sample directory.
+1. Clone this repo to your local machine.
+2. Ensure the [BlackBerry 10 WebWorks SDK 2.0](https://developer.blackberry.com/html5/download/sdk) is correctly installed.
+3. Open a command prompt (windows) or terminal (mac) and run the following command:
+
+	```
+	webworks create <your source folder>\"Extended Search" extendedsearch
+	```
+
+3. **Replace** the default Extended Search\www folder with the \www folder from **this** project
+4. From the command prompt (Windows) or terminal (mac), navigate to the Extended Search folder
+
+	```
+	cd <your source folder>\"Extended Search"
+	```
+
+5. Run the following commands to configure plugins used by **this app**
+
+	```
+	webworks plugin add com.blackberry.invoke
+	webworks plugin add com.blackberry.invoked
+	webworks plugin add com.blackberry.ui.cover
+	webworks plugin add com.blackberry.ui.toast
+```
+
+6. Run the following command to build and deploy the app to a device connected via USB
+
+	```
+	webworks run
+	```
+
 
 ## More Info
 
