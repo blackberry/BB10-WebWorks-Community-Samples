@@ -1,0 +1,40 @@
+body { 
+    background-color: #FFFFFF;
+    color: #111111;
+    font-size: 12pt;
+    font-family: Tahoma, Arial;
+}
+
+.but{
+    width:90px; 
+    height: 40px
+}
+
+table{
+    background-color: #ddccdd;
+    border-color: #600;
+    border-width: 1px 1px 1px 1px;
+    border-style: none;
+    border-collapse: collapse;
+}
+
+.myTd{
+    cursor:crosshair;
+    width: 46px;
+    height: 46px;
+    margin: 0;
+    border-color: #600;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+.rules{
+    display:none;
+    font-size: 9pt;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+}
+    

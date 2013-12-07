@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+	var meta = document.createElement("meta");
+	meta.setAttribute('name', 'viewport');
+	meta.setAttribute('content', 'initial-scale='
+			+ (1 / window.devicePixelRatio) + ',user-scalable=no');
+	document.getElementsByTagName('head')[0].appendChild(meta);
+</script>
+<script type="text/javascript" src="local:///chrome/webworks.js"></script>
+<script type="text/javascript" src="./js/BlackBerry-JQM-all-1.0.0.min.js"></script>
+<script type="text/javascript" src="./js/life.js"></script>
+<link rel="stylesheet" href="./css/BlackBerry-JQM-all-1.0.0.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/life.css" type="text/css" media="all" />
+</head>
+
+<body>
+
+	<div data-role="page">
+		<div data-role="panel" id="top" data-dark-modal="true"
+			data-position="top" data-display="push" data-theme="a" class="">
+			<div data-role="applicationmenu">
+				<a data-role="action" href="#" onclick="showAbout();return false;">
+					<img src="img/ic_info.png" alt="" />
+					<p>Info</p>
+				</a> <a data-role="SettingsActionItem" href="#"
+					onclick="showSetting(true); return false;"> <img
+					src="img/ic_settings.png" alt="" />
+					<p>Settings</p>
+				</a>
+			</div>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<div id="tover" data-role="tab-overflow"></div>
+			<div data-role="actionbar">
+				<div id="o1" data-role="action" class="active" onclick="setTable();">
+					<img src="./img/ic_reload.png" alt="reload" />
+					<p>reset</p>
+				</div>
+				<div id="o2" data-role="action" class="active"
+					onclick="randomize();">
+					<img src="./img/ic_random.png" alt="randomize" />
+					<p>randomize</p>
+				</div>
+				<div id="o3" data-role="action" class="active" onclick="start();">
+					<img src="./img/ic_play.png" alt="play" />
+					<p>play</p>
+				</div>
+				<div id="o4" data-role="action" class="active" onclick="donate();">
+					<img src="./img/ic_buy.png" alt="donate" />
+					<p>donate $0.99</p>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="content">
+			<div id="ustawienia" style="display: none">
+			<label for="cols">number of columns:</label>
+			<input type="range" name="cols" id="cols" value="15" min="5" max="15" data-highlight="true"/>
+			<label for="rows">number of rows:</label>
+			<input type="range" name="rows" id="rows" value="12" min="5" max="20" data-highlight="true"/> 
+
+				<br /> <input type="button" value="OK" onclick="showSetting(false);" />
+			</div>
+
+
+			<div id="tablica" style="display: block">
+				<span id="spanStable" style="display: none"></span>
+				<span
+					id="spanSN" style="display: block; font-size: 3em"> Steps: <span
+					id="stepNumber">0</span>
+				</span>
+				<div id="lifeTable" style="float: left"></div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<script>
+		window.addEventListener("load", function(e) {
+			document.addEventListener("webworksready", bodyOnLoad)
+		}, false);
+	</script>
+</body>
+</html>
