@@ -15,7 +15,9 @@ The Carousel module lets you easily create multi-sided 3D carousels that you can
 - None
 
 ### Demo
-http://psiborg.github.io/PantherUI/
+http://psiborg.github.io/BB10-WebWorks-Community-Samples/PantherUI/
+&mdash; or &mdash;
+http://blackberry.github.io/BB10-WebWorks-Community-Samples/PantherUI/
 
 ### Screenshots
 
