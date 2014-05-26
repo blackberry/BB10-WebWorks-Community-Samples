@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2013-2014 BlackBerry Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basics 1F</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../dist/PantherUI.min.css">
+    <style>
+    body {
+        font: 100% Arial, sans-serif;
+    }
+
+    #container1 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .panther-Carousel-panelTitleBar {
+        position: absolute;
+        bottom: 0;
+
+        height: 16mm;
+        max-height: 16mm;
+        line-height: 16mm;
+
+        -webkit-box-shadow: 0px -5px 5px 0px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow: 0px -5px 5px 0px rgba(50, 50, 50, 0.75);
+        box-shadow: 0px -5px 5px 0px rgba(50, 50, 50, 0.75);
+    }
+
+    .panther-Carousel-panelContent {
+        position: absolute;
+        top: 0;
+
+        width: 85%;
+        width: -webkit-calc(100% - 20px);
+        width: calc(100% - 20px);
+
+        height: 85%;
+        height: -webkit-calc(100% - 16mm - 20px);
+        height: calc(100% - 16mm - 20px);
+
+        overflow-y: auto;
+    }
+
+    .panther-Carousel-carousel figure {
+        overflow-y: hidden;
+    }
+    </style>
+</head>
+<body>
+    <section class="panther-Carousels">
+        <section id="container1" class="panther-Carousel-container">
+            <div id="carousel1" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 1 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 1: Add your content here -->
+                        <h2>Basics 1F - For 1-Handed Use</h2>
+
+                        <p>To respect the <b><a href="https://www.dropbox.com/sh/4ukr3uihiru8p79/zOy3hXhFW1" target="_blank">Thumb Zone</a></b> (the most comfortable area for touch with one-handed use), we can move the title bar from the top (the &ldquo;ow&rdquo; and &ldquo;stretch&rdquo; zones) to the bottom (in the &ldquo;natural&rdquo; zone).</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 2: Add your content here -->
+                        <p>Hello World!</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 3: Add your content here -->
+                        <p>The quick brown fox jumps over the lazy dog.</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 4 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 4: Add your content here -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu tempor ligula. Suspendisse ut porttitor ipsum, at viverra metus. Phasellus vitae dictum turpis, eu ultricies lacus. Vestibulum cursus pretium lectus ac accumsan. Ut fringilla vulputate nisl. Suspendisse porta nisi neque, vitae imperdiet ligula fringilla et. Aenean sagittis ante in lectus cursus, non sodales tortor pellentesque. Etiam lobortis quam eu nisi fermentum ultricies. Vestibulum viverra pulvinar enim. Cras commodo velit metus, non ultricies est rutrum sed. Phasellus gravida augue vel imperdiet mattis.</p>
+                    </div>
+                </figure>
+            </div>
+        </section>
+    </section>
+
+    <script src="../dist/PantherUI.min.js"></script>
+    <script>
+    // Initialize carousel
+    Panther.Carousel.init({
+        id: 'carousel1',
+        backgroundColor: 'rgba(209, 209, 209, 0.9)'
+    });
+    </script>
+</body>
+</html>

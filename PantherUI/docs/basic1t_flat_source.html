@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2013-2014 BlackBerry Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basics 1T (Flat)</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../dist/PantherUI.min.css">
+    <link rel="stylesheet" href="lib/highlight/styles/monokai_sublime.css">
+    <style>
+    body {
+        font: 100% Arial, sans-serif;
+    }
+
+    #container1 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .panther-Carousel-panelTitleBar {
+        background-color: #F7F7F7;
+        border-bottom: 1px solid #B7B7BB;
+        color: #000;
+    }
+    </style>
+</head>
+<body>
+    <section class="panther-Carousels">
+        <section id="container1" class="panther-Carousel-container">
+            <div id="carousel1" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 1 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 1: Add your content here -->
+                        <h2>Basics 1T - Theming (Flat)</h2>
+
+                        <p>To customize the look-and-feel of a carousel, you can change the colors of the title bar and the content body from the default black and gray to whatever you like.</p>
+                        <p>For example, with the trend towards minimalstic <b>Flat UI Design</b>, we can make a carousel look like iOS 7.</p>
+
+                        <h3>Usage:</h3>
+
+                        <ol>
+                            <li>
+                                <p>To change the title bar, override the <b>.panther-Carousel-panelTitleBar</b> style.</p>
+                                <pre><code>
+.panther-Carousel-panelTitleBar {
+    background-color: #F7F7F7;
+    border-bottom: 1px solid #B7B7BB;
+    color: #000;
+}
+                                </code></pre>
+                            </li>
+                            <li>
+                                <p>To change the carousel body color, add a backgroundColor attribute.</p>
+                                <pre><code>
+Panther.Carousel.init({
+    id: 'carousel1',
+    backgroundColor: 'rgba(239, 239, 244, 1)' // #EFEFF4
+});
+                                </code></pre>
+                            </li>
+                        </ol>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 2: Add your content here -->
+                        <p>The quick brown fox jumps over the lazy dog.</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 3: Add your content here -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dui orci, convallis sed nisi et, elementum aliquet purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla volutpat mi vel lorem tempus, ut placerat dui dignissim. In tellus neque, auctor vitae tincidunt ut, feugiat quis turpis. Sed vel sodales orci, eu laoreet nunc. Quisque in ipsum in ligula porta lacinia. Donec vitae augue eu mi ultrices volutpat eu quis neque. Ut id rutrum orci, at tincidunt quam. Aenean suscipit ullamcorper convallis. Ut dapibus mauris vulputate ultricies eleifend. Sed vitae tincidunt nunc. Nullam volutpat, eros tempus rutrum blandit, turpis nisl vulputate lectus, sit amet elementum enim purus non risus. Vivamus sagittis quis metus ac vulputate. Vivamus in ante in mauris rhoncus bibendum at in metus.</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 4 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 4: Add your content here -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dui orci, convallis sed nisi et, elementum aliquet purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla volutpat mi vel lorem tempus, ut placerat dui dignissim. In tellus neque, auctor vitae tincidunt ut, feugiat quis turpis. Sed vel sodales orci, eu laoreet nunc. Quisque in ipsum in ligula porta lacinia. Donec vitae augue eu mi ultrices volutpat eu quis neque. Ut id rutrum orci, at tincidunt quam. Aenean suscipit ullamcorper convallis. Ut dapibus mauris vulputate ultricies eleifend. Sed vitae tincidunt nunc. Nullam volutpat, eros tempus rutrum blandit, turpis nisl vulputate lectus, sit amet elementum enim purus non risus. Vivamus sagittis quis metus ac vulputate. Vivamus in ante in mauris rhoncus bibendum at in metus.</p>
+                        <p>Proin accumsan felis vehicula tempus tempor. Morbi ultricies commodo ligula, sed imperdiet orci euismod tempus. Curabitur fermentum magna diam, eget convallis ipsum molestie id. Suspendisse pulvinar vitae quam non feugiat. Sed eu euismod velit. Mauris porta, risus quis ultricies tincidunt, est sem lobortis felis, vel laoreet neque lorem tristique mi. Maecenas quis purus in sem tempor auctor et vel tortor. Suspendisse sit amet ligula lorem. Suspendisse nunc turpis, iaculis nec iaculis quis, commodo ut orci. Sed ac lorem est. Nam eget iaculis lorem. Nunc dapibus vitae nunc tempus accumsan. Ut tempor venenatis mi, eu blandit est facilisis id. Sed nec felis fermentum, congue lectus eget, gravida nunc.</p>
+                        <p>Vestibulum vel aliquam dui, vel convallis eros. Aenean aliquet ligula non interdum egestas. Sed porta consequat molestie. Pellentesque mollis velit lectus, in pellentesque metus luctus sed. Aenean in odio sed est placerat vehicula ac non urna. Vestibulum in magna sit amet felis rutrum rutrum. Vestibulum metus orci, suscipit feugiat odio ut, tincidunt pharetra turpis. Cras pellentesque mi dolor, eget viverra mi pretium vitae. Duis consequat tortor ac metus cursus, quis porttitor sem rutrum. Vivamus nunc enim, volutpat id consequat in, aliquam et diam. Praesent congue orci eget elementum scelerisque. Suspendisse sagittis, erat a sagittis luctus, libero ipsum scelerisque sapien, sed sodales diam risus at metus.</p>
+                        <p>Suspendisse hendrerit, enim eget mattis malesuada, lorem velit aliquet risus, eu mattis dolor arcu ut ligula. Mauris rutrum nibh in nisl tincidunt, quis pulvinar arcu mattis. Suspendisse pharetra et lectus et tincidunt. Aenean a massa ut odio facilisis malesuada in non orci. Aliquam vulputate erat aliquet, ultricies dui ac, ultrices sem. Cras suscipit leo eu urna convallis aliquet. Ut eget eros ac sapien luctus dapibus varius nec nunc. Vestibulum quis felis tortor.</p>
+                        <p>Etiam sem nisi, semper vel erat id, venenatis facilisis orci. Fusce varius augue vitae nisl aliquam, vel fringilla orci egestas. Curabitur eros magna, pulvinar vitae vestibulum molestie, consequat vel turpis. Suspendisse pulvinar dignissim fringilla. Donec in dolor lacinia arcu congue viverra. Etiam tempus felis ut gravida euismod. Sed tristique laoreet ultrices. Suspendisse luctus nisi nec odio elementum consequat. Maecenas pulvinar dignissim turpis, ac posuere massa eleifend non.</p>
+                    </div>
+                </figure>
+            </div>
+        </section>
+    </section>
+
+    <script src="../dist/PantherUI.min.js"></script>
+    <script src="lib/highlight/highlight.pack.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+
+    // Initialize carousel
+    Panther.Carousel.init({
+        id: 'carousel1',
+        backgroundColor: 'rgba(239, 239, 244, 1)'
+    });
+    </script>
+</body>
+</html>

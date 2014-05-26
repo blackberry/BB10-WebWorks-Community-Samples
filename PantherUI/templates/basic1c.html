@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2013-2014 BlackBerry Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basics 1C</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../dist/PantherUI.min.css">
+    <style>
+    body {
+        font: 100% Arial, sans-serif;
+    }
+
+    #container1 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+</head>
+<body>
+    <section class="panther-Carousels">
+        <section id="container1" class="panther-Carousel-container">
+            <div id="carousel1" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 1 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 1: Add your content here -->
+                        <input type="button" value="First" disabled>
+                        <input type="button" value="Prev" onclick="Panther.Carousel.turnPrev('carousel1');">
+                        <input type="button" value="Next" onclick="Panther.Carousel.turnNext('carousel1');">
+                        <input type="button" value="Last" onclick="Panther.Carousel.turnTo('carousel1', 4);">
+
+                        <h2>Basics 1C - Callback</h2>
+
+                        <p>This is a carousel that triggers a <b>callback function</b> after a turn. This can be useful for fetching additional content, or recording when a user has seen each panel.</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 2: Add your content here -->
+                        <input type="button" value="First" onclick="Panther.Carousel.turnTo('carousel1', 1);">
+                        <input type="button" value="Prev" onclick="Panther.Carousel.turnPrev('carousel1');">
+                        <input type="button" value="Next" onclick="Panther.Carousel.turnNext('carousel1');">
+                        <input type="button" value="Last" onclick="Panther.Carousel.turnTo('carousel1', 4);">
+                        <br><br>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 3: Add your content here -->
+                        <input type="button" value="First" onclick="Panther.Carousel.turnTo('carousel1', 1);">
+                        <input type="button" value="Prev" onclick="Panther.Carousel.turnPrev('carousel1');">
+                        <input type="button" value="Next" onclick="Panther.Carousel.turnNext('carousel1');">
+                        <input type="button" value="Last" onclick="Panther.Carousel.turnTo('carousel1', 4);">
+                        <br><br>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 4 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 4: Add your content here -->
+                        <input type="button" value="First" onclick="Panther.Carousel.turnTo('carousel1', 1);">
+                        <input type="button" value="Prev" onclick="Panther.Carousel.turnPrev('carousel1');">
+                        <input type="button" value="Next" onclick="Panther.Carousel.turnNext('carousel1');">
+                        <input type="button" value="Last" disabled>
+                        <br><br>
+                    </div>
+                </figure>
+            </div>
+        </section>
+    </section>
+
+    <script src="../dist/PantherUI.min.js"></script>
+    <script>
+    var app = {};
+
+    app.loadContent = function (c) {
+        console.log('loadContent', c, c.sideIndex, c.panelCount);
+
+        var panels = c.element.querySelectorAll('figure>div[class=panther-Carousel-panelContent]');
+        var html = 'Panel ';
+        //console.info('loadContent:', c.element, 'id=' + c.id, 'sideIndex=' + c.sideIndex, 'panelCount=' + c.panelCount, panels);
+
+        if (c.sideIndex == 0) { html += 'one'; }
+        else if (c.sideIndex == 1) { html += 'two'; }
+        else if (c.sideIndex == 2) { html += 'three'; }
+        else if (c.sideIndex == 3) { html += 'four'; }
+
+        html += ' was turned at ' + new Date().toLocaleTimeString() + '<br>';
+
+        panels[c.sideIndex].innerHTML += html;
+
+        //c.callbackBreak = true;
+        //c.addPanel(i, i, true);
+    };
+
+    // Initialize carousel
+    Panther.Carousel.init({
+        id: 'carousel1',
+        backgroundColor: 'rgba(209, 209, 209, 0.9)',
+        callback: app.loadContent
+    });
+    </script>
+</body>
+</html>

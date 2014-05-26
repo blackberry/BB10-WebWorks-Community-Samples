@@ -1,0 +1,197 @@
+/* ===========================================================================
+ * app.css
+ *
+ * Jim Ing (@jim_ing)
+ * ===========================================================================
+ *
+ * Copyright 2013 - 2014 BlackBerry Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+    background-color: #FFF;
+    color: #000;
+    font: 100% Arial, sans-serif;
+}
+
+label {
+    font-weight: bold;
+}
+
+.logo {
+    float: left;
+    margin: 5px 20px 5px 0;
+}
+
+.panther-Carousels {
+    visibility: hidden; /* hide the carousels until they are created to avoid the flicker */
+}
+
+#carousel1_desc, #carousel2_desc, #carousel3_desc {
+    color: #660000;
+    font-weight: bold;
+}
+
+#appname {
+    font-weight: bold;
+    font-size: 125%;
+}
+
+#debug {
+    border: 1px dotted #CCC;
+    background-color: #000;
+    color: #0F0;
+    font-family: monospace;
+    padding: 5px;
+}
+
+#container1 {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    z-index: 10;
+}
+
+#container2 {
+    top: 60%;
+    left: 0;
+    width: 50%;
+    height: 40%;
+    z-index: 20;
+}
+
+#container3 {
+    top: 60%;
+    left: 50%;
+    width: 50%;
+    height: 40%;
+    z-index: 30;
+}
+
+/* Landscape */
+
+@media (orientation: landscape) {
+    #container1 {
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 100%;
+    }
+
+    #container2 {
+        top: 0;
+        left: 60%;
+        width: 40%;
+        height: 50%;
+    }
+
+    #container3 {
+        top: 50%;
+        left: 60%;
+        width: 40%;
+        height: 50%;
+    }
+}
+
+/* Devices smaller than desktops and tablets use a horizontal scroll layout */
+
+@media (orientation: portrait) and (max-width: 599px) {
+    html, body {
+        overflow-x: auto;
+    }
+
+    #container1 {
+        width: 100%;
+        height: 100%;
+    }
+
+    #container2 {
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 50%;
+    }
+
+    #container3 {
+        top: 50%;
+        left: 100%;
+        width: 100%;
+        height: 50%;
+    }
+
+    .panther-Carousel-panelMaximize {
+        display: none;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 599px) {
+    html, body {
+        overflow-x: auto;
+    }
+
+    #container1 {
+        width: 100%;
+        height: 100%;
+    }
+
+    #container2 {
+        top: 0;
+        left: 100%;
+        width: 50%;
+        height: 100%;
+    }
+
+    #container3 {
+        top: 0%;
+        left: 150%;
+        width: 50%;
+        height: 100%;
+    }
+
+    .panther-Carousel-panelMaximize {
+        display: none;
+    }
+}
+
+/* BlackBerry 9900, Q5, Q10 */
+
+@media (device-aspect-ratio: 1/1) {
+    html, body {
+        overflow-x: auto;
+    }
+
+    #container1 {
+        width: 100%;
+        height: 100%;
+    }
+
+    #container2 {
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container3 {
+        top: 0;
+        left: 200%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .panther-Carousel-panelMaximize {
+        display: none;
+    }
+}
