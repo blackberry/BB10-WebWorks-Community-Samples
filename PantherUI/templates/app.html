@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2013-2014 BlackBerry Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PantherUI Carousel</title>
+    <link rel="stylesheet" href="../dist/PantherUI.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    Loading...
+    <section class="panther-Carousels">
+        <section id="container1" class="panther-Carousel-container">
+            <div id="carousel1" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 1 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <p>
+                            <img class="logo" src="../img/logos/waawesome626_96x96.png">
+                            <span id="appname">PantherUI Carousel</span>
+                        </p>
+                        <p>This template is an example of how you can build a web app for desktop and mobile using 3D carousels.</p>
+                        <p>This carousel is <span id="carousel1_desc">10-sided</span>. You can swipe left or right on the title bars to move between panels.</p>
+                        <p>You can also <b>dynamically</b> add panels.</p>
+                        <input type="button" value="Add Panel" onclick="app.addPanel('carousel1', false);">
+                        <p>This template uses responsive design so it will auto adjust the layout for portrait or landscape.</p>
+                        <p>For tablets and desktop screens, it uses a 3-carousel layout, where each carousel can be <b>maximized</b> to use the entire screen by tapping on the icon in the top-right of the title bar.</p>
+                        <p>For smaller handheld screens, this example uses a simple &ldquo;horizontal scrolling&rdquo; layout to move between the carousels. For an actual app, you can use a tabbed sidebar to switch carousels.</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 4 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 5 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 6 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 7 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 8 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 9 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 10: The quick brown fox jumps over the lazy dog is an example of a panagram &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <section id="container2" class="panther-Carousel-container">
+            <div id="carousel2" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 2 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <p>This is <span id="carousel2_desc">4-sided</span>.</p>
+                        <input type="button" value="Add Panel" onclick="app.addPanel('carousel2', false);">
+                        <input type="button" value="Add to 1" onclick="app.addPanel('carousel1', true);">
+                        <input type="button" value="Add to 3" onclick="app.addPanel('carousel3', true);">
+                        <p>You can programmatically rotate carousels to a specific side:</p>
+                        <input type="button" value="1" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 1);">
+                        <input type="button" value="2" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 2);">
+                        <input type="button" value="3" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 3);">
+                        <input type="button" value="4" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 4);">
+                        <input type="button" value="5" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 5);">
+                        <input type="button" value="6" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 6);">
+                        <input type="button" value="7" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 7);">
+                        <input type="button" value="8" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 8);">
+                        <input type="button" value="9" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 9);">
+                        <input type="button" value="10" onclick="Panther.Carousel.turnTo(['carousel1', 'carousel3'], 10);">
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sodales consequat lacus, ac lacinia odio ultrices at. Morbi congue volutpat hendrerit. In sit amet risus quis quam consectetur dignissim quis a magna. Nam facilisis lorem sit amet leo posuere consequat eget in sapien. Suspendisse in feugiat lacus. Aenean pretium enim non lectus adipiscing ut facilisis ante dictum. Sed laoreet augue ac felis mattis non egestas sapien vulputate. Aliquam condimentum justo non ipsum tristique commodo. Etiam dolor augue, eleifend vitae molestie id, semper consectetur libero. Nunc id sem odio, sed congue ante. Suspendisse pulvinar scelerisque sem, in porta elit tincidunt eu. Praesent suscipit ultrices nisi, id feugiat lacus mattis dapibus.</p>
+                        <p>Vestibulum at mauris sed lacus pretium euismod. Vivamus fermentum viverra iaculis. Vestibulum facilisis justo nisl, at ultrices sapien. Ut vulputate aliquam libero, vitae faucibus eros ultricies id. Nulla facilisi. Sed vehicula purus vitae tortor vestibulum vel volutpat neque volutpat. Praesent turpis purus, sodales quis cursus vitae, ultrices ut massa. Aenean aliquam pretium libero, eu consequat felis iaculis ut. Phasellus sollicitudin metus vitae nulla tincidunt a rhoncus magna gravida. Suspendisse nec urna orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+<!--
+                        <h3>Videos:</h3>
+                        <ul>
+                            <li data-url="http://youtu.be/ySs5cW2Fh80">BlackBerry Connection Service and BlackBerry Enterprise Service 10</li>
+                            <li data-url="http://youtu.be/xxQCmJcovc8">Software Distribution through BES10</li>
+                            <li data-url="http://youtu.be/58rMYjAJFQk">Open Standards and Cross Platform Development for BES10</li>
+                        </ul>
+-->
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 4 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <section id="container3" class="panther-Carousel-container">
+            <div id="carousel3" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 3 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <p>This is a vertical carousel that rotates up/down instead of left/right.</p>
+                        Debug Info: <input type="button" value="Clear" onclick="document.getElementById('debug').innerHTML = '';"><br>
+                        <div id="debug"></div>
+                        <p>This is <span id="carousel3_desc">3-sided</span>.</p>
+                        <input type="button" value="Add Panel" onclick="app.addPanel('carousel3', false);">
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sodales consequat lacus, ac lacinia odio ultrices at. Morbi congue volutpat hendrerit. In sit amet risus quis quam consectetur dignissim quis a magna. Nam facilisis lorem sit amet leo posuere consequat eget in sapien. Suspendisse in feugiat lacus. Aenean pretium enim non lectus adipiscing ut facilisis ante dictum. Sed laoreet augue ac felis mattis non egestas sapien vulputate. Aliquam condimentum justo non ipsum tristique commodo. Etiam dolor augue, eleifend vitae molestie id, semper consectetur libero. Nunc id sem odio, sed congue ante. Suspendisse pulvinar scelerisque sem, in porta elit tincidunt eu. Praesent suscipit ultrices nisi, id feugiat lacus mattis dapibus.</p>
+                        <p>Vestibulum at mauris sed lacus pretium euismod. Vivamus fermentum viverra iaculis. Vestibulum facilisis justo nisl, at ultrices sapien. Ut vulputate aliquam libero, vitae faucibus eros ultricies id. Nulla facilisi. Sed vehicula purus vitae tortor vestibulum vel volutpat neque volutpat. Praesent turpis purus, sodales quis cursus vitae, ultrices ut massa. Aenean aliquam pretium libero, eu consequat felis iaculis ut. Phasellus sollicitudin metus vitae nulla tincidunt a rhoncus magna gravida. Suspendisse nec urna orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span><span class="panther-Carousel-panelMaximize">&nbsp;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        Loading...
+                    </div>
+                </figure>
+            </div>
+        </section>
+    </section>
+
+    <script src="local:///chrome/webworks.js"></script>
+    <script src="../dist/PantherUI.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+    // BB10
+    if (navigator.userAgent.match(/WebWorks-BB10/)) {
+        window.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('webworksready', app.init);
+        }, false);
+    }
+    // PlayBook, BB7
+    else if (navigator.userAgent.match(/WebWorks/)) {
+        window.addEventListener('DOMContentLoaded', app.init);
+    }
+    // Browser
+    else {
+        window.addEventListener('DOMContentLoaded', app.init);
+    }
+    </script>
+</body>
+</html>

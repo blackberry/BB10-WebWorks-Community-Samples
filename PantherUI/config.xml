@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" xml:lang="en"
+    id="PantherUICarousel" version="0.6.2" rim:userAgent="WebWorks-BB10">
+
+    <name>PantherUI Carousel</name>
+
+    <description>
+        PantherUI Carousel is an example web app for desktop and mobile using 3D carousels.
+    </description>
+
+    <author href="https://twitter.com/jim_ing" email="jing@blackberry.com"
+        rim:copyright="Copyright 2013-2014">Jim Ing</author>
+
+    <rim:category name="all" />
+
+    <content src="index.html" />
+
+    <icon src="img/logos/waawesome626_256x256.png" />
+
+    <rim:orientation mode="auto" />
+
+    <feature id="blackberry.app">
+        <param name="orientation" value="auto"></param>
+        <param name="childBrowser" value="disable"></param>
+    </feature>
+
+<!--
+    <rim:permissions>
+        <rim:permit>access_shared</rim:permit>
+        <rim:permit>record_audio</rim:permit>
+        <rim:permit>read_device_identifying_information</rim:permit>
+        <rim:permit>read_geolocation</rim:permit>
+        <rim:permit>run_when_backgrounded</rim:permit>
+        <rim:permit>use_camera</rim:permit>
+    </rim:permissions>
+-->
+
+    <access uri="*" subdomains="true" />
+
+    <feature id="blackberry.app" />
+<!--
+    <feature id="blackberry.app.event" />
+    <feature id="blackberry.invoke" />
+    <feature id="blackberry.invoke.BrowserArguments" />
+    <feature id="blackberry.identity" />
+    <feature id="blackberry.media.camera" />
+    <feature id="blackberry.media.microphone" />
+    <feature id="blackberry.sensors" />
+    <feature id="blackberry.system" />
+-->
+</widget>

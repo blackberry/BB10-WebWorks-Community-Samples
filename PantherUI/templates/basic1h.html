@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2013-2014 BlackBerry Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basics 1H</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../dist/PantherUI.min.css">
+    <style>
+    body {
+        font: 100% Arial, sans-serif;
+    }
+
+    #container1 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+</head>
+<body>
+    <section class="panther-Carousels">
+        <section id="container1" class="panther-Carousel-container">
+            <div id="carousel1" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 1 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 1: Add your content here -->
+                        <div style="text-align: center;">
+                            <a href="#1" target="content">#1</a>&nbsp;
+                            <a href="#2" target="content">#2</a>&nbsp;
+                            <a href="#3" target="content">#3</a>&nbsp;
+                            <a href="#4" target="content">#4</a>
+                        </div>
+
+                        <h2>Basics 1H - Hash</h2>
+
+                        <p>This is a carousel that uses the <b>hash parameter</b> in the URL (e.g., basic1h.html#2) to turn to a specific side. This is useful for accessibility and for bookmarking a page to load the appropriate side.</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 2: Add your content here -->
+                        <div style="text-align: center;">
+                            <a href="#1" target="content">#1</a>&nbsp;
+                            <a href="#2" target="content">#2</a>&nbsp;
+                            <a href="#3" target="content">#3</a>&nbsp;
+                            <a href="#4" target="content">#4</a>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 3: Add your content here -->
+                        <div style="text-align: center;">
+                            <a href="#1" target="content">#1</a>&nbsp;
+                            <a href="#2" target="content">#2</a>&nbsp;
+                            <a href="#3" target="content">#3</a>&nbsp;
+                            <a href="#4" target="content">#4</a>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 4 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 4: Add your content here -->
+                        <div style="text-align: center;">
+                            <a href="#1" target="content">#1</a>&nbsp;
+                            <a href="#2" target="content">#2</a>&nbsp;
+                            <a href="#3" target="content">#3</a>&nbsp;
+                            <a href="#4" target="content">#4</a>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+        </section>
+    </section>
+
+    <script src="../dist/PantherUI.min.js"></script>
+    <script>
+    // Initialize carousel
+    var pc = Panther.Carousel;
+
+    pc.init({
+        id: 'carousel1',
+        backgroundColor: 'rgba(209, 209, 209, 0.9)'
+    });
+
+    // Handle page load
+    var side = location.hash.substr(1);
+    if (side) {
+        pc.turnTo('carousel1', side);
+    }
+
+    // Handle hash changes
+    window.addEventListener('hashchange', function (ev) {
+        var parts = ev.newURL.split('#');
+        var side = parts[1];
+        pc.turnTo('carousel1', side);
+    }, false);
+    </script>
+</body>
+</html>
