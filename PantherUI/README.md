@@ -20,13 +20,13 @@ http://psiborg.github.io/PantherUI/
 ### Screenshots
 
 #### Desktop/Tablet:
-![Tablet](https://raw.github.com/psiborg/PantherUI/master/docs/img/screenshots/tablet.png)
+![Tablet](docs/img/screenshots/tablet.png)
 
 #### BlackBerry Z10/Z30 (Landscape):
-![Z30](https://raw.github.com/psiborg/PantherUI/master/docs/img/screenshots/z30.png)
+![Z30](docs/img/screenshots/z30.png)
 
 #### BlackBerry Q5/Q10:
-![Q10](https://raw.github.com/psiborg/PantherUI/master/docs/img/screenshots/q10.png)
+![Q10](docs/img/screenshots/q10.png)
 
 ### Usage (see templates/basic1a.html)
 
