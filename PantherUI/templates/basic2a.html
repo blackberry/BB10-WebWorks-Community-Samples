@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2013-2014 BlackBerry Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basics 2A</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../dist/PantherUI.min.css">
+    <style>
+    body {
+        font: 100% Arial, sans-serif;
+    }
+
+    #container1 {
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 100%;
+    }
+
+    #container2 {
+        top: 0;
+        left: 60%;
+        width: 40%;
+        height: 100%;
+    }
+
+    li:active {
+        background-color: #FF0 !important;
+    }
+
+    @media (orientation: portrait) {
+        #container1 {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+        }
+
+        #container2 {
+            top: 60%;
+            left: 0;
+            width: 100%;
+            height: 40%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <section class="panther-Carousels">
+        <!-- Carousel 1 -->
+        <section id="container1" class="panther-Carousel-container">
+            <div id="carousel1" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 1 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 1: Add your content here -->
+                        <h2>Basics 2A - Apply</h2>
+
+                        <p>This is a responsive 2-carousel layout that is useful for listing content in a &ldquo;menu&rdquo; carousel and viewing content in a &ldquo;main&rdquo; carousel.</p>
+                        <p>You can swipe left or right on the title bar to turn the respective carousel.</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 2: Add your content here -->
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 3: Add your content here -->
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 4 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 4: Add your content here -->
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Carousel 2 -->
+        <section id="container2" class="panther-Carousel-container">
+            <div id="carousel2" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 1: Add your content here -->
+                        <p>You can use the buttons below to control Carousel 1...</p>
+                        <input type="button" value="1" onclick="Panther.Carousel.turnTo('carousel1', 1);">
+                        <input type="button" value="2" onclick="Panther.Carousel.turnTo('carousel1', 2);">
+                        <input type="button" value="3" onclick="Panther.Carousel.turnTo('carousel1', 3);">
+                        <input type="button" value="4" onclick="Panther.Carousel.turnTo('carousel1', 4);">
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 2: Add your content here -->
+                        <p>... or you can tap a list item to control Carousel 1:<p>
+                        <ul>
+                            <li onclick="Panther.Carousel.turnTo('carousel1', 1);">Panel 1</li>
+                            <li onclick="Panther.Carousel.turnTo('carousel1', 2);">Panel 2</li>
+                            <li onclick="Panther.Carousel.turnTo('carousel1', 3);">Panel 3</li>
+                            <li onclick="Panther.Carousel.turnTo('carousel1', 4);">Panel 4</li>
+                        </ul>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 3: Add your content here -->
+                        <h2>Big Buck Bunny</h2>
+                        <h3>Photos</h3>
+                        <ul>
+                            <li data-type="image" data-url="../docs/img/samples/bbb1_splash.jpg">Splash</li>
+                            <li data-type="image" data-url="../docs/img/samples/bbb2_rodents.jpg">Rodents</li>
+                            <li data-type="image" data-url="../docs/img/samples/bbb3_evilfrank.jpg">Evil Frank</li>
+                            <li data-type="image" data-url="../docs/img/samples/bbb4_bow.jpg">Bow</li>
+                            <li data-type="image" data-url="../docs/img/samples/bbb5_rinky.jpg">Rinky</li>
+                            <li data-type="image" data-url="../docs/img/samples/bbb6_trap.jpg">Trap</li>
+                        </ul>
+                        <h3>Videos</h3>
+                        <ul>
+                            <li data-type="video" data-url="http://mirror.cessen.com/blender.org/peach/trailer/trailer_480p.mov">Trailer (480p)</li>
+                        </ul>
+                    </div>
+                </figure>
+            </div>
+        </section>
+    </section>
+
+    <script src="../dist/PantherUI.min.js"></script>
+    <script>
+    // Initialize carousels
+    Panther.Carousel.init({
+        id: 'carousel1',
+        backgroundColor: 'rgba(0, 152, 240, 0.9)' // blue
+    });
+
+    Panther.Carousel.init({
+        id: 'carousel2',
+        backgroundColor: 'rgba(150, 184, 0, 0.9)' // green
+    });
+
+    var c1panels = document.querySelectorAll('#carousel1>figure>div[class=panther-Carousel-panelContent]'),
+        c2panels = document.querySelectorAll('#carousel2>figure>div[class=panther-Carousel-panelContent]');
+
+    c2panels[2].addEventListener('click', function (ev) {
+        //console.log(ev.target.innerHTML, ev.target.dataset['url']);
+
+        var html = '';
+
+        if (ev.target.dataset['type'] == 'image') {
+            html += '<img src="' + ev.target.dataset['url'] + '" style="width: 100%;">';
+            html += '<figcaption>' + ev.target.innerHTML + '</figcaption>';
+        }
+        else if (ev.target.dataset['type'] == 'video') {
+            html += '<video width="100%" controls autoplay preload="auto" webkit-playsinline>';
+            html += '<source src="' + ev.target.dataset['url'] + '">';
+            html += '</video>';
+            html += '<figcaption>' + ev.target.innerHTML + '</figcaption>';
+        }
+        //console.log(html);
+
+        c1panels[1].innerHTML = html;
+
+        Panther.Carousel.turnTo('carousel1', 2);
+    }, false);
+    </script>
+</body>
+</html>
