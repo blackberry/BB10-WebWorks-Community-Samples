@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?> <rss version="2.0" xml:base="http://www.nasa.gov/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/"> <channel> <title>NASA Image of the Day</title>
+ <description>The latest NASA &quot;Image of the Day&quot; image.</description>
+ <link>http://www.nasa.gov/</link>
+ <atom:link rel="self" href="http://www.nasa.gov/rss/dyn/image_of_the_day.rss" />
+ <language>en-us</language>
+ <managingEditor>yvette.smith-1@nasa.gov</managingEditor>
+ <webMaster>brian.dunbar@nasa.gov</webMaster>
+ <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+ <item> <title>Comet ISON Streams Toward the Sun</title>
+ <link>http://www.nasa.gov/content/comet-ison-streams-toward-the-sun</link>
+ <description>In the early hours of Nov. 27, 2013, Comet ISON entered the field of view of the European Space Agency/NASA Solar and Heliospheric Observatory. In this picture, called a coronagraph, the bright light of the sun itself is blocked so the structures around it are visible. The comet is seen in the lower right; a giant cloud of solar material, called a coronal mass ejection or CME, is seen billowing out under the sun.
+Comet ISON, which began its trip from the Oort cloud region of our solar system, will reach its closest approach to the sun on Thanksgiving Day, skimming just 730,000 miles above the sun&#039;s surface.
+NASA is tracking Comet ISON&#039;s journey and hosting events to discuss what the public worldwide may see as the comet traverses the sun. For the latest news and information, visit www.nasa.gov/ison.
+Image Credit: ESA/NASA/SOHO</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/20131127_0807_c3_1024_soho.jpg?itok=QZBbl70x" length="400169" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/comet-ison-streams-toward-the-sun</guid>
+ <pubDate>Wed, 27 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+ <item> <title>Lighting the Paths Across the U.S.</title>
+ <link>http://www.nasa.gov/content/lighting-the-paths-across-the-us</link>
+ <description>Thanksgiving is a time for family, for feasting, and for gratitude in the United States. It is also a time when the nation’s transportation network is clogged with travelers. According to the American Automobile Association, an estimated 43.4 million Americans will travel 50 miles (80 kilometers) or more during Thanksgiving week, with the average round trip being 600 miles (1,000 kilometers). More than 90 percent of them will use cars or trucks, while the rest will ride planes or trains.
+The United States has more roads—4.1 million miles (6.6 million kilometers)—than any other nation in the world, and roughly 40 percent more than second-ranked India. About 47,000 of those U.S. miles are part of the Interstate Highway System, established by President Dwight Eisenhower in the 1950s. The country also has 127,000 miles (204,000 kilometers) of railroad tracks and about 25,000 miles (40,000 kilometers) of navigable rivers and canals (not including the Great Lakes).
+The imprint of that transportation web becomes easier to see at night. The Visible Infrared Imaging Radiometer Suite (VIIRS) on the Suomi NPP (National Polar-orbiting Partnership) satellite acquired two nighttime images early on Oct. 1, 2013, for this natural-light, mosaic view of the continental United States. The VIIRS instrument uses a “day-night band” of wavelengths that is sensitive to low light levels and manmade light sources. The images were collected just three days before the new moon, so reflected light from space and the atmosphere was relatively low. It was also a rare night when most of the nation was cloud-free. 
+&gt; Read More
+Image Credit: NASA Earth Observatory image by Jesse Allen and Robert Simmon, using Suomi NPP VIIRS and DMSP OLS data provided courtesy of Chris Elvidge (NOAA National Geophysical Data Center)
+	Caption: Mike Carlowicz</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/us_vir_2013274_lrg.jpg?itok=Lwl83aib" length="9058430" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/lighting-the-paths-across-the-us</guid>
+ <pubDate>Tue, 26 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+ <item> <title>Hubble Sees Anemic Spiral NGC 4921</title>
+ <link>http://www.nasa.gov/content/hubble-sees-anemic-spiral-ngc-4921</link>
+ <description>How far away is spiral galaxy NGC 4921? Although presently estimated to be about 310 million light years distant, a more precise determination could be coupled with its known recession speed to help humanity better calibrate the expansion rate of the entire visible universe. Toward this goal, several images were taken by the Hubble Space Telescope in order to help identify key stellar distance markers known as Cepheid variable stars. Since NGC 4921 is a member of the Coma Cluster of Galaxies, refining its distance would also allow a better distance determination to one of the largest nearby clusters in the local universe. The magnificent spiral NGC 4921 has been informally dubbed anemic because of its low rate of star formation and low surface brightness. Visible in the above image are, from the center, a bright nucleus, a bright central bar, a prominent ring of dark dust, blue clusters of recently formed stars, several smaller companion galaxies, unrelated galaxies in the far distant universe, and unrelated stars in our Milky Way Galaxy.
+Image Credit: Hubble Legacy Archive, ESA, NASA</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/ngc4921_colombari_3984.jpg?itok=HMrga8Cn" length="8870628" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/hubble-sees-anemic-spiral-ngc-4921</guid>
+ <pubDate>Mon, 25 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+ <item> <title>Cubesats Released From Space Station</title>
+ <link>http://www.nasa.gov/content/cubesats-released-from-space-station-0</link>
+ <description>ISS038-E-003872 (19 Nov. 2013) --- Three nanosatellites, known as Cubesats, are deployed from a Small Satellite Orbital Deployer (SSOD) attached to the Kibo laboratory’s robotic arm at 7:10 a.m. (EST) on Nov. 19, 2013. Japan Aerospace Exploration Agency astronaut Koichi Wakata, Expedition 38 flight engineer, monitored the satellite deployment while operating the Japanese robotic arm from inside Kibo. The Cubesats were delivered to the International Space Station Aug. 9, aboard Japan’s fourth H-II Transfer Vehicle, Kounotori-4.
+Image Credit: NASA</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/iss038e003872.jpg?itok=h3kLMBFy" length="468904" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/cubesats-released-from-space-station-0</guid>
+ <pubDate>Fri, 22 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+ <item> <title>A Portrait of Global Winds</title>
+ <link>http://www.nasa.gov/content/a-portrait-of-global-winds</link>
+ <description>High-resolution global atmospheric modeling provides a unique tool to study the role of weather within Earth’s climate system. NASA’s Goddard Earth Observing System Model (GEOS-5) is capable of simulating worldwide weather at resolutions as fine as 3.5 kilometers.
+This visualization shows global winds from a GEOS-5 simulation using 10-kilometer resolution. Surface winds (0 to 40 meters/second) are shown in white and trace features including Atlantic and Pacific cyclones. Upper-level winds (250 hectopascals) are colored by speed (0 to 175 meters/second), with red indicating faster.
+This simulation ran on the Discover supercomputer at the NASA Center for Climate Simulation. The complete 2-year “Nature Run” simulation—a computer model representation of Earth&#039;s atmosphere from basic inputs including observed sea-surface temperatures and surface emissions from biomass burning, volcanoes and anthropogenic sources—produces its own unique weather patterns including precipitation, aerosols and hurricanes. A follow-on Nature Run is simulating Earth’s atmosphere at 7 kilometers for 2 years and 3.5 kilometers for 3 months.
+Image Credit: William Putman/NASA Goddard Space Flight Center
+Related: NASA will showcase more than 30 of the agency&#039;s exciting computational achievements at SC13, the international supercomputing conference, Nov. 17-22, 2013 in Denver.</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/23_pfaff_b_technology_nature_run_winds_2006-09-12_20-30_sc13_v0.png?itok=DZv5XvNz" length="10503849" type="image/png" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/a-portrait-of-global-winds</guid>
+ <pubDate>Thu, 21 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+ <item> <title>Celebrating Fifteen Years of the International Space Station</title>
+ <link>http://www.nasa.gov/content/fifteen-years-international-space-station</link>
+ <description>Astronaut James H. Newman waves during a spacewalk preparing for release of the first combined elements of the International Space Station. The Russian-built Zarya module, with its solar array panel visible here, was launched into orbit fifteen years ago on Nov. 20, 1998. Two weeks later, on Dec. 4, 1998, NASA&#039;s space shuttle Endeavour launched Unity, the first U.S. piece of the complex. Endeavour&#039;s forward section is reflected in Newman&#039;s helmet visor in this image. During three spacewalks on the STS-88 mission, the two space modules built on opposite sides of the planet were joined together in space, making the space station truly international.
+Since that first meeting of Zarya and Unity, the space station grew piece by piece with additions from each of the international partners built across three continents and leading to the largest and most complex spacecraft ever constructed. The space station, now four times larger than Mir and five times larger than Skylab, represents a collaboration between NASA, Roscosmos, the European Space Agency, the Japanese Aerospace Exploration Agency and the Canadian Space Agency, representing 15 countries in all.
+In support of station assembly and maintenance, station and shuttle crews have conducted 174 spacewalks totaling almost 1,100 hours – the equivalent to nearly 46 days of spacewalks to build and maintain the complex. The station, with a mass of almost a million pounds and the size of a football field, is second only to the moon as the brightest object in the night sky.
+Over the years, a great deal of research has been done on the space laboratory, which has already yielded tremendous results toward various fields. The science of the space station has provided benefits to humankind in areas such as human health, Earth observation and education. Many more results and benefits for both space exploration and life on Earth are expected in the coming years.
+&gt; Celebrating 15 Years Since the Sunrise
+Image Credit: NASA</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/sts088-343-025.jpg?itok=3bKIwVgV" length="3393137" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/fifteen-years-international-space-station</guid>
+ <pubDate>Wed, 20 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+ <item> <title>Taking Flight at Cape Canaveral</title>
+ <link>http://www.nasa.gov/content/taking-flight-at-cape-canaveral</link>
+ <description>The United Launch Alliance Atlas V rocket with NASA’s Mars Atmosphere and Volatile EvolutioN (MAVEN) spacecraft launches from the Cape Canaveral Air Force Station Space Launch Complex 41, Monday, Nov. 18, 2013, Cape Canaveral, Florida. NASA’s Mars-bound spacecraft, the Mars Atmosphere and Volatile EvolutioN, or MAVEN, is the first spacecraft devoted to exploring and understanding the Martian upper atmosphere.
+Image Credit: NASA/Bill Ingalls</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/10933173944_ea869be1c0_o.jpg?itok=tI30Yglc" length="3867590" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/taking-flight-at-cape-canaveral</guid>
+ <pubDate>Tue, 19 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+ <item> <title>MAVEN Spacecraft Launches to Mars</title>
+ <link>http://www.nasa.gov/content/maven-spacecraft-launches-to-mars</link>
+ <description>NASA&#039;s Mars Atmosphere and Volatile EvolutioN (MAVEN) spacecraft launches aboard a United Launch Alliance Atlas V rocket from the Cape Canaveral Air Force Station Space Launch Complex 41, Cape Canaveral, Florida, at 1:28 p.m. EST on Monday, Nov. 18, 2013.
+MAVEN is the first spacecraft devoted to exploring and understanding the Martian upper atmosphere. The trip to Mars takes 10 months, and MAVEN will go into orbit around Mars in September 2014.
+Photo Credit: NASA/Bill Ingalls</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/201311180001hq.jpeg?itok=9sPrznD-" length="3428558" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/maven-spacecraft-launches-to-mars</guid>
+ <pubDate>Mon, 18 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+ <item> <title>MAVEN Ready for Launch</title>
+ <link>http://www.nasa.gov/content/maven-ready-for-launch</link>
+ <description>At Cape Canaveral Air Force Station&#039;s Space Launch Complex 41 a United Launch Alliance Atlas V rocket stands ready to boost the Mars Atmosphere and Volatile Evolution, or MAVEN, spacecraft on a 10-month journey to the Red Planet. MAVEN is being prepared for its scheduled launch today from Cape Canaveral Air Force Station, Fla. atop a United Launch Alliance Atlas V rocket. Positioned in an orbit above the Red Planet, MAVEN will study the upper atmosphere of Mars in unprecedented detail.
+Image Credit: NASA/Jim Grossman</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/2013-4025_0.jpg?itok=7RkBDBSi" length="3971127" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/maven-ready-for-launch</guid>
+ <pubDate>Mon, 18 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+ <item> <title>Night Before Launch of Mars-Bound MAVEN Spacecraft</title>
+ <link>http://www.nasa.gov/content/night-before-launch-of-mars-bound-maven-spacecraft</link>
+ <description>A full moon rises behind the United Launch Alliance Atlas V rocket with NASA&#039;s Mars Atmosphere and Volatile EvolutioN (MAVEN) spacecraft onboard at the Cape Canaveral Air Force Station Space Launch Complex 41, Cape Canaveral, Fla. on Nov. 17, 2013.
+MAVEN is the second mission under NASA&#039;s Mars Scout Program. It will take critical measurements of the Martian upper atmosphere to help scientists understand climate change over the Red Planet&#039;s history. MAVEN is the first spacecraft devoted to exploring and understanding the Martian upper atmosphere. 
+Image Credit: NASA/Bill Ingalls</description>
+ <enclosure url="http://www.nasa.gov/sites/default/files/styles/946xvariable_height/public/201311170005hq.jpg?itok=uA6OUlwm" length="1494282" type="image/jpeg" />
+ <guid isPermaLink="false">http://www.nasa.gov/content/night-before-launch-of-mars-bound-maven-spacecraft</guid>
+ <pubDate>Sun, 17 Nov 2013 12:00:00 EDT</pubDate>
+ <source url="http://www.nasa.gov/rss/dyn/image_of_the_day.rss">NASA Image of the Day</source>
+</item>
+</channel>
+</rss>

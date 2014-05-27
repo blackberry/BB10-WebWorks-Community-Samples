@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2013-2014 BlackBerry Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ticker</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../dist/PantherUI.min.css">
+    <style>
+    body {
+        font: 100% Arial, sans-serif;
+    }
+/*
+    #container1 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8%;
+    }
+
+    #container2 {
+        top: 8%;
+        left: 0;
+        width: 100%;
+        height: 92%;
+    }
+*/
+    #container1 {
+        top: 92%;
+        left: 0;
+        width: 100%;
+        height: 8%;
+    }
+
+    #container2 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 92%;
+    }
+    aside, marquee {
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        margin: auto;
+        width: 98%;
+        height: 60%;
+        background-color: transparent;
+        color: #FFF;
+        text-align: center;
+        /*overflow: auto;*/
+    }
+
+    .up {
+        color: #0F0;
+    }
+
+    .down {
+        color: #F00;
+    }
+
+    .hidden {
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <section class="panther-Carousels">
+        <section id="container1" class="panther-Carousel-container">
+            <div id="carousel1" class="panther-Carousel-carousel">
+                <figure style="outline: 1px solid #F00;">
+                    <div class="panther-Carousel-panelTitleBar hidden"><span class="panther-Carousel-panelTitle">&lt; Carousel 1 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 1: Add your content here -->
+                        <aside>News Headlines</aside>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar hidden"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 2: Add your content here -->
+                        <aside>Stock Tickers</aside>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar hidden"><span class="panther-Carousel-panelTitle">&lt; 4 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 4: Add your content here -->
+                        <aside>Weather Alerts</aside>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar hidden"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 3: Add your content here -->
+                        <aside>Sports Scores</aside>
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <section id="container2" class="panther-Carousel-container">
+            <div id="carousel2" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 1: Add your content here -->
+                        <p>This ticker sample uses a vertical-turning carousel.</p>
+                        <p>Swipe left or right on the title bars to turn the carousel.</p>
+                        <p>Use the buttons below to control the Ticker Carousel:</p>
+                        <input type="button" value="News" onclick="Panther.Carousel.turnTo('carousel1', 1, app.news.get);">
+                        <input type="button" value="Stocks" onclick="Panther.Carousel.turnTo('carousel1', 2, app.stocks.get);">
+                        <input type="button" value="Weather" onclick="Panther.Carousel.turnTo('carousel1', 3);">
+                        <input type="button" value="Sports" onclick="Panther.Carousel.turnTo('carousel1', 4);">
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 2: Add your content here -->
+                        <p>Click or tap a list item to control the Ticker Carousel:<p>
+                        <ul>
+                            <li onclick="Panther.Carousel.turnTo('carousel1', 1);">News</li>
+                            <li onclick="Panther.Carousel.turnTo('carousel1', 2);">Stocks</li>
+                            <li onclick="Panther.Carousel.turnTo('carousel1', 3);">Weather</li>
+                            <li onclick="Panther.Carousel.turnTo('carousel1', 4);">Sports</li>
+                        </ul>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 3: Add your content here -->
+                    </div>
+                </figure>
+            </div>
+        </section>
+    </section>
+
+    <script src="../dist/PantherUI.min.js"></script>
+    <script>
+    var app = {};
+
+    app.news = {};
+
+    app.news.display = function (xhr, carouselId, side) {
+        console.info('news.display:', carouselId, side);
+
+        if (xhr.readyState === xhr.DONE && xhr.status === 200 && xhr.response) {
+
+            var rss, i, ii, cn;
+            for (i = 0, ii = xhr.responseXML.childNodes.length; i < ii; i++) {
+                cn = xhr.responseXML.childNodes[i];
+                if (cn.nodeName == 'rss') {
+                    rss = cn;
+                    break;
+                }
+            }
+
+            var channel = rss.childNodes[0],
+                elems = channel.childNodes,
+                elem,
+                html = '';
+
+            //console.log(xhr, rss, channel, elems);
+
+            for (i = 0, ii = elems.length; i < ii; i++) {
+                elem = elems[i];
+                if (elem.nodeName == 'item') {
+                    console.log(elem.childNodes[0].textContent);
+                    html += '<span>' + elem.childNodes[0].textContent + '</span>';
+                    html += (i < (elems.length - 1)) ? '&nbsp;&nbsp;&nbsp; &bull; &nbsp;&nbsp;&nbsp;' : '';
+                }
+            }
+
+            // Update panel content for Carousel
+            var c_panels = document.querySelectorAll('#' + carouselId + '>figure>div[class=panther-Carousel-panelContent]');
+            //console.log(c_panels);
+
+            var idx = side - 1;
+
+            c_panels[idx].innerHTML = '<marquee>' + html + '</marquee>';
+        }
+    };
+
+    app.news.get = function (carouselId, side) {
+        console.info('news.get:', carouselId, side);
+
+        var url = 'data/topNews.xml';
+        //var url = 'http://feeds.reuters.com/reuters/topNews?format=xml';
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.send();
+
+        xhr.onerror = function (err) {
+            console.warn(err.target.status);
+        };
+
+        xhr.onload = function (ev) {
+            //console.log(ev);
+            app.news.display(ev.target, carouselId, side);
+        }
+    };
+
+    app.stocks = {};
+
+    app.stocks.details = function (arg1, arg2, arg3, arg4, arg5) {
+        console.info('stocks.details', arg1, arg2, arg3, arg4, arg5);
+    };
+
+    app.stocks.display = function (xhr, carouselId, side) {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200 && xhr.response) {
+            var lines = xhr.response.split("\r\n"),
+                parts = [],
+                symb = '',
+                quotes = {},
+                quotePatt = /['"]/g,
+                arrow = '',
+                html = '';
+
+            console.info('stocks.display', carouselId, side);
+            //console.log(xhr.response, lines.length, lines);
+
+            for (var i = 0, ii = lines.length; i < ii; i++) {
+                parts = lines[i].split(',');
+
+                if (parts.length === 9) {
+                    symb = parts[0].replace(quotePatt, '');
+
+                    quotes[symb] = {
+                        'symbol': symb,
+                        'last_trade': parseFloat(parts[1], 10),
+                        'update_date': parts[2].replace(quotePatt, ''),
+                        'update_time': parts[3].replace(quotePatt, ''),
+                        'change': parseFloat(parts[4], 10),
+                        'prev_close': parseFloat(parts[5], 10),
+                        'day_high': parseFloat(parts[6], 10),
+                        'day_low': parseFloat(parts[7], 10),
+                        'volume': parseInt(parts[8], 10)
+                    };
+
+                    console.log(symb, quotes[symb].last_trade, quotes[symb].change);
+
+                    if (quotes[symb].change < 0) {
+                        quotes[symb].css = 'down';
+                        arrow = '&#9660;';
+                    }
+                    else if (quotes[symb].change > 0) {
+                        quotes[symb].css = 'up';
+                        arrow = '&#9650;';
+                    }
+                    else {
+                        quotes[symb].css = 'eq';
+                        arrow = '';
+                    }
+
+                    html += '<span onclick="app.stocks.details(event, \'content\', \'1\', \'main\', \'' + symb + '\');">';
+                    html += '<span class="quote">' + symb + '</span> <span class="' + quotes[symb].css + '">' + arrow + ' ' + quotes[symb].last_trade + ' (' + quotes[symb].change + ')</span>';
+                    html += '</span>';
+                    html += (i < (lines.length - 2)) ? '&nbsp;&nbsp;&nbsp; &bull; &nbsp;&nbsp;&nbsp;' : '';
+                }
+            }
+
+            // Update panel content for Carousel
+            var c_panels = document.querySelectorAll('#' + carouselId + '>figure>div[class=panther-Carousel-panelContent]');
+            //console.log(c_panels);
+
+            var idx = side - 1;
+
+            c_panels[idx].innerHTML = '<marquee>' + html + '</marquee>';
+        }
+    };
+
+    app.stocks.get = function (carouselId, side) {
+        console.info('stocks.get:', carouselId, side);
+
+        var url = 'data/quotes.csv';
+        //var url = 'http://download.finance.yahoo.com/d/quotes.csv?s=AAPL,ADBE,AMD,AMZN,BBRY,CRM,CSCO,EBAY,FB,GOOG,HPQ,IBM,INTC,MSFT,NFLX,ORCL,QCOM,SAP,SSNLF,SYMC,TWTR,YHOO&f=sl1d1t1c1ohgv&e=.csv';
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', url);
+        xhr.send();
+
+        xhr.onerror = function (err) {
+            console.warn(err.target.status);
+        };
+
+        xhr.onload = function (ev) {
+            app.stocks.display(ev.target, carouselId, side);
+        }
+    };
+
+    // Initialize carousel
+    Panther.Carousel.init({
+        id: 'carousel1',
+        backgroundColor: 'rgba(0, 0, 102, 0.9)',
+        isHorizontal: false
+    });
+
+    Panther.Carousel.init({
+        id: 'carousel2',
+        backgroundColor: 'rgba(209, 209, 209, 0.9)'
+    });
+
+    Panther.Carousel.turnTo('carousel1', 2, app.stocks.get);
+    </script>
+</body>
+</html>
