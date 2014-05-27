@@ -1,0 +1,191 @@
+/* ===========================================================================
+ * Carousel.css
+ *
+ * Jim Ing (@jim_ing)
+ * ===========================================================================
+ *
+ * Copyright 2013 - 2014 BlackBerry Limited.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.panther-Carousel-container {
+    background-color: #6C6666;
+    position: absolute;
+    overflow: hidden;
+    -webkit-perspective: 1050px;
+    -moz-perspective: 1050px;
+    -ms-perspective: 1050px;
+    -o-perspective: 1050px;
+    perspective: 1050px;
+}
+
+.panther-Carousel-carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+/*
+    -webkit-transition: -webkit-transform 350ms;
+    -moz-transition: -moz-transform 350ms;
+    -o-transition: -o-transform 350ms;
+    transition: transform 350ms;
+*/
+
+    /* ease (default) */
+    -webkit-transition: all 750ms ease;
+    -moz-transition: all 750ms ease;
+    -ms-transition: all 750ms ease;
+    -o-transition: all 750ms ease;
+    transition: all 750ms ease;
+}
+
+.panther-Carousel-carousel figure {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    /* Note:
+     * The following hardware-acceleration property has a known issue in BB10,
+     * where the position of the scolling bar is offset with some 3D
+     * transforms. This should be-re-enabled once the bug is fixed.
+     */
+
+    /*-webkit-overflow-scrolling: touch;*/
+}
+
+/* Panels */
+/*
+.panther-Carousel-carousel figure::-webkit-scrollbar {
+    background-color: transparent;
+    width: 7px;
+}
+
+.panther-Carousel-carousel figure::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.panther-Carousel-carousel figure::-webkit-scrollbar-thumb {
+    background: rgba(64, 64, 64, 0.4);
+    border-radius: 3px;
+}
+*/
+
+.panther-Carousel-panelTitleBar {
+    background-color: #262626;
+    color: #FFF;
+    font-size: 110%;
+    text-align: center;
+    max-height: 14mm;
+    height: 14mm;
+    line-height: 14mm;
+    position: relative;
+    width: 100%;
+    z-index: 20;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+/*
+    border: 1px solid #363636;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+*/
+}
+
+.panther-Carousel-panelTitle {
+    display: inline-block;
+    /*min-width: 60%;*/
+    /*max-width: -webkit-calc(100% - 14mm - 14mm);*/
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* text-overflow: '... >'; */
+    white-space: nowrap;
+}
+
+.panther-Carousel-panelMaximize {
+    background-color: transparent;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAZZJREFUeNrsl7FugzAQhiHqkDFjxgw8AGO3pg/BnkfI2DE7Q/MG7LD0DdI3gK0SS9QBCgNyFigSg3tXmcohGKxil6W/dAqxHP5P9t3ZMSmlxpxaGDNrdgADt6CNP/Jb8Z53Cl+8ZY8bFqiHnrFHiFelKwC/3XyCqIR837evPBVtwcpxnKMMBM7VAYBay0DcrLriJFxHUfQmMo/j+KwVAN7hjezAqQuwUFgFHnzshubkeX7R0ohE5jVT+71pmnfljUi07JiMmJSdxDwozwGo66PIHJOSrw6Yu9ORhLbrui8C86sSxSakqwq+IQTmPxDYhCYBsIMkZEl3AwHxJDAX510XgJnYA+atPCUncA/AFoLwED3mkyBkAGgLMWBOi6I46wDYcx5EZJ4kyYdlWXsdAIexI5UzX+oAeNZpLgNw0mk+CQAbDZzp90ovwj0AZCQFSF+fUAkgo0kQwms51nz7nKZpVpZlXVVVDcue41gYhhnUfk0IuQRBkKm4S5j8GWCa5pL1cxQa1CyygbFfrUAvwP+f0zn0JcAAag1n5leU5EAAAAAASUVORK5CYII=');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 6mm;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12mm;
+    height: auto;
+    z-index: 30;
+}
+
+.panther-Carousel-panelMaximize:active {
+    background-color: rgb(204, 63, 16); /* fallback */
+    background-color: rgba(204, 63, 16, 0.9);
+}
+
+.panther-Carousel-panelContent {
+    padding: 10px;
+}
+
+.panther-Carousel-panelContent ul {
+    list-style: none;
+    margin: 2%;
+    padding: 0;
+    text-align: left;
+    width: 96%;
+}
+
+.panther-Carousel-panelContent li {
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #CCC;
+    color: #000;
+    margin: 0;
+    padding: 10px;
+}
+
+.panther-Carousel-panelContent li:nth-child(even) {
+    background-color: #F0F0F0;
+    color: #000;
+}
+
+.panther-Carousel-panelContent li:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.panther-Carousel-panelContent li:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
