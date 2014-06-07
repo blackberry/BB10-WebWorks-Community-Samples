@@ -78,6 +78,17 @@ config.onscreenready = function(element, id) {
 
 Get your i18n app run now~~!!
 
+
+### how to use in Javascript ?
+
+Yes you can directly call : `i18n.get(keystring,locale)` to get the localized string in qstr.
+
+for example:
+
+```
+var toast_text = i18n.get('toast','en-US');
+```
+
 ### About me
 
 I'm Merrick Zhang , ( BlackBerry Vendor : anpho ) , All my open-source code and apps can be found here: http://anpho.github.io
