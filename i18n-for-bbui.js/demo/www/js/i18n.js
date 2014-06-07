@@ -3,7 +3,8 @@ var i18n = {
     regx: /`([\w\d\s.-]*?)`/ig,
     // Process all nodes in element with i18n strings.
     process: function(element, lang) {
-        var items = element.querySelectorAll('[i18n=true]');
+	     console.time('i18n-process-page');
+        var items = element.querySelectorAll('[i18n]');
         for (var i = 0; i < items.length; i++) {
             var item = items[i];
             var all = i18n.getAllPropsOf(item);
@@ -15,7 +16,7 @@ var i18n = {
                 var t = i18n.regx.exec(str);
                 while (t) {
                     str = i18n.replace(str, t[1], lang);
-                    console.log('[i18n]>>' + JSON.stringify(pv) + ">>" + str);
+                    //console.log('[i18n]>>' + JSON.stringify(pv) + ">>" + str);
                     t = i18n.regx.exec(str);
                 }
                 item[pv.p] = str;
@@ -28,12 +29,13 @@ var i18n = {
                 var t = i18n.regx.exec(str);
                 while (t) {
                     str = i18n.replace(str, t[1], lang);
-                    console.log('[i18n]>>' + JSON.stringify(pv) + ">>" + str);
+                    //console.log('[i18n]>>' + JSON.stringify(pv) + ">>" + str);
                     t = i18n.regx.exec(str);
                 }
                 item.setAttribute([pv.a], str);
             }
         }
+        console.timeEnd('i18n-process-page');
     },
     replace: function(str, token, lang) {
         //replace token in str to specified lang
@@ -45,23 +47,16 @@ var i18n = {
         /*
          * Get i18n str from qstr.
          */
-        try {
-            var str = qstr[lang][id];
-            if (str) {
-                return str;
+        var _locale = qstr[r];
+        if (_locale) {
+            var n = _locale[e];
+            if (n) {
+                return n;
             } else {
-                return "[" + id + "]";
+                return qstr[qstr.default][e] ? qstr[qstr.default][e] : "[" + e + "]";
             }
-        } catch (ex) {
-            // language not available. use default.
-            str = qstr[qstr.
-                    default][id];
-            if (str) {
-                return str;
-            } else {
-                return "[" + id + "]";
-            }
-
+        } else {
+            return this.get(e, qstr.default);
         }
 
     },
