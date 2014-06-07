@@ -47,16 +47,16 @@ var i18n = {
         /*
          * Get i18n str from qstr.
          */
-        var _locale = qstr[r];
+        var _locale = qstr[lang];
         if (_locale) {
-            var n = _locale[e];
+            var n = _locale[id];
             if (n) {
                 return n;
             } else {
-                return qstr[qstr.default][e] ? qstr[qstr.default][e] : "[" + e + "]";
+                return qstr[qstr.default][id] ? qstr[qstr.default][id] : "[" + e + "]";
             }
         } else {
-            return this.get(e, qstr.default);
+            return this.get(id, qstr.default);
         }
 
     },
