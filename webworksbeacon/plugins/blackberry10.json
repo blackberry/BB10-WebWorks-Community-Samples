@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "www/config.xml": {
+                "parents": {
+                    "/widget": [
+                        {
+                            "xml": "<feature name=\"com.blackberry.invoke\" value=\"com.blackberry.invoke\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"com.blackberry.invoked\" value=\"com.blackberry.invoked\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.blackberry.invoke": {
+            "PACKAGE_NAME": "com.example.HeadlessUI"
+        },
+        "com.blackberry.invoked": {
+            "PACKAGE_NAME": "com.example.WebWorksBeacon"
+        }
+    },
+    "dependent_plugins": {}
+}
