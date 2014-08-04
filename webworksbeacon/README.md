@@ -39,52 +39,32 @@ The following ***Cordova Plugins*** are required for this sample:
 
 ###How to Build WakeMeByBeacon
 
-You've got three options here:
+You've got two options here:
 
-#####Option 1 - The easiest option to build and run yourself out of the box
+#####Option 1 - Build the project yourself
 
-Why might I choose this option? Well, it's easy! However, you should be aware that you *will* be using the WebWorks project metadata and plugins as they were saved at the time this project was committed to GitHub. If you're using this sample at a later time with a newer version of WebWorks then you should consider ***Option 2***. For reference this project was built with this version of WebWorks.
-
-	```
-	> webworks -v
-	v2.1.0.12
-	```
-
-Clone this repo to your local machine to a location of your choice.
-
-Import the ***webworksbeacon/WebWorksBeaconService*** folder into Momentics - this is the headless service component and is a native application. When importing do **NOT** copy them. You **MUST** ensure that the checkbox entitled **"Copy projects into workspace"** is **NOT** checked.
-
-Build the ***WebWorksBeaconService*** project. This will make the headless service application available to the ***WebWorks*** application for packaging.
-
-Ensure the [BlackBerry 10 WebWorks SDK 2.1](https://developer.blackberry.com/html5/download/sdk) is correctly installed.
-
-Open a command prompt (windows) or terminal (mac) and navigate to the ***webworksbeacon*** folder.
-
-Run the following command to build and deploy the application to a device connected via USB:
-
-	```
-	webworks run
-	```
-
-#####Option 2 - If you need to use the newest version of WebWorks and plugins
-
-Why might I choose this option? Well, this project was built and committed to GitHub using WebWorks ****2.1.0.13**** and if you're using this project at a later date you might want to make sure that you're using an up to date version of the WebWorks metadata and plugins. Using this method you'll re-create the project using the latest templates and plugins and then simply add the application specific code to your project. 
+Using this method you'll re-create the project using the latest templates and plugins and then simply add the application specific code to your project. 
 
 Clone this repo to your local machine.
 
-Ensure the [BlackBerry 10 WebWorks SDK 2.1](https://developer.blackberry.com/html5/download/sdk) is correctly installed.
+Ensure the [BlackBerry 10 WebWorks SDK 2.1](https://developer.blackberry.com/html5/download/sdk) is correctly installed. I used this version of WebWorks but you may be using a newer version when you build this project: 
 
-Open a command prompt (windows) or terminal (mac) in a fodder of your choosing and run the following command:
+	```
+	> webworks -v
+	v2.1.0.13
+	```
+
+Open a command prompt (windows) or terminal (mac) in a folder of your choosing and run the following command:
 
 	```
 	webworks create-headless webworksbeacon
 	```
 
-This will create a complete WebWorks headless application in the folder ***webworksBeacon*** using the standard WebWorks Template. 
+This will create a complete WebWorks headless application in the folder ***webworksbeacon*** using the standard WebWorks Template. 
 
-**Replace** the default ***www*** folder with the ***/www*** folder from **this** project
+**Replace** the default ***www*** folder that was created with the ***www*** folder from **this** project
 
-**Replace** the default ***HeadLess*** folder with the ***/WebWorksBeaconService*** folder  from **this** project
+**Replace** the default ***HeadLess*** folder (delete it) with the ***WebWorksBeaconService*** folder  from **this** project.
 
 From the command prompt (Windows) or terminal (mac), navigate to the ***webworksbeacon*** folder
 
@@ -92,22 +72,28 @@ From the command prompt (Windows) or terminal (mac), navigate to the ***webworks
 	cd webworksbeacon
 	```
 
-Run the following commands to configure plugins used by **this application**
+You should have two sub-folders in this folder ***WebWorksBeaconService*** and ***www*** in addition to the necessary WebWorks and Cordova files and folders.
+
+Then run the following commands to configure the plugins used by **this application**
 
 	```
 	webworks plugin add com.blackberry.invoke
 	webworks plugin add com.blackberry.invoked
 	```
 
-Run the following command to build and deploy the app to a device connected via USB
+Import the ***WebWorksBeaconService*** folder into Momentics - this is the headless service component and is a native application. When importing do **NOT** copy them. You **MUST** ensure that the checkbox entitled **"Copy projects into workspace"** is **NOT** checked.
+
+Build the ***WebWorksBeaconService*** project. This will make the headless service application available to the ***WebWorks*** application for packaging by copying the headless service's executable into the folder ***www/assets***. You can check that this has worked by checking that there is a file called ***WebWorksBeaconService*** in that folder after you've built the project.
+
+Run the following command to build and deploy the WebWorks application to a device connected via USB:
 
 	```
 	webworks run
 	```
 
-#####Option 3 - But I don't want to build it myself!
+#####Option 2 - But I don't want to build it myself!
 
-If you don't want to build this sample application yourself we've included a pre-built and signed BAR file. You can find it in the folder "**installable-bar-files**".
+If you don't want to build this sample application yourself I've included a pre-built and signed BAR file. You can find it in the folder "**installable-bar-files**".
 
 ### More Info
 
