@@ -17,6 +17,7 @@ It comes with a sample WebWorks application in the form of a simple **Chat** app
 
 ###Release History
 
+* **V1.0.1** - Minor bugs fixed in plugin
 * **V1.0.0** - Initial release
 
 ###Known Issues

@@ -216,9 +216,9 @@ namespace webworks {
         Json::Value root;
 
         bool need_to_stop_connection = false;
-        pthread_mutex_lock(&m_scan_mutex);
-        need_to_stop_connection = m_scan_thread_running;
-        pthread_mutex_unlock(&m_scan_mutex);
+        pthread_mutex_lock(&m_connection_mutex);
+        need_to_stop_connection = m_connection_thread_running;
+        pthread_mutex_unlock(&m_connection_mutex);
 
         if (need_to_stop_connection) {
             disconnectFromDevice();
