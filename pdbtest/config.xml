@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.hellocordova" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>PouchDB Sample App</name>
+    <description>
+        Sample app demonstrating the uses of pouchDB on BB10.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <!--
+    <access origin="*" />
+	-->
+	<preference name="WebSecurity" value="disable" />
+</widget>
