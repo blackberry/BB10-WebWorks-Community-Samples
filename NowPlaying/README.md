@@ -1,46 +1,18 @@
 # NowPlaying #
 
-This BlackBerry 10 Cordova Plugin plays music in the background.
+The BlackBerry 10 Cordova Plugin plays music in the background. This is a sample that uses this plugin.
 
+## Applies To ##
 
-## Contents ##
+BlackBerry BlackBerry 10 OS
 
-* [Native Extension](plugin/src/blackberry10/native) - BlackBerry 10 Native SDK Project
-* [Sample Application](sample) - WebWorks 2.0/Cordova Project
+## Author(s) ##
 
-
-## Including the feature in your application ##
-
-This API can be installed from source or from the [Cordova Plugin Registry](http://plugins.cordova.io/). Installation from the registry is done through the following:
-
-	cordova plugin add com.blackberry.community.nowplaying
-
-or,
-	
-	webworks plugin add com.blackberry.community.nowplaying
-
-Installation from source is the same but instead of the id ("com.blackberry.community.nowplaying"), use the file system path to the source plugin folder.
-
-
-## How to build your native Plugin ##
-
-1.  Clone this repo to your local machine
-
-2.  Ensure the [BlackBerry 10 Native SDK](https://developer.blackberry.com/native/download/sdk) is correctly installed
-
-3.  Import the native extension project into momentics. It is located at `/plugin/src/blackberry10/native` within **this project**
-
-4.  Build the native extension project for all architectures: Right click on the project and choose "Build Configurations" > "Build All"
-
-
-## Using the Plugin in an Application ##
-
-Run nowplaying_build.sh from that directory.
-
+Tim Windsor
+Parker Aldric Mar
+John Hsu 
 
 ## Javascript API ##
-
-The api exports a global module as blackberry.community.nowplaying, as shown in `/plugin/src/blackberry10/native/src/NowPlaying_ndk.cpp`
 
 ### Object Methods ###
 
@@ -235,49 +207,6 @@ Plays the previous track according to the callback method given to NowPlayingReq
 
 Example:
 	com.blackberry.community.nowplaying.NowPlayingPrevious();
-
-
-
-## TODO ##
-
-- These are in order of importance.
-- Sizing is roughly x hours to investigate, at most 1 hour (left) to finish implementing, at most 1 hour to test.
-
-#### MUST-HAVES ###
-#### NICE-TO-HAVES ####
-
-1. Provide an optional parameter to suppress the callbacks from playSlot(), pauseSlot(), and stopSlot(), so that actions can be done to change the internal state of the app without externalization to the interface.
-
-2. Give NowPlayingNDK::NowPlayingError signal/slot parameters to specify error information. Can create an enum of general errors that can occur. Use this throughout the class.
-	(In `/plugin/src/blackberry10/native/src/NowPlaying_ndk.cpp`)
-
-3. Give the sample app more interesting callbacks, e.g. the sample app [here](https://github.com/blackberry/Cascades-Samples/tree/master/nowplaying) uses images.
-
-4. Metadata
-	(In `/plugin/src/blackberry10/native/src/NowPlaying_ndk.cpp`)
-
-	- Album isn't showing.
-	- Investigate putting more than just the Title, Artist, Album properties, even though [this](http://developer.blackberry.com/native/reference/cascades/bb__multimedia__nowplayingconnection.html#comment-1134791487) says
-
-
-	> Comment 2 years ago from Oct 30, 2015. Wes Barichak: "Currently, the only metadata properties that are available are MetaData::Album, MetaData::Artist, and MetaData::Title, while the rest of the MetaData properties are ignored. This will likely change in the future though."
-
-5. Icon
-	(In `/plugin/src/blackberry10/native/src/NowPlaying_ndk.cpp`)
-
-	- Investigate setting icons based on URLs even though [this](http://developer.blackberry.com/native/reference/cascades/bb__multimedia__nowplayingconnection.html#function-play) says
-
-
-	> Comment 2 years ago from Oct 30, 2015. Theodore Mavrakis: "How can we pass an http url to use for the icon of a NowPlayingConnection?" Wes Barichak: "Currently, this is not possible. But, we will be looking at adding this functionality in a future release."
-
-6. Volume Overlay
-	(In `/plugin/src/blackberry10/native/src/NowPlaying_ndk.cpp`)
-
-	- Investigate setting appropriate size for media notification area even though Tim mentioned
-
-
-	> I don't think there's any control to change the size of the media notification area - it's set by the OS and the hardware.
-
 
 ## Disclaimer ##
 
