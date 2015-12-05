@@ -4,13 +4,13 @@ The BlackBerry 10 Cordova Plugin plays music in the background. This is a sample
 
 ## Applies To ##
 
-BlackBerry BlackBerry 10 OS
+* [BlackBerry 10 WebWorks SDK](https://developer.blackberry.com/html5/download/sdk)
 
 ## Author(s) ##
 
-Tim Windsor @timwindsor
-Parker Aldric Mar @parker-mar
-John Hsu @Makoz
+* [Tim Windsor] (https://github.com/timwindsor)
+* [Parker Aldric Mar] (https://github.com/parker-mar)
+* [John Hsu] (https://github.com/Makoz)
 
 ## Javascript API ##
 
