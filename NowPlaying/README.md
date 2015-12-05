@@ -8,9 +8,9 @@ BlackBerry BlackBerry 10 OS
 
 ## Author(s) ##
 
-@Tim Windsor
-@Parker Aldric Mar
-@John Hsu 
+Tim Windsor @timwindsor
+Parker Aldric Mar @parker-mar
+John Hsu @Makoz
 
 ## Javascript API ##
 
