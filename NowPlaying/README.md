@@ -25,7 +25,7 @@ In the console, run:
 6. cp ../config.xml ./
 7. cp -r ../www/ ./www
 8. cordova platform add blackberry10
-9. (Instructions:) Import the native extension project into Momentics, with root set as `/plugin/src/blackberry10/native`.
+9. (Instructions:) Import the native extension project into Momentics, with root directory as `/plugins/com.blackberry.community.nowplaying/src/blackberry10/native`.
 In the Momentics IDE, right click the project: under "Build Configurations", select "Clean All" then "Build All". (This should build cleanly with potentially only warnings).
 10. cordova run
 
