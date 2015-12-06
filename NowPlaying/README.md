@@ -16,6 +16,7 @@ This is a sample app that uses the plugin.
 ## Building and running the sample app
 
 In the console, run:
+
 1. rm -rf debug1
 2. cordova create debug1
 3. cd debug1
@@ -27,6 +28,7 @@ In the console, run:
 9. (Instructions:) Import the native extension project into Momentics, with root set as `/plugin/src/blackberry10/native`.
 In the Momentics IDE, right click the project: under "Build Configurations", select "Clean All" then "Build All". (This should build cleanly with potentially only warnings).
 10. cordova run
+
 The app should now be running.
 
 ## Javascript API ##
