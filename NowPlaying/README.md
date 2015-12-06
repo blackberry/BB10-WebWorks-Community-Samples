@@ -26,9 +26,9 @@ cordova plugin add https://github.com/parker-mar/WebWorks-Community-APIs.git#:/B
 5. rm -rf www/
 6. cp ../config.xml ./
 7. cp -r ../www/ ./www
-8. cordova platform add blackberry10
-9. (Instructions:) Import the native extension project into Momentics, with root directory as `/plugins/com.blackberry.community.nowplaying/src/blackberry10/native`.
+8. (Instructions:) Import the native extension project into Momentics, with root directory as `/plugins/com.blackberry.community.nowplaying/src/blackberry10/native`.
 In the Momentics IDE, right click the project: under "Build Configurations", select "Clean All" then "Build All". (This should build cleanly with potentially only warnings).
+9. cordova platform add blackberry10
 10. cordova run
 
 The app should now be running.
