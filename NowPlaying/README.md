@@ -1,6 +1,7 @@
 # NowPlaying #
 
-The BlackBerry 10 Cordova Plugin plays music in the background. This is a sample that uses this plugin.
+The [BlackBerry 10 Cordova Plugin] (https://github.com/blackberry/WebWorks-Community-APIs/tree/master/BB11-Cordova/NowPlaying) plays music in the background. 
+This is a sample app that uses the plugin.
 
 ## Applies To ##
 
@@ -11,6 +12,22 @@ The BlackBerry 10 Cordova Plugin plays music in the background. This is a sample
 * [Tim Windsor] (https://github.com/timwindsor)
 * [Parker Aldric Mar] (https://github.com/parker-mar)
 * [John Hsu] (https://github.com/Makoz)
+
+## Building and running the sample app
+
+In the console, run:
+1. rm -rf debug1
+2. cordova create debug1
+3. cd debug1
+4. cordova plugin add https://github.com/blackberry/WebWorks-Community-APIs.git#:/BB10-Cordova/NowPlaying/plugin
+5. rm -rf www/
+6. cp ../config.xml ./
+7. cp -r ../www/ ./www
+8. cordova platform add blackberry10
+9. (Instructions:) Import the native extension project into Momentics, with root set as `/plugin/src/blackberry10/native`.
+In the Momentics IDE, right click the project: under "Build Configurations", select "Clean All" then "Build All". (This should build cleanly with potentially only warnings).
+10. cordova run
+The app should now be running.
 
 ## Javascript API ##
 
