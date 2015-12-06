@@ -22,7 +22,7 @@ In the console, run:
 3. cd debug1
 4. cordova plugin add https://github.com/blackberry/WebWorks-Community-APIs.git#:/BB10-Cordova/NowPlaying/plugin
    (or if that does not work because the below isn't pulled to that link yet, run the below instead)
-cordova plugin add https://github.com/parker-mar/BB10-WebWorks-Community-Samples.git#:/BB10-Cordova/NowPlaying/plugin
+cordova plugin add https://github.com/parker-mar/WebWorks-Community-APIs.git#:/BB10-Cordova/NowPlaying/plugin
 5. rm -rf www/
 6. cp ../config.xml ./
 7. cp -r ../www/ ./www
