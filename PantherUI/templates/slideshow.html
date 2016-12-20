@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2013-2014 BlackBerry Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Slideshow</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../dist/PantherUI.min.css">
+    <style>
+    body {
+        font: 100% Arial, sans-serif;
+    }
+
+    #container1 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90%;
+    }
+
+    .navbar {
+        position: absolute;
+        background-color: #262626;
+        color: #F00;
+        bottom: 0;
+        width: 100%;
+        height: 10%;
+        text-align: center;
+        /*outline: 1px solid #F00;*/
+    }
+
+    .navbar > div > input {
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        width: 20%;
+/*        height: 80%;
+        margin: auto;
+*/
+        background-color: #FFF;
+        background-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(0, #FFFFFF),
+            color-stop(1, #D7D7D7)
+        );
+        background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #D7D7D7 100%);
+        background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #D7D7D7 100%);
+        background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #D7D7D7 100%);
+        background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #D7D7D7 100%);
+        background-image: linear-gradient(to bottom, #FFFFFF 0%, #D7D7D7 100%);
+        cursor: pointer;
+    }
+
+    .navbar > div > input:active {
+        background-color: #D7D7D7;
+        background-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(0, #D7D7D7),
+            color-stop(1, #FFFFFF)
+        );
+        background-image: -o-linear-gradient(bottom, #D7D7D7 0%, #FFFFFF 100%);
+        background-image: -moz-linear-gradient(bottom, #D7D7D7 0%, #FFFFFF 100%);
+        background-image: -webkit-linear-gradient(bottom, #D7D7D7 0%, #FFFFFF 100%);
+        background-image: -ms-linear-gradient(bottom, #D7D7D7 0%, #FFFFFF 100%);
+        background-image: linear-gradient(to bottom, #D7D7D7 0%, #FFFFFF 100%);
+    }
+
+    .navbar > div > input:nth-child(1) {
+        left: 0;
+    }
+
+    .navbar > div > input:nth-child(2) {
+        left: 20%;
+    }
+
+    .navbar > div > input:nth-child(3) {
+        left: 40%;
+    }
+
+    .navbar > div > input:nth-child(4) {
+        left: 60%;
+    }
+
+    .bigbutton {
+        font-size: 110%;
+        border-radius: 5px;
+    }
+
+    .slide {
+        background-color: #FFF;
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        width: 70%;
+        height: 70%;
+        text-align: center;
+        -webkit-box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.75);
+    }
+
+    .slide > img {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .slide > figcaption {
+        background-color: #000;
+        color: #FFF;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        line-height: 32px;
+        text-align: center;
+    }
+
+    .range-slider {
+        color: #FFF;
+        font-size: 75%;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+
+    .range-slider > input {
+        margin-top: -10px;
+    }
+    </style>
+</head>
+<body>
+    <section class="panther-Carousels">
+        <section id="container1" class="panther-Carousel-container">
+            <div id="carousel1" class="panther-Carousel-carousel">
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Carousel 1 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 1: Add your content here -->
+                        <p>This is an example of how to use the Carousel as a slideshow. Click the &ldquo;Play&rdquo; button to start. To adjust the speed, use the range slider.</p>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 2: Add your content here -->
+                        <div class="slide">
+                            <img src="../img/logos/waawesome626_64x64.png">
+                            <figcaption>Figure: 64&times;64</figcaption>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 3: Add your content here -->
+                        <div class="slide">
+                            <img src="../img/logos/waawesome626_96x96.png">
+                            <figcaption>Figure: 96&times;96</figcaption>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 4 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 4: Add your content here -->
+                        <div class="slide">
+                            <img src="../img/logos/waawesome626_128x128.png">
+                            <figcaption>Figure: 128&times;128</figcaption>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 5 &gt;</span></div>
+                    <div class="panther-Carousel-panelContent">
+                        <!-- Panel 5: Add your content here -->
+                        <div class="slide">
+                            <img src="../img/logos/waawesome626_256x256.png">
+                            <figcaption>Figure: 256&times;256</figcaption>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+        </section>
+    </section>
+    <section class="navbar">
+        <!-- Slideshow controls -->
+        <div>
+            <input class="bigbutton" type="button" value="Stop" onclick="stop();">
+            <input class="bigbutton" type="button" value="Play" onclick="play();">
+            <div class="range-slider">
+                <span id="intervalText">0</span> <span>s</span><br>
+                <input type="range" id="interval" value="1500" min="1000" max="10000" step="500">
+            </div>
+        </div>
+    </section>
+
+    <script src="../dist/PantherUI.min.js"></script>
+    <script>
+    // Initialize carousel
+    Panther.Carousel.init({
+        id: 'carousel1',
+        backgroundColor: 'rgba(209, 209, 209, 0.9)'
+    });
+
+    // Slideshow logic
+
+    var intervalID,
+        interval = document.getElementById('interval');
+        intervalText = document.getElementById('intervalText');
+
+    intervalText.innerHTML = interval.value / 1000;
+
+    function play() {
+        stop();
+        Panther.Carousel.turnNext('carousel1');
+
+        intervalID = window.setInterval(function () {
+            Panther.Carousel.turnNext('carousel1');
+        }, interval.value);
+    }
+
+    function stop () {
+        window.clearInterval(intervalID);
+    }
+
+    interval.addEventListener('change', function (ev) {
+        intervalText.innerHTML = ev.srcElement.value / 1000;
+        stop();
+        play();
+    });
+    </script>
+</body>
+</html>

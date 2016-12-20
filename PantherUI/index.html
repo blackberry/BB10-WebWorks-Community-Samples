@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<!--
+    Copyright 2013-2014 BlackBerry Limited.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PantherUI</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="dist/PantherUI.min.css">
+    <link rel="stylesheet" href="docs/lib/highlight/styles/monokai_sublime.css">
+    <style>
+    body {
+        font: 100% Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    li {
+        line-height: 200%;
+    }
+
+    #container1 {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .nav-buttons {
+        text-align: center;
+    }
+
+    .panther-Carousel-carousel {
+        /* easeOutBack */
+        -webkit-transition: all 1000ms cubic-bezier(0.175, 0.885, 0.320, 1);
+        -webkit-transition: all 1000ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+        -moz-transition: all 1000ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+        -o-transition: all 1000ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+        transition: all 1000ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    }
+
+    .watermark {
+        background-image: url(img/logos/waawesome626_watermark.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+
+    .logo {
+        background-image: url(img/logos/waawesome626_watermark.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    /* Desktop (landscape) */
+
+    #toc {
+        position: absolute;
+        top: 0;
+        width: 30%;
+        height: 100%;
+        overflow: auto;
+        z-index: 10;
+    }
+
+    .toc-collapse {
+        left: -30%;
+    }
+
+    .toc-expand {
+        left: 0;
+    }
+
+    #tabpanel {
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: absolute;
+        top: 2px;
+        width: 38px;
+        height: 48px;
+        margin: 0;
+        padding: 0;
+        z-index: 10;
+    }
+
+    .tabpanel-collapse {
+        /*background-image: url(img/toggle-horz-trans-collapse.png);*/
+        background-image: url(img/toggle-horz-trans-hamburger.png);
+        left: 30%;
+    }
+
+    .tabpanel-expand {
+        /*background-image: url(img/toggle-horz-trans-expand.png);*/
+        background-image: url(img/toggle-horz-trans-hamburger.png);
+        left: 0;
+    }
+
+    #content {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .content-collapse {
+        left: 0;
+        width: 100%;
+    }
+
+    .content-expand {
+        left: 30%;
+        width: 70%;
+    }
+
+    /* Desktop (portrait) */
+
+    @media (orientation: portrait) {
+        #toc {
+            width: 100%;
+            height: 30%;
+        }
+
+        .toc-collapse {
+            top: -30% !important;
+        }
+
+        .toc-expand {
+            top: 0 !important;
+        }
+
+        #tabpanel {
+            left: 2px;
+            width: 48px;
+            height: 38px;
+        }
+
+        .tabpanel-collapse {
+            top: 30% !important;
+            /*background-image: url(img/toggle-vert-trans-collapse.png);*/
+            background-image: url(img/toggle-vert-trans-hamburger.png);
+        }
+
+        .tabpanel-expand {
+            top: 0 !important;
+            /*background-image: url(img/toggle-vert-trans-expand.png);*/
+            background-image: url(img/toggle-vert-trans-hamburger.png);
+        }
+
+        #content {
+            left: 0;
+            width: 100%;
+        }
+
+        .content-collapse {
+            top: 0 !important;
+            height: 100% !important;
+        }
+
+        .content-expand {
+            top: 30% !important;
+            height: 70% !important;
+        }
+    }
+
+    /* Smartphones (portrait) */
+
+    @media only screen and (min-width: 320px) and (max-width: 720px) and (orientation: portrait) {
+        #toc {
+            left: 0;
+            width: 100%;
+            height: 85%;
+            -webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+            box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+            -webkit-transition: all 500ms;
+            transition: all 500ms;
+        }
+
+        .toc-collapse {
+            top: -85% !important;
+        }
+
+        .toc-expand {
+            top: 0 !important;
+        }
+
+        #tabpanel {
+            left: 2px;
+            width: 48px;
+            height: 38px;
+            -webkit-transition: all 500ms;
+            transition: all 500ms;
+        }
+
+        .tabpanel-collapse {
+            top: 85% !important;
+            /*background-image: url(img/toggle-vert-light-collapse.png);*/
+            background-image: url(img/toggle-vert-light-hamburger.png);
+        }
+
+        .tabpanel-expand {
+            top: 0 !important;
+            /*background-image: url(img/toggle-vert-light-expand.png);*/
+            background-image: url(img/toggle-vert-light-hamburger.png);
+        }
+
+        #content {
+            left: 0;
+            width: 100%;
+        }
+
+        .content-collapse {
+            top: 0 !important;
+            height: 100% !important;
+        }
+
+        .content-expand {
+            top: 0 !important;
+            height: 100% !important;
+        }
+    }
+
+    /* Smartphones (landscape) */
+
+    @media only screen and (min-width: 320px) and (max-width: 720px) and (orientation: landscape) {
+        #toc {
+            width: 85%;
+            height: 100%;
+            -webkit-box-shadow: 5px 0px 5px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow: 5px 0px 5px 0px rgba(50, 50, 50, 0.75);
+            box-shadow: 5px 0px 5px 0px rgba(50, 50, 50, 0.75);
+            -webkit-transition: all 500ms;
+            transition: all 500ms;
+        }
+
+        .toc-collapse {
+            left: -85% !important;
+        }
+
+        .toc-expand {
+            left: 0 !important;
+        }
+
+        #tabpanel {
+            top: 2px;
+            width: 38px;
+            height: 48px;
+            -webkit-transition: all 500ms;
+            transition: all 500ms;
+        }
+
+        .tabpanel-collapse {
+            left: 85% !important;
+            /*background-image: url(img/toggle-horz-light-collapse.png);*/
+            background-image: url(img/toggle-horz-light-hamburger.png);
+        }
+
+        .tabpanel-expand {
+            left: 0 !important;
+            /*background-image: url(img/toggle-horz-light-expand.png);*/
+            background-image: url(img/toggle-horz-light-hamburger.png);
+        }
+
+        #content {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content-collapse {
+            left: 0 !important;
+            height: 100% !important;
+        }
+
+        .content-expand {
+            left: 0 !important;
+            height: 100% !important;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="toc" class="toc-expand">
+        <section class="panther-Carousels">
+            <section id="container1" class="panther-Carousel-container">
+                <div id="carousel1" class="panther-Carousel-carousel">
+                    <figure>
+                        <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; PantherUI &gt;</span></div>
+                        <div class="panther-Carousel-panelContent watermark">
+                            <!-- Panel 1: Add your content here -->
+                            <div class="nav-buttons">
+                                <input type="button" value="&lt; Credits" onclick="Panther.Carousel.turnPrev('carousel1');">
+                                <input type="button" value="Basics &gt;" onclick="Panther.Carousel.turnNext('carousel1');">
+                            </div>
+
+                            <h3>About:</h3>
+
+                            <p>The <b>PantherUI Carousel</b> is a 3D layout pattern for most modern browsers.</p>
+                            <p>You can swipe left or right on the title bars to switch panels.</p>
+                            <p>These templates use responsive design to auto-adjust the layout for desktop or mobile, and portrait or landscape.</p>
+
+                            <p>This template was tested on:</p>
+
+                            <h4>Desktop Browsers:</h4>
+                            <ul>
+                                <li>Google Chrome 27 - 33</li>
+                                <li>Safari 6</li>
+                                <li>Firefox 21 - 27</li>
+                                <li>Opera Next 15 - 19</li>
+                            </ul>
+
+                            <h4>Tablets:</h4>
+                            <ul>
+                                <li>BlackBerry PlayBook OS 2.1</li>
+                                <li>iOS 5.1 - 7.0 (iPad)</li>
+                                <li>Android 4.1 (Galaxy Tab 2 7.0)</li>
+                                <li>Android 4.3 (Nexus 7)</li>
+                            </ul>
+
+                            <h4>Smartphones:</h4>
+                            <ul>
+                                <li>BlackBerry 10.1 - 10.2 (Z30, Z10 and Q10)</li>
+                                <li>BlackBerry OS 7.1 (Bold 9900)</li>
+                                <li>iOS 5.0 (iPod Touch)</li>
+                            </ul>
+
+                            <h4>Known issues:</h4>
+
+                            <p>On iOS devices, you need to use the &ldquo;two-finger&rdquo; scroll gesture for scrolling overflow content because of the &ldquo;rubber band&rdquo; bounce effect with vertical scrolling.</p>
+                            <p>For PhoneGap apps built for iOS, you can disable the bounce in the config.xml:</p>
+                            <pre><code>
+&lt;preference name=&quot;DisallowOverscroll&quot; value=&quot;true&quot; /&gt;
+&lt;preference name=&quot;webviewbounce&quot; value=&quot;false&quot; /&gt;
+                            </code></pre>
+                        </div>
+                    </figure>
+                    <figure>
+                        <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 2 &gt;</span></div>
+                        <div class="panther-Carousel-panelContent">
+                            <!-- Panel 2: Add your content here -->
+                            <div class="nav-buttons">
+                                <input type="button" value="&lt; About" onclick="Panther.Carousel.turnPrev('carousel1');">
+                                <input type="button" value="Use Cases &gt;" onclick="Panther.Carousel.turnNext('carousel1');">
+                            </div>
+
+                            <h3>Basics (ABCs):</h3>
+
+                            <ul>
+                                <li><a href="docs/basic1a_source.html" target="content">1A - Apply 1-Carousel</a></li>
+                                <li><a href="docs/basic1b_source.html" target="content">1B - Backgrounds and Buttons</a></li>
+                                <li><a href="docs/basic1c_source.html" target="content">1C - Callback</a></li>
+                                <li><a href="docs/basic1d_source.html" target="content">1D - Direction</a></li>
+                                <li><a href="docs/basic1e_source.html" target="content">1E - Easing</a></li>
+                                <li><a href="docs/basic1f_source.html" target="content">1F - For 1-Handed Thumb Use</a></li>
+                                <li>
+                                    <a href="docs/basic1h_source.html" target="content">1H - Hash:</a>&nbsp;
+                                    <a href="docs/basic1h_source.html#1" target="content">#1</a>&nbsp;
+                                    <a href="docs/basic1h_source.html#2" target="content">#2</a>&nbsp;
+                                    <a href="docs/basic1h_source.html#3" target="content">#3</a>&nbsp;
+                                    <a href="docs/basic1h_source.html#4" target="content">#4</a>
+                                </li>
+                                <li><a href="docs/basic1k_source.html" target="content">1K - Keyboard Support</a></li>
+                                <li>
+                                    1T - Theming:
+                                    <a href="docs/basic1t_flat_source.html" target="content">Flat</a>&nbsp;
+                                    <a href="docs/basic1t_gradient_source.html" target="content">Gradient</a>&nbsp;
+                                    <a href="docs/basic1t_dark_source.html" target="content">Dark</a>&nbsp;
+                                </li>
+                                <li><a href="docs/basic2a_source.html" target="content">2A - Apply 2-Carousel</a></li>
+                            </ul>
+                        </div>
+                    </figure>
+                    <figure>
+                        <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; 3 &gt;</span></div>
+                        <div class="panther-Carousel-panelContent">
+                            <!-- Panel 3: Add your content here -->
+                            <div class="nav-buttons">
+                                <input type="button" value="&lt; Basics" onclick="Panther.Carousel.turnPrev('carousel1');">
+                                <input type="button" value="Credits &gt;" onclick="Panther.Carousel.turnNext('carousel1');">
+                            </div>
+
+                            <h3>Use Cases:</h3>
+
+                            <ul>
+                                <li><a href="templates/app.html" target="content">3-Carousel App - with dynamic panels and maximize buttons</a></li>
+                                <li><a href="templates/ticker.html" target="content">Ticker</a></li>
+                                <li><a href="templates/thumbnails.html" target="content">Thumbnail Grid - with a bottom navigation bar</a></li>
+                                <li><a href="templates/slideshow.html" target="content">Slideshow</a></li>
+                            </ul>
+                        </div>
+                    </figure>
+
+                    <figure>
+                        <div class="panther-Carousel-panelTitleBar"><span class="panther-Carousel-panelTitle">&lt; Credits &gt;</span></div>
+                        <div class="panther-Carousel-panelContent logo">
+                            <div class="nav-buttons">
+                                <input type="button" value="&lt; Use Cases" onclick="Panther.Carousel.turnPrev('carousel1');">
+                                <input type="button" value="About &gt;" onclick="Panther.Carousel.turnNext('carousel1');">
+
+                                <h3>PantherUI Carousel</h3>
+                                <p>by <a href="https://twitter.com/jim_ing" target="_blank">Jim Ing</a></p>
+
+                                <p>Fork me on <a href="https://github.com/psiborg/PantherUI" target="_blank">GitHub</a></p>
+
+                                <p>Thanks to the following for their support and feedback:</p>
+
+                                <ul>
+                                    <li><a href="https://twitter.com/muttejo" target="_blank">John Mutter</a></li>
+                                    <li><a href="https://twitter.com/brentthornton32" target="_blank">Brent Thornton</a></li>
+                                    <li><a href="https://twitter.com/latestlinux" target="_blank">Seb Barthelmess</a></li>
+                                    <li><a href="https://twitter.com/ed_bourne" target="_blank">Ed Bourne</a></li>
+                                    <li><a href="https://twitter.com/OG1Dot" target="_blank">HyunJun Jung</a></li>
+                                    <li><a href="https://twitter.com/redinnc" target="_blank">Jeff Bentley</a></li>
+                                    <li><a href="https://twitter.com/Wayne_Pau" target="_blank">Wayne Pau</a></li>
+                                    <li><a href="https://twitter.com/desandro" target="_blank">Dave DeSandro</a></li>
+                                </ul>
+
+                                <p>Copyright &copy; 2013 - 2014</p>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <div id="tabpanel" class="tabpanel-collapse"></div>
+
+    <iframe id="content" class="content-expand" name="content" src="docs/basic1a_source.html" seamless></iframe>
+
+    <script src="local:///chrome/webworks.js"></script>
+    <script src="dist/PantherUI.min.js"></script>
+    <script src="docs/lib/highlight/highlight.pack.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+
+    // Initialize carousel
+    Panther.Carousel.init({
+        id: 'carousel1',
+        backgroundColor: 'rgba(157, 157, 157, 0.97)'
+    });
+
+    var app = {
+        toc: document.getElementById('toc'),
+        tabpanel: document.getElementById('tabpanel'),
+        content: document.getElementById('content')
+    };
+
+    app.handleClick = function (ev) {
+        console.log('clicked', ev);
+        app.collapse();
+    };
+
+    app.collapse = function () {
+        app.tabpanel.className = 'tabpanel-expand';
+        app.toc.className = 'toc-collapse';
+        app.content.className = 'content-collapse';
+    };
+
+    app.expand = function () {
+        app.tabpanel.className = 'tabpanel-collapse';
+        app.toc.className = 'toc-expand';
+        app.content.className = 'content-expand';
+    };
+
+    app.toggle = function () {
+        if (app.tabpanel.className == 'tabpanel-collapse') {
+            app.collapse();
+        }
+        else {
+            app.expand();
+        }
+
+        // Force refresh
+        app.content.contentWindow.Panther.Carousel.refresh();
+    };
+
+    // Add toggle listener
+    app.tabpanel.addEventListener('click', app.toggle);
+
+    // Close side panel after a click on smaller screens
+    console.log(window.innerWidth);
+    if (window.innerWidth <= 720) {
+        var anchors = document.querySelectorAll('a[target="content"]');
+        for (var i = 0, ii = anchors.length; i < ii; i++) {
+            anchors[i].addEventListener('click', app.handleClick, false);
+        }
+    }
+
+    // Add swipedown event for BlackBerry 10
+    if (navigator.userAgent.match(/WebWorks/)) {
+        window.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('webworksready', function () {
+                blackberry.event.addEventListener('swipedown', app.toggle);
+            }, false);
+        }, false);
+    }
+    </script>
+</body>
+</html>
