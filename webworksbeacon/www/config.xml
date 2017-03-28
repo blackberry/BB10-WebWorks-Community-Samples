@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.WebWorksBeacon" version="0.0.1" 
+    xmlns="http://www.w3.org/ns/widgets" 
+    xmlns:cdv="http://cordova.apache.org/ns/1.0" 
+    xmlns:rim="http://www.blackberry.com/ns/widgets">
+    <name>WebWorksBeacon</name>
+    <author>John Murray</author>
+    <description>A simple WebWorks application that uses a Headless Service to discover iBeacons</description>
+    <content src="index.html" />
+    <icon src="icon.png" />
+    <access origin="*" />
+    <feature id="blackberry.app.orientation">
+        <param name="mode" value="portrait" />
+    </feature>
+    <platform name="blackberry10">
+        <config-file target="bar-descriptor.xml" parent="/qnx">
+            <!-- see https://developer.blackberry.com/native/documentation/cascades/device_platform/headless_apps/create_headless_app.html#ufa1380035719085 -->
+            <asset entryPointId="WebWorksBeaconService"
+                type="Qnx/Elf">assets/WebWorksBeaconService</asset>
+            <asset entryPointId="WebWorksBeacon"
+                type="Qnx/Elf">wwe</asset>
+
+            <!-- see https://developer.blackberry.com/native/documentation/cascades/device_platform/headless_apps/create_headless_app.html#modifyentrypoints -->
+            <entryPoint id="WebWorksBeacon">
+                <entryPointType>Qnx/WebKit</entryPointType>
+            </entryPoint>
+            <entryPoint id="WebWorksBeaconService">
+                <name>Headless Service</name>
+                <entryPointType>Qnx/Elf</entryPointType>
+                <permission system="true">_sys_run_headless</permission>
+                <permission>post_notification</permission>
+            </entryPoint>
+
+            <!-- see https://developer.blackberry.com/native/documentation/cascades/device_platform/headless_apps/create_headless_app.html#addinvocationframeworksupportfortriggers -->
+            <invoke-target id="com.example.WebWorksBeaconService">
+                <invoke-target-type>application.headless</invoke-target-type>
+                <invoke-target-name>Headless Service</invoke-target-name>
+                <entry-point-id>WebWorksBeaconService</entry-point-id>
+                <filter>
+                    <action>bb.action.system.STARTED</action>
+                    <mime-type>application/vnd.blackberry.system.event.STARTED</mime-type>
+                    <property var="uris" value="data://local" />
+                </filter>
+                <filter>
+                    <action>com.example.WebWorksBeaconService.RESET</action>
+                    <mime-type>*</mime-type>
+                    <property var="uris" value="headless:" />
+                </filter>
+            </invoke-target>
+            <invoke-target id="com.example.WebWorksBeacon">
+                <invoke-target-type>application</invoke-target-type>
+                <entry-point-id>WebWorksBeacon</entry-point-id>
+                <filter>
+                    <action>bb.action.system.STARTED</action>
+                    <mime-type>application/vnd.blackberry.system.event.STARTED</mime-type>
+                    <property var="uris" value="data://local" />
+                </filter>
+            </invoke-target>
+        </config-file>
+    </platform>
+</widget>
